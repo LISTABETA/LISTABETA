@@ -12,9 +12,7 @@ Listabeta::Application.routes.draw do
   get 'pack/confirmed' => 'startup_pack#confirmed', as: :confirmed_pack
 
   post 'pack/confirm/dispatch_email' => 'startup_pack#dispatch_email', as: :dispatch_email
-  resources :startups do
-    resources :questionnaires, only: [:new, :create]
-  end
+  resources :startups
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
