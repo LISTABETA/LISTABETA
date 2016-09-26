@@ -75,5 +75,4 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', '~> 0.12', require: false
   gem 'webmock', '~> 2.1'
-  gem 'test-unit' # needed because of ruby 2.2.1
 end
