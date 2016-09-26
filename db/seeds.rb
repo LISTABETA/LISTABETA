@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-10.times do |i| 
+10.times do |i|
   Startup.create!([email: "test#{i}@test.com",
                   name: "Startup de teste #{i}",
                   website: "http://www.startup.com.br",
@@ -20,20 +20,4 @@
                   password: "123123123",
                   highlighted: false,
                   status: Status::APPROVED])
-end
-
-10.times do |i|
-  10.times do |j|
-    Questionnaire.create!([ 
-      startup: Startup.find(i+1), 
-      email: "feedback_#{j}#{i}@test.com", 
-      a1: "text", 
-      a2: A2::N, 
-      a3: A3::N, 
-      a4: A4::N, 
-      a5: A5::RANGE1, 
-      opinion: "text",
-      created_at: Time.now-(j+1).day
-    ])
-  end
 end
