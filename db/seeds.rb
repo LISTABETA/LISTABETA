@@ -12,7 +12,7 @@
                   website: "http://www.startup.com.br",
                   pitch: "Apenas mais um PITCH da startup",
                   description: "Apenas mais uma DESCRIÇÃO da startup",
-                  status: Phase::IN_DEVELOPMENT,
+                  phase: Phase::IN_DEVELOPMENT,
                   screenshot: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
                   state: "Rio Grande do Sul",
                   city: "Porto Alegre",
