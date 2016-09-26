@@ -1,0 +1,44 @@
+{
+  "name": "listabeta",
+  "scripts": {},
+  "env": {
+    "AWS_ACCESS_KEY": {
+      "required": true
+    },
+    "AWS_BUCKET_NAME": {
+      "required": true
+    },
+    "AWS_SECRET_KEY": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    },
+    "GOOGLE_ANALYTICS_TRACKER": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 0
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "sendgrid",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ]
+}
