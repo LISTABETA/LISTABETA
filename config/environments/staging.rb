@@ -83,4 +83,6 @@ Listabeta::Application.configure do
 
   # Google analytics tracker code
   GA.tracker = ENV["GOOGLE_ANALYTICS_TRACKER"]
+
+  config.active_record.raise_in_transactional_callbacks = true
 end

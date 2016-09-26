@@ -13,11 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require scrolld
-//= require twitter/bootstrap/tab
-//= require twitter/bootstrap/modal
-//= require twitter/bootstrap/transition
-//= require twitter/bootstrap/dropdown
-//= require twitter/bootstrap/collapse
+//= require bootstrap/tab
+//= require bootstrap/modal
+//= require bootstrap/transition
+//= require bootstrap/dropdown
+//= require bootstrap/collapse
 //= require ./listabeta/listabeta
 //= require_tree ./lib
 //= require_tree ./listabeta

@@ -1,81 +1,56 @@
 source 'https://rubygems.org'
-
 # Ruby Version
-ruby '2.2.1'
-
+ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
-gem 'rails-i18n', '~> 4.0.4'
-
+gem 'rails', '4.2.7'
+gem 'rails-i18n'
 # Server
-gem 'passenger', '~> 5.0.7'
-
+gem 'passenger', '~> 5.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18.1'
-
+gem 'pg', '~> 0.18'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.3'
-
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.7.1'
-
+gem 'uglifier', '~> 3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-
+gem 'coffee-rails', '~> 4.2'
 # Use slim templates
-gem 'slim-rails', '~> 2.1.3'
-
+gem 'slim-rails', '~> 3.1'
 # Twitter bootstrap
-gem 'bootstrap-sass-rails', '~> 3.0.2.1'
-
+gem 'bootstrap-sass', '~> 3.3'
 # Simple form for form wrappers
-gem 'simple_form'
-
+gem 'simple_form', '~> 3.3'
 # ActiveAdmin for admin management
 gem 'activeadmin', github: 'activeadmin'
-
 # To manage users
-gem 'devise'
-gem 'devise-i18n'
-
+gem 'devise', '~> 4.2'
+gem 'devise-i18n', '~> 1.1'
 # Enumerate_it
-gem 'enumerate_it'
-
+gem 'enumerate_it', '~> 1.3'
 # For avatar uploading
-gem 'carrierwave', '~> 0.10.0'
-gem 'fog', '~> 1.29.0'
-gem 'mini_magick', '~> 4.2.3'
-
+gem 'carrierwave', '~> 0.11'
+gem 'fog', '~> 1.38'
+gem 'mini_magick', '~> 4.4'
 # Google Analytics
-gem 'google-analytics-rails', '~> 0.0.4'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'google-analytics-rails', '~> 1.1'
+# See https://github.com/sstephenson/execjs#readme for more supported runtime
 # gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jquery-rails', '~> 4.2'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilde
 # gem 'jbuilder', '~> 1.2'
-
 # To work with tags, like markets field onside Startup Model
 gem 'acts-as-taggable-on', '~> 3.5.0'
-
 # To work with friendly-id on Startups show page
 gem 'friendly_id', '~> 5.1.0'
-
 # For group records by all kind of dates
 gem 'groupdate', '~> 2.4.0'
-
 # Charts API
 gem 'chartkick', '~> 1.3.2'
-
 # For elegant meta_tags
-gem 'meta-tags', '~> 2.0.0', require: 'meta_tags'
-
+gem 'meta-tags', '~> 2.3', require: 'meta_tags'
 # For pagination
-gem 'kaminari', '~> 0.16.3'
-
+gem 'kaminari', '~> 0.17'
 # Requests to Getup Cloud
 gem 'httparty', '~> 0.13.0'
 
@@ -89,28 +64,15 @@ group :production do
 end
 
 group :development, :test do
-  gem 'pry-rails', '~> 0.3.2'
+  gem 'pry-rails', '~> 0.3.4'
   gem 'letter_opener'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 2.14.2'
+  gem 'rspec-rails', '~> 3.5.2'
   gem 'machinist', '~> 2.0'
-  gem 'database_cleaner', '~> 1.2.0'
-  gem 'shoulda-matchers', '~> 2.5.0'
-  gem 'simplecov', '~> 0.8.2', require: false
-  gem 'webmock', '~> 1.17.4'
-  gem 'test-unit' # needed because of ruby 2.2.1
+  gem 'database_cleaner', '~> 1.5'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov', '~> 0.12', require: false
+  gem 'webmock', '~> 2.1'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
