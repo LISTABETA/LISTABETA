@@ -73,7 +73,7 @@ describe PagesController do
     describe "GET dashboard" do
       it "return success" do
         get :dashboard
-        response.should redirect_to new_startup_session_path
+        response.should redirect_to new_user_session_path
       end
     end
   end

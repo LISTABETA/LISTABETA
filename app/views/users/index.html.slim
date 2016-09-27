@@ -8,7 +8,7 @@
     .col-md-10.col-sm-12.col-md-offset-1
       - @startups.each do |startup|
         .col-md-4.col-sm-4
-          = render partial: 'startups/startup_box', locals: {startup: startup}
+          = render partial: 'startups/startup_box', locals: { startup: startup }
 
 .text-center
   = paginate @startups

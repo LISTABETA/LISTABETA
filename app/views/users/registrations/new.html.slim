@@ -1,0 +1,19 @@
+- set_meta_tags site: "LISTABETA | Cadastre-se", keywords: 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', og: { description: 'Confira os últimos lançamentos sobre Startups do Brasil.', title: "LISTABETA | Cadastre-se", image: "#{image_url('logo-azul.png')}", url: "#{request.url}" }
+
+.container
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :post }) do |f|
+      .register
+        .form-group
+          = f.input :avatar, class: 'form-control', hint: 'Escolha um Avatar para sua conta'
+          = f.hidden_field :avatar_cache
+        .form-group
+          = f.input :email, required: true, class: 'form-control'
+        .form-group
+          = f.input :name, required: true, class: 'form-control'
+        hr
+        .form-group
+          = f.input :password, required: true, class: 'form-control'
+        .form-group
+          = f.input :password_confirmation, required: true, class: 'form-control'
+      .text-center
+        = f.button :submit, "Cadastrar-se", class: 'btn default-btn fade'
