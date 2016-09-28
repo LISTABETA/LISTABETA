@@ -7,7 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do |i|
-  Startup.create!([email: "test#{i}@test.com",
+  User.create!(name: "User #{i}",
+               email: "user_#{i}@test.com",
+               avatar: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
+               password: "123123123").confirm!
+end
+
+10.times do |i|
+  user = User.order('RANDOM()').first
+  Startup.create!(user: user,
+                  email: "test#{i}@test.com",
                   name: "Startup de teste #{i}",
                   website: "http://www.startup.com.br",
                   pitch: "Apenas mais um PITCH da startup",
@@ -17,7 +26,6 @@
                   state: "Rio Grande do Sul",
                   city: "Porto Alegre",
                   market_list: "Fitness#{i}, Food#{i}, Startups#{i}",
-                  password: "123123123",
                   highlighted: false,
-                  status: Status::APPROVED])
+                  status: Status::APPROVED)
 end

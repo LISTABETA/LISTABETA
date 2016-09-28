@@ -29,7 +29,7 @@ describe Startup do
   end
 
   describe "Relations" do
-    it { should have_many :questionnaires }
+    it { should belong_to :user }
   end
 
   describe "Scopes" do
@@ -75,12 +75,12 @@ describe Startup do
       end
 
       it "return only the approved startups" do
-        expect(Startup.approvateds).to include(@startup_1)
-        expect(Startup.approvateds).to include(@startup_2)
+        expect(Startup.approved).to include(@startup_1)
+        expect(Startup.approved).to include(@startup_2)
       end
 
-      it "doesn't include startups which are not approvateds" do
-        expect(Startup.approvateds).to_not include(@startup_3)
+      it "doesn't include startups which are not approved" do
+        expect(Startup.approved).to_not include(@startup_3)
       end
     end
 
@@ -92,12 +92,12 @@ describe Startup do
       end
 
       it "return only the unhighlighted startups" do
-        expect(Startup.unapprovateds).to include(@startup_1)
-        expect(Startup.unapprovateds).to include(@startup_2)
+        expect(Startup.unapproved).to include(@startup_1)
+        expect(Startup.unapproved).to include(@startup_2)
       end
 
-      it "doesn't include startups which are approvateds" do
-        expect(Startup.unapprovateds).to_not include(@startup_3)
+      it "doesn't include startups which are approved" do
+        expect(Startup.unapproved).to_not include(@startup_3)
       end
     end
   end

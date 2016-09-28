@@ -1,0 +1,22 @@
+- set_meta_tags site: "LISTABETA | Entrar", keywords: 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', og: { description: 'Confira os últimos lançamentos sobre Startups do Brasil.', title: "LISTABETA | Cadastre-se", image: "#{image_url('logo-azul.png')}", url: "#{request.url}" }
+
+.container
+  .well.col-md-6.col-md-offset-3
+    h1.text-center Entrar
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .register
+        .form-group
+          = f.input :email, required: false, autofocus: true, class: 'form-control'
+        .form-group
+          = f.input :password, required: false, class: 'form-control'
+      - if devise_mapping.rememberable?
+        .form-inline
+          .checkbox
+            = f.check_box :remember_me, as: :boolean
+            = f.label :remember_me, "Lembrar-me", style: 'margin-left: 5px;' 
+      br  
+      .text-center
+        = f.button :submit, "Entrar", class: 'btn default-btn fade'
+    br
+    .text-center
+      = render "users/shared/links"

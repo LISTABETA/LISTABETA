@@ -23,8 +23,6 @@ pt-BR:
         highlighted: Em destaque?
         description: Descrição
         market_list: Tipos de mercado (separados por vírgula)
-        current_password: Senha atual
-        password_confirmation: Confirmar senha
 
   enumerations:
     phase:

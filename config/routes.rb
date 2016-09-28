@@ -1,12 +1,12 @@
 Listabeta::Application.routes.draw do
-  devise_for :startups, controllers: { registrations: "startups/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   root 'pages#home'
 
-  get 'mercados/(:tag)' => 'pages#markets', as: :markets
-  get 'dashboard' => 'pages#dashboard', as: :dashboard
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
+  get 'mercados/(:tag)', to: 'pages#markets', as: :markets
 
   resources :startups
 end

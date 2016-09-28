@@ -1,19 +1,63 @@
-class StartupsController < InheritedResources::Base
+class StartupsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
-    @startups = Startup.approvateds.order_by_approves.page(params[:page]).per(15)
+    @startups = Startup.approved.order_by_approvement.page(params[:page]).per(20)
   end
 
   def show
-    if resource.status.eql?(2)
-      show!
+    @startup = Startup.friendly.find(params[:id])
+  end
+
+  def new
+    @startup = current_user.startups.new
+  end
+
+  def create
+    @startup = current_user.startups.new(permitted_params)
+
+    if @startup.valid?
+      @startup.save
+      flash[:notice] = 'Sua Startup foi cadastrada e está esperando aprovação'
+      redirect_to dashboard_path
     else
-      redirect_to root_path, notice: 'Essa startup ainda não está disponível.'
+      flash[:alert] = 'Por favor, confira os erros'
+      render :new
     end
+  end
+
+  def edit
+    @startup = current_user.startups.find(params[:id])
+  end
+
+  def update
+    @startup = current_user.startups.find(params[:id])
+
+    if @startup.update(permitted_params)
+      flash[:notice] = 'Sua Startup foi cadastrada e está esperando aprovação'
+      redirect_to dashboard_path
+    else
+      flash[:alert] = 'Por favor, confira os erros'
+      render :edit
+    end
+  end
+
+  def destroy
+    @startup = current_user.startups.find(params[:id])
+
+    if @startup.destroy
+      flash[:notice] = 'Sua Startup foi removida com sucesso'
+    else
+      flash[:alert] = 'Houve um erro ao remover sua Startup'
+    end
+
+    redirect_to dashboard_path
   end
 
   private
 
-  def resource
-    @startup ||= Startup.friendly.find(params[:id])
+  def permitted_params
+    params.require(:startup).permit([:email, :name, :website, :screenshot, :screenshot_cache,
+                                     :pitch, :description, :phase, :state, :city, :market_list])
   end
 end
