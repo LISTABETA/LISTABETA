@@ -66,6 +66,7 @@ end
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
   gem 'letter_opener'
+  gem 'quiet_assets'
 end
 
 group :test do
