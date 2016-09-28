@@ -1,8 +1,12 @@
 class StartupsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @startups = Startup.approved.order_by_approvement.page(params[:page]).per(20)
+  end
+
+  def show
+    @startup = Startup.friendly.find(params[:id])
   end
 
   def new
