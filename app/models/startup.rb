@@ -16,6 +16,7 @@ class Startup < ActiveRecord::Base
             :state, :city, :market_list, presence: true
   validates :website, url: true
 
+  scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
   scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED) }

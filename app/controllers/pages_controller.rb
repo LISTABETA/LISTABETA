@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @startups = current_user.startups
+    @startups = current_user.startups.pending + current_user.startups.pending.approved
     set_meta_tags noindex: true, nofollow: true
   end
 end
