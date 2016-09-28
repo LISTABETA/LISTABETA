@@ -27,7 +27,7 @@
       p.subtitle Novas Startups
     .col-md-10.col-sm-12.col-md-offset-1
       - @unhighlighteds.each do |startup|
-        .col-md-4.col-sm-4
+        .col-md-4.col-sm-6
           = render partial: 'startups/startup_box', locals: {startup: startup}
       .text-center
         .clearfix
