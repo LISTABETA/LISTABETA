@@ -14,7 +14,7 @@ class StartupsController < ApplicationController
   end
 
   def create
-    @startup = current_user.startups.new
+    @startup = current_user.startups.new(permitted_params)
 
     if @startup.valid?
       @startup.save
@@ -33,8 +33,7 @@ class StartupsController < ApplicationController
   def update
     @startup = current_user.startups.find(params[:id])
 
-    if @startup.valid?
-      @startup.save
+    if @startup.update(permitted_params)
       flash[:notice] = 'Sua Startup foi cadastrada e está esperando aprovação'
       redirect_to dashboard_path
     else

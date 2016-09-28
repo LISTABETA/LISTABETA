@@ -34,7 +34,7 @@
         .form-group
           = f.input :description, required: true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
         .form-group
-          = f.input :phase, collection: Phase.to_a, required: true, class: 'form-control'
+          = f.input :phase, collection: Phase.to_a, required: true, class: 'form-control', include_blank: false
         .form-group
           = f.input :state, required: true, class: 'form-control'
         .form-group
