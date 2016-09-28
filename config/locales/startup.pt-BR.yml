@@ -31,7 +31,7 @@ pt-BR:
       public_beta: Beta público
       online: No ar
     status:
-      pendent: Pendente
+      pending: Pendente
       approved: Aprovada
       unapproved: Desaprovada
 

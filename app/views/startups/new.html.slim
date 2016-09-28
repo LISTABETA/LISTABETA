@@ -1,9 +1,9 @@
-- set_meta_tags site: "LISTABETA | Cadastre-se", keywords: 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', og: { description: 'Confira os últimos lançamentos sobre Startups do Brasil.', title: "LISTABETA | Cadastre-se", image: "#{image_url('logo-azul.png')}", url: "#{request.url}" }
+- set_meta_tags site: "LISTABETA | Cadastre sua Startup", keywords: 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', og: { description: 'Confira os últimos lançamentos sobre Startups do Brasil.', title: "LISTABETA | Cadastre-se", image: "#{image_url('logo-azul.png')}", url: "#{request.url}" }
 
 .container
   .well.col-md-8.col-md-offset-2
     h1.text-center Cadastre sua Startup
-    br/
+    br
     .bullets
       icon.glyphicon.glyphicon-ok
       h4 A startup não pode estar disponível para o público ou deve estar em beta
@@ -29,12 +29,15 @@
           = f.input :website, required: true, class: 'form-control', placeholder: 'http://www.seusite.com.br'
         .form-group
           = f.input :screenshot, required: true, class: 'form-control', hint: 'Escolha uma screenshot de uma tela da sua startup (910px x 500px)'
+          = f.hidden_field :screenshot_cache
         .form-group
           = f.input :pitch, required: true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
         .form-group
           = f.input :description, required: true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
         .form-group
-          = f.input :phase, collection: Phase.to_a, required: true, class: 'form-control', include_blank: false
+          = f.label :phase
+          br
+          = f.select :phase, Phase.to_a, required: true, class: 'form-control', include_blank: false
         .form-group
           = f.input :state, required: true, class: 'form-control'
         .form-group
