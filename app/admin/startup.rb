@@ -1,14 +1,14 @@
 ActiveAdmin.register Startup do
   scope 'Pendente' do |startups|
-    startups.where(:status => Status::PENDENT)
+    startups.where(status: Status::PENDING)
   end
 
   scope 'Aprovadas' do |startups|
-    startups.where(:status => Status::APPROVED)
+    startups.where(status: Status::APPROVED)
   end
 
   scope 'Desaprovadas' do |startups|
-    startups.where(:status => Status::UNAPPROVED)
+    startups.where(status: Status::UNAPPROVED)
   end
 
   controller do
@@ -66,12 +66,12 @@ ActiveAdmin.register Startup do
 
   action_item only: :show do
     startup = Startup.friendly.find(params[:id])
-    link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pendent?
+    link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pending?
   end
 
   action_item only: :show do
     startup = Startup.friendly.find(params[:id])
-    link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pendent?
+    link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pending?
   end
 
   index do
