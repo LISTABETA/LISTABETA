@@ -23,6 +23,13 @@ nav.navbar.navbar-default.navbar-fixed-top.menu-wrapper[role="navigation"]
         li  
           .menu-button
             = link_to "ENVIE SUA STARTUP", new_startup_path, class: 'btn default-btn fade'
+
+      - if !current_page?(startups_path)
+        = form_tag startups_path, class: 'navbar-form navbar-left', method: :get do
+          .input-group
+            input type="text" class="form-control" name="q" placeholder="COSMIT" value="#{params[:q]}"
+            span.input-group-btn
+              button type="submit" class="btn btn-default" Buscar
       
       ul.nav.navbar-nav.navbar-right
         li
