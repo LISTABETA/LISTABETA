@@ -2,7 +2,16 @@ class StartupsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @startups = Startup.approved.order_by_approvement.page(params[:page]).per(20)
+    if params[:q].present?
+      @startups = Startup.approved
+                         .order_by_approvement
+                         .by_title(params[:q])
+                         .page(params[:page]).per(20)
+    else
+      @startups = Startup.approved
+                         .order_by_approvement
+                         .page(params[:page]).per(20)
+    end
   end
 
   def show
