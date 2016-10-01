@@ -18,6 +18,7 @@ class Startup < ActiveRecord::Base
   validates :website, url: true
 
   # Normal scopes
+  scope :draft, -> { where(status: Status::DRAFT) }
   scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
@@ -47,6 +48,12 @@ class Startup < ActiveRecord::Base
   def unhighlight!
     update_attributes(highlighted: false,
                       highlighted_at: nil)
+  end
+
+  def submit!
+    return if status.eql?(Status::PENDING)
+
+    update_attributes(status: Status::PENDING)
   end
 
   def approve!

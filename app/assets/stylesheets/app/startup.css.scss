@@ -13,6 +13,11 @@
     img {
       width: 100%;
     }
+    .startup-status > .label {
+      width: 100% !important;
+      margin-top: 0 !important;
+      font-size: 18px !important;
+    }
   }
   .description{
     height: 162px;
@@ -207,7 +212,7 @@
       width: 100%;
     }
   }
-  .default-btn { 
+  .default-btn {
     margin: 0 10px 10px 0;
     @media (max-width: 402px) {
       float: left;
