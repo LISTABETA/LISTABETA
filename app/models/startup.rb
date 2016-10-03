@@ -16,8 +16,8 @@ class Startup < ActiveRecord::Base
   validates :email, :name, :website, :pitch, :description, :screenshot, :phase,
             :state, :city, :market_list, presence: true
   validates :website, url: true
-  validates :pitch, length: { in: 30...140 }
-  validates :description, length: { in: 50...1024 }
+  validates :pitch, length: { in: 30..140 }
+  validates :description, length: { in: 50..1024 }
 
   # Normal scopes
   scope :draft, -> { where(status: Status::DRAFT) }

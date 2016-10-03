@@ -15,9 +15,11 @@
         .form-group
           = f.input :website, required: true, class: 'form-control'
         .form-group
-          = f.input :pitch, required: true, class: 'form-control'
+          = f.input :pitch, required: true, input_html: { class: 'js-pitch-count-char form-control' }, hint: 'Resuma sua startup em uma frase.'
+          .js-pitch-count-char-value.text-right = (f.object.pitch.length.to_i-140)*-1
         .form-group
-          = f.input :description, required: true, class: 'form-control'
+          = f.input :description, required: true, input_html: { class: 'js-description-count-char form-control' }, hint: 'Descreva seu serviço ou produto com mais detalhes.'
+          .js-description-count-char-value.text-right = (f.object.description.length.to_i-1024)*-1
         .form-group
           = f.input :phase, collection: Phase.to_a, required: true, include_blank: false, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
