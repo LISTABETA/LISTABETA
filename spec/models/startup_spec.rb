@@ -12,6 +12,8 @@ describe Startup do
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
     it { should validate_presence_of :market_list }
+    it { should validate_length_of(:pitch).is_at_least(30).is_at_most(140) }
+    it { should validate_length_of(:description).is_at_least(50).is_at_most(1024) }
   end
 
   describe "URL validation" do
