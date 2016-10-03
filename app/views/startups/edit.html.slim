@@ -21,9 +21,11 @@
         .form-group
           = f.input :phase, collection: Phase.to_a, required: true, include_blank: false, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
-          = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }
+          = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+          = f.error :state
         .form-group
-          = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }
+          = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+          = f.error :city
         .form-group
           = f.input :market_list, required: true, class: 'form-control', placeholder: 'Ex: Saúde, Educação, Mobile', input_html: { value: f.object.market_list.join(', ') }
         .form-group
