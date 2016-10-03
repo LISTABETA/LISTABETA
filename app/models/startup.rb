@@ -51,13 +51,13 @@ class Startup < ActiveRecord::Base
   end
 
   def submit!
-    return if status.eql?(Status::PENDING)
+    return if !status.eql?(Status::DRAFT)
 
     update_attributes(status: Status::PENDING)
   end
 
   def approve!
-    return if status.eql?(Status::APPROVED)
+    return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::APPROVED, approved_at: DateTime.now)
       StartupMailer.notify_approvation(self).deliver
@@ -65,7 +65,7 @@ class Startup < ActiveRecord::Base
   end
 
   def unapprove!
-    return if status.eql?(Status::UNAPPROVED)
+    return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::UNAPPROVED, approved_at: nil)
       StartupMailer.notify_unapprovation(self).deliver
