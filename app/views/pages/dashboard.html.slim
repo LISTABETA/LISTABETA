@@ -4,11 +4,13 @@
   .col-md-12.text-center.col-sm-12
     h1 = "Dashboard de <b> #{current_user.name}</b>".html_safe
 
-  .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
+  / .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
+  .col-sm-12.col-md-8.col-md-offset-2.text-center
     .alert.alert-warning
       h4 A funcionalidade de Feedbacks foi removida.
   
-  .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
+  / .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
+  .col-sm-12.col-md-8.col-md-offset-2
     - @startups.each do |startup|
-      .text-center
+      .col.sm-12.col-md-6.text-center
         = render partial: 'startups/dashboard_startup_box', locals: {startup: startup}
