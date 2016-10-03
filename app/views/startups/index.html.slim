@@ -5,6 +5,17 @@
     .text-center
       p.show-title Startups
       p.show-pitch Confira as últimas startups lançadas
+    
+    .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
+      = form_tag startups_path, class: 'form-inline', method: :get do
+        .form-group
+          input type="text" class="form-control" name="q" placeholder="COSMIT" value="#{params[:q]}"
+        button type="submit" class="form-control btn btn-default" Buscar
+
+    br
+  	br
+		br
+
     .col-md-10.col-sm-12.col-md-offset-1
       - @startups.each do |startup|
         .col-md-4.col-sm-6

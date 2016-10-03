@@ -1,5 +1,6 @@
 class Startup < ActiveRecord::Base
   extend FriendlyId
+  include PgSearch
   friendly_id :name, use: :slugged
 
   acts_as_ordered_taggable
@@ -16,6 +17,7 @@ class Startup < ActiveRecord::Base
             :state, :city, :market_list, presence: true
   validates :website, url: true
 
+  # Normal scopes
   scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
@@ -23,6 +25,19 @@ class Startup < ActiveRecord::Base
   scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED) }
   scope :order_by_approvement, -> { order("approved_at DESC") }
   scope :order_by_highlighted_at, -> { order ("highlighted_at DESC")}
+
+  # PgSearch scopes (:tsearch = builtin Full-text Search)
+  pg_search_scope :by_title, against: :name,
+                             ignoring: :accents,
+                             using: {
+                               trigram: {
+                                 threshold: 0.2
+                               },
+                               tsearch: {
+                                 prefix: true,
+                                 any_word: true
+                               }
+                             }
 
   def highlight!
     update_attributes(highlighted: true,
