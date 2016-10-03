@@ -9,5 +9,7 @@ Listabeta::Application.routes.draw do
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
   get 'mercados/(:tag)', to: 'pages#markets', as: :markets
 
-  resources :startups
+  resources :startups do
+    put 'submit', to: 'startups#submit', as: :submit
+  end
 end

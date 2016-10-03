@@ -1,12 +1,10 @@
 .container
   .well.col-md-8.col-md-offset-2
-    = link_to 'Sair', destroy_user_session_path, method: :delete
-    h2
-      | Editar #{@startup.name}
+    h2 = "Editar <b>#{@startup.name}</b>".html_safe
     = simple_form_for(@startup, url: startup_path(@startup), html: { class: 'form', method: :put }) do |f|
       .register
         .form-group
-          = image_tag @startup.screenshot_url, size: '150x150', class: 'form-control'
+          = image_tag @startup.screenshot_url, class: 'img-responsive'
         .form-group
           = f.input :screenshot, required: true, class: 'form-control'
           = f.hidden_field :screenshot_cache
@@ -21,17 +19,18 @@
         .form-group
           = f.input :description, required: true, class: 'form-control'
         .form-group
-          = f.input :phase, collection: Phase.to_a, required: true, class: 'form-control', include_blank: false
+          = f.input :phase, collection: Phase.to_a, required: true, include_blank: false, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
-          = f.input :state, required: true, class: 'form-control'
+          = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
-          = f.input :city, required: true, class: 'form-control'
+          = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
           = f.input :market_list, required: true, class: 'form-control'
-        .text-center
-          = f.button :submit, "Atualizar", class: 'btn btn-success btn-lg'
-        .text-center
-          = button_to "Voltar", :back, class: 'btn btn-danger btn-lg'
+        .form-group
+          .col-sm-12.col-md-6.noPaddingLeft.noPaddingMobile.marginBottomMobile15
+            = button_to "Voltar", :back, class: 'btn btn-default btn-lg'
+          .col-sm-12.col-md-6.noPaddingRight.noPaddingMobile
+            = f.button :submit, "Atualizar", class: 'btn btn-success btn-lg'
 
 javascript:
   $(function() {

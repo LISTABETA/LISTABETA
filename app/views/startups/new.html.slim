@@ -4,11 +4,6 @@
   .well.col-md-8.col-md-offset-2
     h1.text-center Cadastre sua Startup
     br
-    .text-center
-      / icon.glyphicon.glyphicon-ok
-      h4 
-        b ATENÇÃO, DEPOIS DE ENVIAR O FORMULÁRIO VOCÊ NÃO PODERÁ MAIS ALTERAR SEU CADASTRO!
-    br
     .bullets
       icon.glyphicon.glyphicon-ok
       h4 A startup não pode estar disponível para o público ou deve estar em beta
@@ -48,7 +43,7 @@
         .form-group
           = f.input :city, required: true, class: 'form-control'
         .form-group
-          = f.input :market_list, required: true, class: 'form-control', hint: 'Ex: Saúde, Educação, Mobile'
+          = f.input :market_list, required: true, class: 'form-control', placeholder: 'Ex: Saúde, Educação, Mobile'
       .text-center
         = f.button :submit, "Cadastrar minha Startup", class: 'btn default-btn fade'
 

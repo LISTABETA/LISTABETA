@@ -54,6 +54,8 @@ gem 'meta-tags', '~> 2.3', require: 'meta_tags'
 gem 'kaminari', '~> 0.17'
 # Requests to Getup Cloud
 gem 'httparty', '~> 0.13.0'
+# Use Pundit to manage permissions
+gem 'pundit', '~> 1.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

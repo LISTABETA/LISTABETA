@@ -1,0 +1,19 @@
+@media (min-width: 992px) {
+  .noPaddingLeft {
+    padding-left: 0 !important;
+  }
+
+  .noPaddingRight {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .noPaddingMobile {
+    padding: 0 !important;
+  }
+
+  .marginBottomMobile15{
+    margin-bottom: 15px !important;
+  }
+}

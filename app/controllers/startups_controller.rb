@@ -27,7 +27,7 @@ class StartupsController < ApplicationController
 
     if @startup.valid?
       @startup.save
-      flash[:notice] = 'Sua Startup foi cadastrada e está esperando aprovação'
+      flash[:notice] = 'Sua Startup foi registrada. Confira as informações antes de submete-la!'
       redirect_to dashboard_path
     else
       flash[:alert] = 'Por favor, confira os erros'
@@ -36,14 +36,14 @@ class StartupsController < ApplicationController
   end
 
   def edit
-    @startup = current_user.startups.find(params[:id])
+    @startup = current_user.startups.friendly.find(params[:id])
   end
 
   def update
-    @startup = current_user.startups.find(params[:id])
+    @startup = current_user.startups.friendly.find(params[:id])
 
     if @startup.update(permitted_params)
-      flash[:notice] = 'Sua Startup foi cadastrada e está esperando aprovação'
+      flash[:notice] = 'As informações da sua Startup foram atualizadas!'
       redirect_to dashboard_path
     else
       flash[:alert] = 'Por favor, confira os erros'
@@ -51,8 +51,20 @@ class StartupsController < ApplicationController
     end
   end
 
+  def submit
+    @startup = current_user.startups.friendly.find(params[:startup_id])
+
+    if @startup.submit!
+      flash[:notice] = 'Sua Startup foi submetida a aprovação!'
+    else
+      flash[:alert] = 'Houve um erro ao submeter sua Startup'
+    end
+
+    redirect_to dashboard_path
+  end
+
   def destroy
-    @startup = current_user.startups.find(params[:id])
+    @startup = current_user.startups.friendly.find(params[:id])
 
     if @startup.destroy
       flash[:notice] = 'Sua Startup foi removida com sucesso'

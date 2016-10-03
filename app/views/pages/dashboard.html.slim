@@ -1,12 +1,14 @@
+- set_meta_tags title: 'LISTABETA | Dashboard'
+
 .container.dashboard
   .col-md-12.text-center.col-sm-12
-    h1 = "Dashboard <b> de #{current_user.name}</b>".html_safe
+    h1 = "Dashboard de <b> #{current_user.name}</b>".html_safe
 
   .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
-    h3 A funcionalidade de Feedbacks foi removida.
-    p = "Enquanto isso, que tal publicar ou ler algumas notícias no #{link_to 'STARTUPNEWS', 'http://www.startupnews.com.br', target: 'blank'}".html_safe
+    .alert.alert-warning
+      h4 A funcionalidade de Feedbacks foi removida.
   
   .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
     - @startups.each do |startup|
       .text-center
-        = render partial: 'startups/startup_box', locals: {startup: startup}
+        = render partial: 'startups/dashboard_startup_box', locals: {startup: startup}
