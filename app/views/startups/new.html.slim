@@ -31,15 +31,19 @@
           = f.input :screenshot, required: true, class: 'form-control', hint: 'Escolha uma screenshot de uma tela da sua startup (910px x 500px)'
           = f.hidden_field :screenshot_cache
         .form-group
-          = f.input :pitch, required: true, class: 'form-control', hint: 'Resuma sua startup em uma frase.'
+          = f.input :pitch, required: true, input_html: { class: 'js-pitch-count-char form-control' }, hint: 'Resuma sua startup em uma frase.'
+          .js-pitch-count-char-value.text-right = (f.object.pitch.length.to_i-140)*-1
         .form-group
-          = f.input :description, required: true, class: 'form-control', hint: 'Descreva seu serviço ou produto com mais detalhes.'
+          = f.input :description, required: true, input_html: { class: 'js-description-count-char form-control' }, hint: 'Descreva seu serviço ou produto com mais detalhes.'
+          .js-description-count-char-value.text-right = (f.object.description.length.to_i-1024)*-1
         .form-group
           = f.input :phase, collection: Phase.to_a, required: true, include_blank: false, input_html: { class: 'form-control fullWidthMobile' }
         .form-group
-          = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }
+          = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+          = f.error :state
         .form-group
-          = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }
+          = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+          = f.error :city
         .form-group
           = f.input :market_list, required: true, class: 'form-control', placeholder: 'Ex: Saúde, Educação, Mobile', input_html: { value: f.object.market_list.join(', ') }
       .text-center

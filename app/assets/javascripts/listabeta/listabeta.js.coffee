@@ -1,19 +1,21 @@
+#= require_self
+#= require_tree .
+
 window.Listabeta =
+  configs:
+    turbolinks: true # True to use initjs with Turbolinks by default.
+    pjax: false # True to use initjs with pjax by default.
+    respond_with: # To not use respond_with, just set false.
+      'Create': 'New' # Respond the Create action with the New.
+      'Update': 'Edit' # Respond the Update action with the Edit.
 
-  Common:
-    init: ->
-      @flash()
+  initPage: ->
+    # If you are using the Turbolinks and you need run a code only one time, put something here.
+    # if you're not using the turbolinks, there's no difference between init and initPage.
 
-    flash: ->
-      setTimeout( ->
-        $('.flash').slideDown('slow')
-      , 100)
-      if $('.flash').length > 0
-        setTimeout( ->
-          $('.flash').slideUp('slow')
-        , 4000)
-      $('.flash').click ->
-        $('.flash').slideUp()
+  init: ->
+    # Something here. This is called in every page, with or without Turbolinks.
 
-jQuery ->
-  Listabeta.Common.init()
+  modules: ->[
+    Listabeta.Flash
+  ]
