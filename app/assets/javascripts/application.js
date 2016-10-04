@@ -18,10 +18,6 @@
 //= require bootstrap/transition
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
-//= require ./listabeta/listabeta
-//= require listabeta/listabeta.js
 //= require init.js
 //= require_tree ./lib
-//= require listabeta/listabeta.js
-//= require init.js
 //= require_tree ./listabeta
