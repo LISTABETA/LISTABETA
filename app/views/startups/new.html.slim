@@ -45,7 +45,8 @@
           = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
           = f.error :city
         .form-group
-          = f.input :market_list, required: true, class: 'form-control', placeholder: 'Ex: Saúde, Educação, Mobile', input_html: { value: f.object.market_list.join(', ') }
+          = f.label :market_list, 'Mercados de Atuação'
+          = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação'
       .text-center
         = f.button :submit, "Cadastrar minha Startup", class: 'btn default-btn fade'
 

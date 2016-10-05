@@ -1,5 +1,6 @@
 class StartupsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  autocomplete :startup, :markets,
 
   def index
     if params[:q].present?
@@ -73,6 +74,11 @@ class StartupsController < ApplicationController
     end
 
     redirect_to dashboard_path
+  end
+
+  def autocomplete_startup_markets
+    markets = Tag.search(params[:term]).order(:name)
+    render json: markets.map { |market| { label: market.name, value: market.name } }
   end
 
   private

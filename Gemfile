@@ -58,6 +58,8 @@ gem 'httparty', '~> 0.13.0'
 gem 'pundit', '~> 1.1'
 # To organize and modularize JS files
 gem 'initjs'
+# Autocomplete for Market's field
+gem 'rails-jquery-autocomplete', '~> 1.0.3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
