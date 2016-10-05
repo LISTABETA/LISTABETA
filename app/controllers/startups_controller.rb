@@ -15,15 +15,15 @@ class StartupsController < ApplicationController
   end
 
   def show
-    @startup = Startup.friendly.find(params[:id])
+    authorize @startup = Startup.friendly.find(params[:id])
   end
 
   def new
-    @startup = current_user.startups.new
+    authorize @startup = current_user.startups.new
   end
 
   def create
-    @startup = current_user.startups.new(permitted_params)
+    authorize @startup = current_user.startups.new(permitted_params)
 
     if @startup.valid?
       @startup.save
@@ -36,11 +36,11 @@ class StartupsController < ApplicationController
   end
 
   def edit
-    @startup = current_user.startups.friendly.find(params[:id])
+    authorize @startup = current_user.startups.friendly.find(params[:id])
   end
 
   def update
-    @startup = current_user.startups.friendly.find(params[:id])
+    authorize @startup = current_user.startups.friendly.find(params[:id])
 
     if @startup.update(permitted_params)
       flash[:notice] = 'As informações da sua Startup foram atualizadas!'
@@ -52,7 +52,7 @@ class StartupsController < ApplicationController
   end
 
   def submit
-    @startup = current_user.startups.friendly.find(params[:startup_id])
+    authorize @startup = current_user.startups.friendly.find(params[:startup_id])
 
     if @startup.submit!
       flash[:notice] = 'Sua Startup foi submetida a aprovação!'
@@ -64,7 +64,7 @@ class StartupsController < ApplicationController
   end
 
   def destroy
-    @startup = current_user.startups.friendly.find(params[:id])
+    authorize @startup = current_user.startups.friendly.find(params[:id])
 
     if @startup.destroy
       flash[:notice] = 'Sua Startup foi removida com sucesso'

@@ -6,6 +6,10 @@ class StartupPolicy < ApplicationPolicy
     @startup = startup
   end
 
+  def show?
+    startup.approved?
+  end
+
   def edit?
     startup.draft? && startup.user == user
   end
