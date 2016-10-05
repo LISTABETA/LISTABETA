@@ -10,6 +10,7 @@ Listabeta::Application.routes.draw do
   get 'mercados/(:tag)', to: 'pages#markets', as: :markets
 
   resources :startups do
+    get 'autocomplete_startup_markets', on: :collection
     put 'submit', to: 'startups#submit', as: :submit
   end
 end
