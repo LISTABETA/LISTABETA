@@ -30,7 +30,12 @@
           = f.error :city
         .form-group
         = f.label :market_list, 'Mercados de Atuação'
-        = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação'
+        = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação, Direitos, Sustentabilidade, Tecnologia'
+        = f.error :market_list
+        br
+        small Caso não encontre o que procura você pode adicionar um novo Mercado. Tente colocar algo genérico e que mais pessoas possam utilizar, sempre cuidando acentuação e primeiras letras maiúsculas.
+        br
+        br
         .form-group
           .col-sm-12.col-md-6.noPaddingLeft.noPaddingMobile.marginBottomMobile15
             = button_to "Voltar", :back, class: 'btn btn-default btn-lg'
