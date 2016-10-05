@@ -46,7 +46,10 @@
           = f.error :city
         .form-group
           = f.label :market_list, 'Mercados de Atuação'
-          = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação'
+          = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação, Direitos, Sustentabilidade, Tecnologia'
+          = f.error :market_list
+          br
+          small Caso não encontre o que procura você pode adicionar um novo Mercado. Tente colocar algo genérico e que mais pessoas possam utilizar, sempre cuidando acentuação e primeiras letras maiúsculas.
       .text-center
         = f.button :submit, "Cadastrar minha Startup", class: 'btn default-btn fade'
 

@@ -7,12 +7,12 @@ Listabeta.Startups.New =
     description = $(".js-description-count-char")
     descriptionValue = $(".js-description-count-char-value")
     # Change color on load
-    if $(pitch).val().length
+    if (140 - $(pitch).val().length) <= 0
       $(pitchValue).css('color', 'red')
     else
       $(pitchValue).css('color', 'black')
 
-    if $(description).val().length
+    if (1024 - $(description).val().length) <= 0
       $(descriptionValue).css('color', 'red')
     else
       $(descriptionValue).css('color', 'black')
