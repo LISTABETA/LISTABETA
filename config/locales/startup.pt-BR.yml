@@ -9,11 +9,9 @@ pt-BR:
       startup:
         name: Nome da Startup
         city: Cidade
-        email: Email do responsável
         pitch: Pitch
         state: Estado
         status: Status da aprovação
-        phase: Fase do negócio
         website: URL do site
         twitter: Twitter URL
         markets: Tipos de mercado (separados por vírgula)
@@ -21,8 +19,9 @@ pt-BR:
         approved: Aprovado?
         screenshot: Website screenshot
         highlighted: Em destaque?
-        description: Descrição
+        description: Descrição da Startup
         market_list: Tipos de mercado (separados por vírgula)
+        demonstration: Acesso ao sistema (Usuário de testes e URL) 
 
   enumerations:
     phase:

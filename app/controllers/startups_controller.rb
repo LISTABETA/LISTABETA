@@ -20,7 +20,7 @@ class StartupsController < ApplicationController
   end
 
   def new
-    authorize @startup = current_user.startups.new
+    @startup = current_user.startups.new
   end
 
   def create
