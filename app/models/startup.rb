@@ -9,15 +9,14 @@ class Startup < ActiveRecord::Base
   belongs_to :user
 
   has_enumeration_for :status, create_helpers: true
-  has_enumeration_for :phase, create_helpers: true
 
   mount_uploader :screenshot, ScreenshotUploader
 
-  validates :email, :name, :website, :pitch, :description, :screenshot, :phase,
+  validates :name, :website, :pitch, :description, :screenshot,
             :state, :city, :market_list, presence: true
   validates :website, url: true
-  validates :pitch, length: { in: 30..140 }
-  validates :description, length: { in: 50..1024 }
+  validates :pitch, length: { in: 20..75 }
+  validates :description, length: { in: 50..500 }
 
   # Normal scopes
   scope :draft, -> { where(status: Status::DRAFT) }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930233733) do
+ActiveRecord::Schema.define(version: 20161007132341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20160930233733) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "startups", force: :cascade do |t|
-    t.string   "email",          limit: 255, default: "",    null: false
     t.string   "name",           limit: 255, default: "",    null: false
     t.string   "city",           limit: 255, default: "",    null: false
     t.string   "pitch",          limit: 255, default: "",    null: false
@@ -78,11 +77,11 @@ ActiveRecord::Schema.define(version: 20160930233733) do
     t.string   "screenshot",     limit: 255, default: "",    null: false
     t.boolean  "highlighted",                default: false
     t.string   "slug",           limit: 255
-    t.integer  "phase",                      default: 1,     null: false
     t.integer  "status",                     default: 0,     null: false
     t.datetime "approved_at"
     t.datetime "highlighted_at"
     t.integer  "user_id"
+    t.string   "demonstration"
   end
 
   add_index "startups", ["slug"], name: "index_startups_on_slug", unique: true, using: :btree

@@ -2,18 +2,16 @@ require 'spec_helper'
 
 describe Startup do
   describe "Validations" do
-    it { should validate_presence_of :email }
     it { should validate_presence_of :name }
     it { should validate_presence_of :website }
     it { should validate_presence_of :pitch }
     it { should validate_presence_of :description }
     it { should validate_presence_of :screenshot }
-    it { should validate_presence_of :phase }
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
     it { should validate_presence_of :market_list }
-    it { should validate_length_of(:pitch).is_at_least(30).is_at_most(140) }
-    it { should validate_length_of(:description).is_at_least(50).is_at_most(1024) }
+    it { should validate_length_of(:pitch).is_at_least(20).is_at_most(75) }
+    it { should validate_length_of(:description).is_at_least(50).is_at_most(500) }
   end
 
   describe "URL validation" do

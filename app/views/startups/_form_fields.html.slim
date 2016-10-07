@@ -1,0 +1,38 @@
+.form-group
+  = f.input :name, required: true, class: 'form-control', placeholder: 'The Facebook'
+.form-group
+  = f.input :pitch, required: true, input_html: { class: 'js-pitch-count-char form-control' }, hint: 'Resuma brevemente sua Startup'
+  .js-pitch-count-char-value.text-right = (f.object.pitch.length.to_i-75)*-1
+.form-group
+  = f.input :description, required: true, input_html: { class: 'js-description-count-char form-control' }, hint: 'Descreva a sua startup em um parágrafo ou dois começando com seu nome'
+  .js-description-count-char-value.text-right = (f.object.description.length.to_i-500)*-1
+.form-group
+  = f.input :website, required: true, class: 'form-control', placeholder: 'http://www.seusite.com.br'
+.form-group
+  = f.label :market_list, 'Mercados de Atuação'
+  = f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Saúde, Educação, Direitos, Sustentabilidade, Tecnologia'
+  = f.error :market_list
+  br
+  small Caso não encontre o que procura você pode adicionar um novo Mercado. Tente colocar algo genérico e que mais pessoas possam utilizar, sempre cuidando acentuação e primeiras letras maiúsculas.
+.form-group
+  = f.input :state, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+  = f.error :state
+.form-group
+  = f.input :city, required: true, input_html: { class: 'form-control fullWidthMobile' }, error: false
+  = f.error :city
+.form-group
+  = f.input :screenshot, required: true, class: 'form-control', hint: 'Escolha uma screenshot de uma tela da sua startup (910px x 500px)'
+  = f.hidden_field :screenshot_cache
+.form-group
+  = f.input :demonstration, as: :text, class: 'form-control', hint: 'Por favor, nos informe um usuário de testes NÃO ADMINISTRATIVO para que possamos avaliar internamente sua Startup'
+
+javascript:
+  $(function() {
+    new dgCidadesEstados({
+      estadoVal: document.getElementById('startup_state').val,
+      cidadeVal: document.getElementById('startup_city').val,
+      estado: document.getElementById('startup_state'),
+      cidade: document.getElementById('startup_city'),
+      change: true
+    });
+  });
