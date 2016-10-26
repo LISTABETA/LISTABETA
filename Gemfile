@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'slim-rails', '~> 3.1'
 # Twitter bootstrap
 gem 'bootstrap-sass', '~> 3.3'
+# Font Awesome
+gem 'font-awesome-rails', '~> 4.4.0'
 # Simple form for form wrappers
 gem 'simple_form', '~> 3.3'
 # ActiveAdmin for admin management
