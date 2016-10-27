@@ -1,0 +1,15 @@
+footer {
+  border-top: 1px solid var(--gray-light);
+
+  a.link-love {
+    &:hover,
+    &:focus {
+      color: var(--gray-medium);
+
+      span {
+        color: #e53d7b;
+        transition: all .3s;
+      }
+    }
+  }
+}

@@ -2,9 +2,11 @@
 .c-black { color: var(--black); }
 .c-blue { color: var(--blue); }
 .c-gray-medium { color: var(--gray-medium); }
+.c-gray-light { color: var(--gray-light); }
 .c-cyan { color: var(--cyan); }
 
 // background colors
+.bg-cyan { background: var(--cyan); }
 .bg-blue { background: var(--blue); }
 .bg-white { background: white; }
 

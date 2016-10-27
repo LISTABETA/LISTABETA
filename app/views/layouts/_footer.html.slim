@@ -1,20 +1,24 @@
-.container
-  footer
-    .clearfix
-    .footer-links.text-center
-      = link_to "Blog", "http://blog.listabeta.com.br", target: '_blank'
-      | &nbsp
-      | -
-      | &nbsp
-      = link_to "Facebook", "https://www.facebook.com/pages/Lista-Beta/549730495106083", target: '_blank'
-      | &nbsp
-      | -
-      | &nbsp
-      = link_to "Twitter", "http://www.twitter.com/listabetabr", target: '_blank'
-      | &nbsp
-      | -
-      | &nbsp
-      = link_to "Contato", "mailto:contato@listabeta.com.br", target: '_blank'
-    .container.footer-logo.text-center
-      p.brand
-      = link_to image_tag("cosmit-logo.svg", alt: "Developed by COSMIT", width: "100"), 'http://cosmit.me', target: 'blank'
+footer.bg-blue.pB-50.pT-40
+  .container
+    .row
+      .col-xs-12.ta-c.mB-20
+        = link_to 'Home', root_path, title: 'Voltar para a home', class: 'c-gray-medium mL-15 mR-15'
+        = link_to 'Todas Startups', startups_path, title: 'Todas Startups', class: 'c-gray-medium mL-15 mR-15'
+        = link_to 'Enviar Startup', new_startup_path, title: 'Enviar Startup', class: 'c-gray-medium mL-15 mR-15'
+        = link_to 'Sobre', startups_path, title: 'Sobre nós', class: 'c-gray-medium mL-15 mR-15'
+    .row
+      .col-xs-12.ta-c.mB-10
+        = link_to 'https://www.facebook.com/pages/Lista-Beta/549730495106083', target: '_blank', title: 'Curta nossa página', class: 'fz-largest c-gray-medium mL-10 mR-10' do
+          i.fa.fa-facebook
+        = link_to 'http://www.twitter.com/listabetabr', target: '_blank', title: 'Siga-nos no Twitter', class: 'fz-largest c-gray-medium mL-10 mR-10' do
+          i.fa.fa-twitter
+        = link_to 'mailto:contato@listabeta.com.br', target: '_blank', title: 'Fale conosco', class: 'fz-largest c-gray-medium mL-10 mR-10' do
+          i.fa.fa-envelope
+    .row
+      .col-xs-12.ta-c
+        p.fz-smaller.mB-0.mT-10.c-gray-medium
+          span LISTABETA © Copyright 2016. Todos os direitos reservados. Powered com
+          = link_to 'http://cosmit.me', target: '_blank', class: 'link-love c-gray-medium' do
+            span  <i class="fa fa-heart"></i> 
+            | por 
+            span COSMIT
