@@ -3,11 +3,11 @@ class StartupMailer < ActionMailer::Base
 
   def notify_approvation(startup)
     @startup = startup
-    mail to: @startup.email, subject: 'Aprovação no LISTABETA'
+    mail to: @startup.user.email, subject: 'Aprovação no LISTABETA'
   end
 
   def notify_unapprovation(startup)
     @startup = startup
-    mail to: @startup.email, subject: 'Reprovação na LISTABETA!'
+    mail to: @startup.user.email, subject: 'Reprovação na LISTABETA!'
   end
 end
