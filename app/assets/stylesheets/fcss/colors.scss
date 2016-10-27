@@ -1,0 +1,16 @@
+// text colors
+.c-black { color: var(--black); }
+.c-blue { color: var(--blue); }
+.c-gray-medium { color: var(--gray-medium); }
+.c-cyan { color: var(--cyan); }
+
+// background colors
+.bg-white { background: white; }
+
+// variables
+:root {
+  --black: #3c4858;
+  --blue: #273444;
+  --cyan: #2dc8f7;
+  --gray-medium: #8492a6;
+}
