@@ -17,7 +17,7 @@ ActiveAdmin.register Startup do
     def permitted_params
       params.permit(startup: [:email, :name, :website, :pitch, :description,
                               :screenshot, :status, :state, :city, :market_list,
-                              :approved_at, :highlighted_at])
+                              :approved_at, :highlighted_at, :slug])
     end
 
     def resource
@@ -94,9 +94,8 @@ ActiveAdmin.register Startup do
       row :screenshot do |startup|
         link_to startup.screenshot, startup.screenshot_url, target: 'blank'
       end
-      row :name
-      row :phase do |startup|
-        status_tag(Phase.t(startup.phase))
+      row :name do |startup|
+        link_to startup.name, startup_path(startup)
       end
       row :website do |startup|
         link_to startup.website, startup.website, target: 'blank'

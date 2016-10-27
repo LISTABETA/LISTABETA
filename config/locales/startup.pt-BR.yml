@@ -7,6 +7,7 @@ pt-BR:
 
     attributes:
       startup:
+        slug: Endereço Web / URL
         name: Nome da Startup
         city: Cidade
         pitch: Pitch
@@ -21,7 +22,7 @@ pt-BR:
         highlighted: Em destaque?
         description: Descrição da Startup
         market_list: Tipos de mercado (separados por vírgula)
-        demonstration: Acesso ao sistema (Usuário de testes e URL) 
+        demonstration: Acesso ao sistema (Usuário de testes e URL)
 
   enumerations:
     phase:

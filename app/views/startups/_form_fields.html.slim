@@ -1,6 +1,12 @@
 .form-group
   = f.input :name, required: true, class: 'form-control', placeholder: 'The Facebook'
 .form-group
+  = f.label :slug
+  .input-group
+    .span.input-group-addon http://listabeta.com.br/startups/
+    = f.input :slug, required: true, label: false, error: false, class: 'form-control', placeholder: 'nome-da-startup'
+  = f.error :slug
+.form-group
   = f.input :pitch, required: true, input_html: { class: 'js-pitch-count-char form-control' }, hint: 'Resuma brevemente sua Startup'
   .js-pitch-count-char-value.text-right = (f.object.pitch.length.to_i-75)*-1
 .form-group
