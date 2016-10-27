@@ -1,4 +1,4 @@
-- set_meta_tags site: "LISTABETA | #{@startup.name}", keywords: @startup.market_list.join(', '), og: { description: @startup.pitch, title: "LISTABETA| #{@startup.name}", image: @startup.screenshot_url, url: request.url }
+- set_meta_tags(meta_tags_for_startup(@startup))
 
 .show-page
   .container
