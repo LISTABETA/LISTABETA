@@ -1,3 +1,9 @@
+.navbar {
+  height: 70px;
+  border: 0;
+  box-shadow: 0 1px 2px 0 rgba(31,45,61,.15);
+}
+
 .navbar-default .navbar-nav > li > a {
   color: var(--gray-medium);
 
@@ -5,11 +11,6 @@
   &:focus {
     color: var(--cyan);
   }
-
-}
-
-.navbar {
-  height: 70px;
 }
 
 .navbar-nav > li > a {
@@ -24,11 +25,56 @@
     &:focus {
       color: white;
       background-color: var(--cyan);
-      box-shadow: inset 0 -2px 0 0 #096b9b !important;
+      box-shadow: inset 0 -2px 0 0 #128ecc !important;
     }
   }
 }
 
+.navbar-form {
+  margin: 14px 0;
+
+  input.form-control {
+    height: 40px;
+    box-shadow: inset 0 0 0 1px var(--gray-light);
+    border: 0;
+    border-radius-top-left: 3px;
+    border-radius-bottom-left: 3px;
+    border-radius-top-right: 0px;
+    border-radius-bottom-right: 0px;
+  }
+
+  button {
+    color: var(--gray-medium);
+    box-shadow: inset 0 0 0 1px var(--gray-light);
+    padding: 13px 13px;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: var(--cyan);
+      box-shadow: inset 0 -2px 0 0 #128ecc !important;
+    }
+  }
+}
+
+// placeholder
+::-webkit-input-placeholder {
+  color: var(--gray-light) !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--gray-light) !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: var(--gray-light) !important;
+}
+
+:-ms-input-placeholder {  
+  color: var(--gray-light) !important;
+}
+
+// brand image
 .u-imageReplace {
   font: 0/0 a;
   text-shadow: none;
