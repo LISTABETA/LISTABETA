@@ -85,6 +85,7 @@ class StartupsController < ApplicationController
 
   def permitted_params
     params.require(:startup).permit([:email, :name, :website, :screenshot, :screenshot_cache,
-                                     :pitch, :description, :phase, :state, :city, :market_list])
+                                     :pitch, :description, :phase, :state, :city, :market_list,
+                                     :slug])
   end
 end
