@@ -1,3 +1,30 @@
+// font-sizes
+.fz-micro { font-size: var(--font-scale-micro); }
+.fz-smallest { font-size: var(--font-scale-smallest); }
+.fz-smaller { font-size: var(--font-scale-smaller); }
+.fz-small { font-size: var(--font-scale-small); }
+.fz-base { font-size: var(--font-scale-base); }
+.fz-large { font-size: var(--font-scale-large); }
+.fz-larger { font-size: var(--font-scale-larger); }
+.fz-largest { font-size: var(--font-scale-largest); }
+.fz-jumbo { font-size: var(--font-scale-jumbo); }
+
+// font-weight
+.fw-n { font-weight: 400; }
+
+// variables
 :root {
+  // font-family
   --font-family-lato: 'Lato', open-sans, sans-serif;
+
+  // font-size
+  --font-scale-micro: 8px;
+  --font-scale-smallest: 0.7rem;
+  --font-scale-smaller: 0.75rem;
+  --font-scale-small: 0.875rem;
+  --font-scale-base: 1rem;
+  --font-scale-large: 1.125rem;
+  --font-scale-larger: 1.25rem;
+  --font-scale-largest: 1.5rem;
+  --font-scale-jumbo: 2rem;
 }
