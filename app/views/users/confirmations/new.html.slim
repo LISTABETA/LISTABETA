@@ -1,3 +1,5 @@
+- set_meta_tags(meta_tags_for('confirmation'))
+
 h2 Reenviar instruções de confirmação
 = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
