@@ -1,9 +1,9 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'font-awesome';
-@import 'ress.min.css';
-@import 'typ.min.css';
-@import 'funkcss.min.css';
+@import 'ress.min';
+@import 'typ.min';
+@import 'funkcss.min';
 
 // base
 @import 'base/typography';
@@ -12,6 +12,7 @@
 @import 'fcss/fonts';
 @import 'fcss/colors';
 @import 'fcss/links';
+@import 'fcss/measures';
 
 // modules
 @import 'modules/navbar';
