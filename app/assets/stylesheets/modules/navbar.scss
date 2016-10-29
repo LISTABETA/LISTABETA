@@ -58,23 +58,6 @@
   }
 }
 
-// placeholder
-::-webkit-input-placeholder {
-  color: var(--gray-light) !important;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  color: var(--gray-light) !important;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  color: var(--gray-light) !important;
-}
-
-:-ms-input-placeholder {  
-  color: var(--gray-light) !important;
-}
-
 // brand image
 .u-imageReplace {
   font: 0/0 a;
