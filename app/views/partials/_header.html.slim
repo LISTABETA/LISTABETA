@@ -10,13 +10,12 @@ nav.navbar.navbar-default.navbar-fixed-top.mB-0.bg-white
     .collapse.navbar-collapse#navbar-collapse
       ul.nav.navbar-nav
         li = link_to 'Todas Startups', startups_path, class: 'c-gray-medium mL-15'
-        - if !current_page?(startups_path)
-          = form_tag startups_path, class: 'navbar-form navbar-left', method: :get do
-            .input-group
-              input type="text" class="form-control" name="q" placeholder="Nome da startup..." value="#{params[:q]}"
-              span.input-group-btn
-                button[type="submit" class="btn btn-default"]
-                  i.fa.fa-search
+        = form_tag startups_path, class: 'navbar-form navbar-left', method: :get do
+          .input-group
+            input type="text" class="form-control" name="q" placeholder="Nome da startup..." value="#{params[:q]}"
+            span.input-group-btn
+              button[type="submit" class="btn btn-default"]
+                i.fa.fa-search
 
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
