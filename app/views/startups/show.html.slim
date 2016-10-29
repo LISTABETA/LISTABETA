@@ -37,5 +37,9 @@
                   = link_to "Facebook", "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank"
                 li
                   = link_to "Twitter", "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(@startup.name, length: 30, omission: '...')}%20-&via=LISTABETAbr", target: "_blank"
-
-= render partial: 'layouts/newsletter'
+section.newsletter.bg-black
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        .newsletter-wrapper.pY-30
+          = render partial: 'partials/newsletter'

@@ -14,16 +14,8 @@ section.newsletter
   .container
     .row
       .col-sm-12.col-md-11.fl-n.mX-a
-        .newsletter-wrapper.bg-blue.pY-30.pX-30.bdrs-3
-          .newsletter-inner
-            .newsletter-text
-              h3.fz-jumbo.mT-0.mB-0.c-cyan[title="Não perca a próxima grande startup!"] Não perca a próxima grande startup!
-              p.fz-large.mT-0.mB-0.c-gray-medium[title="Receba em seu e-mail as últimas startups brasileiras."] Receba em seu e-mail as últimas startups brasileiras.
-            .newsletter-form
-              form.form-inline[action="http://listabeta.us3.list-manage.com/subscribe/post?u=85d2b1e556a6a9e7f59a2b1a4&amp;id=da1a8648fb" method="post" novalidate="" role="form" target="_blank"]
-                .form-group
-                  input#mce-EMAIL.form-control[name="EMAIL" placeholder="Seu email" type="email"]
-                button.btn.btn-cyan.mL-10.pY-15.pX-30.fz-large[type="submit" title="Assinar a Newsletter"] Assinar
+        .newsletter-wrapper.bg-black.pY-30.pX-30.bdrs-3
+          = render partial: 'partials/newsletter'
 
 section.startups-list.mT-40
   .container

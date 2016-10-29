@@ -12,4 +12,9 @@ section.new-startups.mT-120
           .col-sm-12.ta-c
             = paginate @startups
 
-= render partial: 'partials/newsletter'
+section.newsletter.bg-black
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        .newsletter-wrapper.pY-30
+          = render partial: 'partials/newsletter'

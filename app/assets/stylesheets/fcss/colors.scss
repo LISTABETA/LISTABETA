@@ -1,15 +1,16 @@
 // text colors
 .c-black { color: var(--black); }
 .c-white { color: white; }
+.c-cyan { color: var(--cyan); }
 .c-blue { color: var(--blue); }
 .c-gray-medium { color: var(--gray-medium); }
 .c-gray-light { color: var(--gray-light); }
-.c-cyan { color: var(--cyan); }
 
 // background colors
+.bg-black { background: var(--black); }
+.bg-white { background: white; }
 .bg-cyan { background: var(--cyan); }
 .bg-blue { background: var(--blue); }
-.bg-white { background: white; }
 .bg-gray-light { background: var(--gray-light) }
 .bg-gray-lighter { background: var(--gray-lighter) }
 
