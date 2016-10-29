@@ -10,9 +10,13 @@ section.new-startups.mT-120
             .col-sm-4.col-md-3
               = render partial: 'startups/startup_box', locals: {startup: startup}
 
-= render partial: 'partials/newsletter'
+section.newsletter
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        = render partial: 'partials/newsletter'
 
-section.startups-list.mT-30
+section.startups-list.mT-40
   .container
     .row
       .col-sm-12.col-md-11.fl-n.mX-a
