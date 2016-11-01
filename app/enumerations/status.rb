@@ -3,6 +3,7 @@ class Status < EnumerateIt::Base
     draft: 0,
     pending: 1,
     approved: 2,
-    unapproved: 3
+    unapproved: 3,
+    published: 4
   )
 end

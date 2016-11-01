@@ -10,4 +10,9 @@ class StartupMailer < ActionMailer::Base
     @startup = startup
     mail to: @startup.user.email, subject: 'Reprovação na LISTABETA!'
   end
+
+  def notify_publication(startup)
+    @startup = startup
+    mail to: @startup.user.email, subject: 'Publicação na LISTABETA!'
+  end
 end

@@ -35,6 +35,7 @@ pt-BR:
       pending: Em Avaliação
       approved: Aprovada
       unapproved: Desaprovada
+      published: Publicada
 
   devise:
     registrations:

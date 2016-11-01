@@ -102,6 +102,23 @@ describe Startup do
         expect(Startup.unapproved).to_not include(@startup_3)
       end
     end
+
+    context "#published" do
+      before do
+        @startup_1 = Startup.make!(status: Status::PUBLISHED)
+        @startup_2 = Startup.make!(status: Status::PUBLISHED)
+        @startup_3 = Startup.make!(status: Status::APPROVED)
+      end
+
+      it "return only the published startups" do
+        expect(Startup.published).to include(@startup_1)
+        expect(Startup.published).to include(@startup_2)
+      end
+
+      it "doesn't include startups which are approved" do
+        expect(Startup.published).to_not include(@startup_3)
+      end
+    end
   end
 
   describe "Methods" do
@@ -224,6 +241,55 @@ describe Startup do
         it "sets nil on approved_at" do
           expect(@startup_approved.reload.approved_at).to be_nil
         end
+      end
+    end
+
+    context "#publish!" do
+      before do
+        @approved_datetime ||= DateTime.new(2013, 11, 20, 12, 00)
+        @startup_approved ||= Startup.make!(status: Status::APPROVED, approved_at: @approved_datetime)
+        @startup_published ||= Startup.make!(status: Status::PUBLISHED, published_at: @approved_datetime)
+      end
+
+      context "startup is published" do
+        before { @startup_approved.publish! }
+
+        it "change status to published" do
+          expect(@startup_approved.reload.status).to eql(Status::PUBLISHED)
+        end
+
+        it "published_at is not nil" do
+          expect(@startup_approved.reload.published_at).to_not be_nil
+        end
+
+        it "published_at is a DateTime" do
+          expect(@startup_approved.reload.published_at).to be_a(DateTime)
+        end
+      end
+
+      context "already published" do
+        before { @startup_published.published! }
+
+        it "continues with published status" do
+          expect(@startup_published.reload.status).to eql(Status::PUBLISHED)
+        end
+
+        it "published_at is not nil" do
+          expect(@startup_published.reload.published_at).to_not be_nil
+        end
+
+        it "published_at is a DateTime" do
+          expect(@startup_published.reload.published_at).to be_a(DateTime)
+        end
+
+        it "published_at is the old time" do
+          expect(@startup_published.reload.approved_at).to eq(@approved_datetime)
+        end
+      end
+
+      it "send mail after publish!" do
+        @startup_approved.publish!
+        ActionMailer::Base.deliveries.last.to.should == [@startup_approved.email]
       end
     end
   end
