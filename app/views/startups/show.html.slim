@@ -7,11 +7,11 @@ section.show-page.mT-120
         .startup-header.mB-40.ta-c
           h1.c-black.mT-0.mB-5 = @startup.name
           h2.c-black.fw-n.fz-larger.mT-0 = @startup.pitch
-        .startup-image
-          .img-startup-site
-            = image_tag @startup.screenshot, width: "100%", class: 'img-responsive'
+        .startup-image-wrapper.fl-n.mX-a.bdrs-3.pos-r
+          .startup-area.t-0.l-0.r-0.b-0.pos-a.d-b
+            .startup-image.ov-h.bgr-n.bgsz-cv.w-100.bdrs-3[style="background-image: url('#{@startup.screenshot}')"]
         .row
-          .col-sm-10.col-md-9.fl-n.mX-a
+          .col-sm-10.col-md-8.fl-n.mX-a
             .startup-description.mT-30
               p.c-blue.fz-large = @startup.description
             .startup-actions.mB-60.mT-30
