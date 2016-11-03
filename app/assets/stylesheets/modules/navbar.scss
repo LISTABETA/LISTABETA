@@ -66,15 +66,144 @@
 }
 
 .navbar-brand {
-  float: left;
   background-image: asset-url('listabeta-logo.svg');
   height: 30px;
   width: 165px;
   background-position: center center;
   background-size: cover;
-  margin-top: 20px;
+  margin-top: 22px;
+  margin-left: 0 !important;
+}
 
-  @media (max-width: 768px) {
-    margin-left: 15px;
+.navbar-right {
+  margin-right: 15px;
+}
+
+// navbar toggle menu
+.navbar-default .navbar-toggle {
+  border: 0;
+  background-color: var(--cyan);
+  margin-right: 0;
+  border-radius: 3px;
+  padding: 12px 10px;
+  margin-top: 16px;
+}
+
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+  background-color: var(--cyan);
+  box-shadow: inset 0 -2px 0 0 #128ecc !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+// change bootstrap header breakpoint
+@media (max-width: 991px) {
+  .navbar-fixed-top .navbar-collapse {
+    max-height: 100%;
+  }
+
+  nav {
+    .mL-15 {
+      margin-left: 0 !important;
+    }
+
+    .navbar-form {
+      float: none !important;
+      width: 100%;
+      padding: 10px 15px;
+      border-top: 1px solid var(--gray-light) !important;
+      border-bottom: 1px solid var(--gray-light) !important;
+      box-shadow: none;
+      margin-bottom: 0 !important;
+    }
+
+    .input-group {
+      position: relative !important;
+      display: table !important;
+      width: 100%;
+
+      .form-control {
+        display: table-cell !important;
+        position: relative !important;
+        z-index: 2;
+        float: left !important;
+        width: 100% !important;
+        margin-bottom: 0;
+      }
+    }
+
+    .input-group-btn {
+      width: 39px !important;
+    }
+  }
+
+  .navbar-right {
+    margin: 15px 15px 0 !important;
+
+    & > li > a {
+      padding: 10px 0;
+    }
+  }
+
+  .navbar-header {
+    float: none;
+    height: 70px;
+    width: 100%;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-collapse {
+    border-top: 1px solid var(--gray-light) !important;
+    box-shadow: 0 1px 2px 0 rgba(31,45,61,.15) !important;
+    max-height: auto !important;
+    background-color: white;
+    padding: 15px 0 20px !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+  }
+
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .navbar-nav {
+    float: none !important;
+    margin: 0;
+  }
+
+  .navbar-nav>li {
+    float: none;
+  }
+
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navbar-text {
+    float: none;
+    margin: 15px 0;
+  }
+
+  /* since 3.1.0 */
+  .navbar-collapse.collapse.in { 
+    display: block!important;
+  }
+
+  .collapsing {
+    overflow: hidden!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-header {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
