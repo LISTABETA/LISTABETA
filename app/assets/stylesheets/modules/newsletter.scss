@@ -1,24 +1,31 @@
-.newsletter-inner {
-  display: table;
-  width: 100%;
-}
-
-.newsletter-text,
-.newsletter-form {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .newsletter-text {
   width: 60%;
 }
 
 .newsletter-form {
   width: 40%;
-  padding-left: 20px;
 
   input,
   .btn {
     height: 48px;
+  }
+}
+
+@media(max-width: 991px) {
+  .newsletter-text,
+  .newsletter-form {
+    width: 50%;
+  }
+}
+
+@media(max-width: 768px) {
+  .newsletter-text,
+  .newsletter-form {
+    width: 100%;
+    display: block;
+  }
+
+  .newsletter-form {
+    padding-left: 0;
   }
 }
