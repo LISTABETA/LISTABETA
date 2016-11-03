@@ -14,11 +14,11 @@ section.show-page.mT-120
           .col-sm-10.col-md-8.fl-n.mX-a
             .startup-description.mT-30
               p.c-blue.fz-large = @startup.description
-            .startup-actions.mB-60.mT-30
-              = link_to "Visite o site", @startup.website, target: "_blank", class: 'btn btn-cyan'
-              = link_to "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank" do
+            .startup-actions.ta-c.mB-60.mT-30
+              = link_to "Visitar o site", @startup.website, title: 'Visitar o site', target: "_blank", class: 'btn btn-cyan fz-large pY-20 pX-30 mR-10 mL-10 mB-10'
+              = link_to "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank", title: "Compartilhe no Facebook", class: 'btn btn-cyan fz-large pY-20 pX-30 mR-10 mL-10 mB-10' do
                 i.fa.fa-facebook
-              = link_to "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(@startup.name, length: 30, omission: '...')}%20-&via=LISTABETAbr", target: "_blank" do
+              = link_to "https://twitter.com/share?url=#{request.url}&hashtags=listabeta&text=#{truncate(@startup.name, length: 45, omission: '...')}%20-&via=LISTABETAbr", target: "_blank", title: 'Compartilhe no Twitter', class: 'btn btn-cyan fz-large pY-20 pX-30 mR-10 mL-10 mB-10' do
                 i.fa.fa-twitter
 
 section.newsletter.bg-black
