@@ -11,13 +11,17 @@ ActiveAdmin.register Startup do
     startups.where(status: Status::UNAPPROVED)
   end
 
+  scope 'Publicadas' do |startups|
+    startups.where(status: Status::PUBLISHED)
+  end
+
   controller do
     private
 
     def permitted_params
       params.permit(startup: [:email, :name, :website, :pitch, :description,
                               :screenshot, :status, :state, :city, :market_list,
-                              :approved_at, :highlighted_at, :slug])
+                              :approved_at, :highlighted_at, :slug, :published_at])
     end
 
     def resource
@@ -26,15 +30,69 @@ ActiveAdmin.register Startup do
   end
   # Actions to highlight Startup
   member_action :highlight do
-    Startup.friendly.find(params[:id]).highlight!
-    flash[:notice] = "Startup posta em destaque com sucesso."
+    startup = Startup.friendly.find(params[:id])
+    if startup.highlight!
+      flash[:notice] = "Startup posta em destaque com sucesso."
+    else
+      flash[:alert] = startup.errors.full_messages.first
+    end
     redirect_to :back
   end
 
   member_action :unhighlight do
-    Startup.friendly.find(params[:id]).unhighlight!
-    flash[:notice] = "Startup tirada de destaque com sucesso."
+    startup = Startup.friendly.find(params[:id])
+    if startup.unhighlight!
+      flash[:notice] = "Startup tirada de destaque com sucesso."
+    else
+      flash[:alert] = startup.errors.full_messages.first
+    end
     redirect_to :back
+  end
+
+  # Actions to approve Startup
+  member_action :approve do
+    startup = Startup.friendly.find(params[:id])
+    if startup.approve!
+      flash[:notice] = "Startup aprovada com sucesso."
+    else
+      flash[:alert] = startup.errors.full_messages.first
+    end
+    redirect_to :back
+  end
+
+  member_action :unapprove do
+    startup = Startup.friendly.find(params[:id])
+    if startup.unapprove!
+      flash[:notice] = "Startup desaprovada com sucesso."
+    else
+      flash[:alert] = startup.errors.full_messages.first
+    end
+    redirect_to :back
+  end
+
+  member_action :publish do
+    startup = Startup.friendly.find(params[:id])
+    if startup.publish!
+      flash[:notice] = "Startup publicada com sucesso."
+    else
+      flash[:alert] = startup.errors.full_messages.first
+    end
+    redirect_to :back
+  end
+
+  action_item only: :show do
+    startup = Startup.friendly.find(params[:id])
+    link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pending?
+  end
+
+  action_item only: :show do
+    startup = Startup.friendly.find(params[:id])
+    link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pending?
+  end
+
+  action_item only: :show do
+    startup = Startup.friendly.find(params[:id])
+    link_to "Publicar", publish_admin_startup_path if startup.approved?
   end
 
   action_item only: :show do
@@ -49,29 +107,6 @@ ActiveAdmin.register Startup do
     unless startup.highlighted.nil?
       link_to "Tirar do destaque", unhighlight_admin_startup_path if startup.highlighted?
     end
-  end
-
-  # Actions to approve Startup
-  member_action :approve do
-    Startup.friendly.find(params[:id]).approve!
-    flash[:notice] = "Startup aprovada com sucesso."
-    redirect_to :back
-  end
-
-  member_action :unapprove do
-    Startup.friendly.find(params[:id]).unapprove!
-    flash[:notice] = "Startup desaprovada com sucesso."
-    redirect_to :back
-  end
-
-  action_item only: :show do
-    startup = Startup.friendly.find(params[:id])
-    link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pending?
-  end
-
-  action_item only: :show do
-    startup = Startup.friendly.find(params[:id])
-    link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pending?
   end
 
   index do
@@ -115,6 +150,7 @@ ActiveAdmin.register Startup do
         status_tag(startup.highlighted? ? 'Sim' : 'Não')
       end
       row :approved_at
+      row :published_at
       row :highlighted_at
     end
   end

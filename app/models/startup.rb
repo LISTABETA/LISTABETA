@@ -23,9 +23,10 @@ class Startup < ActiveRecord::Base
   scope :draft, -> { where(status: Status::DRAFT) }
   scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
+  scope :published, -> { where(status: Status::PUBLISHED) }
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
-  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED) }
-  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED) }
+  scope :highlighteds, -> { where(highlighted: true, status: Status::PUBLISHED) }
+  scope :unhighlighteds, -> { where(highlighted: false, status: Status::PUBLISHED) }
   scope :order_by_approvement, -> { order("approved_at DESC") }
   scope :order_by_highlighted_at, -> { order ("highlighted_at DESC")}
 
@@ -62,7 +63,15 @@ class Startup < ActiveRecord::Base
     return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::APPROVED, approved_at: DateTime.now)
-      StartupMailer.notify_approvation(self).deliver
+      StartupMailer.notify_approvation(self).deliver_now
+    end
+  end
+
+  def publish!
+    return if !status.eql?(Status::APPROVED)
+
+    if update_attributes(status: Status::PUBLISHED, published_at: DateTime.now)
+      StartupMailer.notify_publication(self).deliver_now
     end
   end
 
@@ -70,7 +79,7 @@ class Startup < ActiveRecord::Base
     return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::UNAPPROVED, approved_at: nil)
-      StartupMailer.notify_unapprovation(self).deliver
+      StartupMailer.notify_unapprovation(self).deliver_now
     end
   end
 end
