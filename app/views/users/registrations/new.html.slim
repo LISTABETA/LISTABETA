@@ -1,27 +1,19 @@
 - set_meta_tags(meta_tags_for('registration'))
 
-.container
-  .well.col-md-6.col-md-offset-3
-    h1.text-center Cadatre-se
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :post }) do |f|
-      .register
-        .form-group
-          = f.input :avatar, class: 'form-control', hint: 'Escolha um Avatar para sua conta'
-          = f.hidden_field :avatar_cache
-        .form-group
-          = f.input :email, required: true, class: 'form-control'
-        .form-group
-          = f.input :name, required: true, class: 'form-control'
-        hr
-        .form-group
-          = f.input :password, required: true, class: 'form-control'
-        .form-group
-          = f.input :password_confirmation, required: true, class: 'form-control'
-          
-      br
-      .text-center
-        = f.button :submit, "Cadastrar-se", class: 'btn default-btn fade'
-
-    br
-    .text-center
-      = render "users/shared/links"
+.container.mT-120.mB-70.xs-mT-90.xs-mB-40
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a
+      h1.mT-0.mB-20.xs-mB-10.ta-c.c-blue[title="Cadastre-se"] Cadastre-se
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :post }) do |f|
+        .register
+          = f.input :name, required: true, placeholder: 'Gabriel Carpenedo', title: 'Seu nome Completo', input_html: { class: 'w-100 bdrs-3 pX-15 mB-20 xs-mB-15' }
+          = f.input :email, required: true, class: 'form-control w-100 d-ib bdrs-3 pX-15 mB-20 xs-mB-15', label: 'Seu email', placeholder: 'gabriel@email.com', title: 'Seu email', input_html: { class: 'w-100 bdrs-3 pX-15' }
+          .row.mT-20
+            .col-sm-6
+              = f.input :password, required: true, class: 'form-control w-100 d-ib bdrs-3', title: 'Sua senha', input_html: { class: 'w-100 bdrs-3 pX-15 pX-15 mB-20 xs-mB-15' }
+            .col-sm-6
+              = f.input :password_confirmation, required: true, class: 'form-control w-100 d-ib bdrs-3', label: 'Repetir senha', title: 'Repetir senha', input_html: { class: 'w-100 bdrs-3 pX-15 pX-15 mB-20 xs-mB-10' }
+          = f.button :submit, "Cadastrar", title: 'Cadastrar', class: 'btn btn-cyan w-100 fz-large pY-15 pX-30 mT-10', data: { disable_with: 'Cadastrando...' }
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a.mT-20.xs-mT-15.xs-ta-c
+        = render "users/shared/links"
