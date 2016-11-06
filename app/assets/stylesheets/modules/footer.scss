@@ -1,4 +1,10 @@
 footer {
+  bottom: -218px;
+  height: 218px;
+  left: 0;
+  position: absolute;
+  right: 0;
+
   a:hover,
   a:focus {
     text-decoration: none;
@@ -14,5 +20,12 @@ footer {
         transition: all .3s;
       }
     }
+  }
+}
+
+@media (max-width: 420px) {
+  footer {
+    bottom: -260px;
+    height: 260px;
   }
 }

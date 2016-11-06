@@ -26,8 +26,9 @@ html lang="pt-br"
     = analytics_init if Rails.env.production?
 
   body
-    = initjs_tag 'Listabeta'
-    = render partial: 'partials/flash'
-    = render partial: 'partials/header'
-    = yield
-    = render partial: 'partials/footer'
+    .site-wrapper
+      = initjs_tag 'Listabeta'
+      = render partial: 'partials/flash'
+      = render partial: 'partials/header'
+      = yield
+      = render partial: 'partials/footer'
