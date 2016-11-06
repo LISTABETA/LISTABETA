@@ -7,7 +7,7 @@
       = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :post }) do |f|
         .register
           = f.input :name, required: true, placeholder: 'Gabriel Carpenedo', title: 'Seu nome Completo', input_html: { class: 'w-100 bdrs-3 pX-15 mB-20 xs-mB-15' }
-          = f.input :email, required: true, class: 'form-control w-100 d-ib bdrs-3 pX-15 mB-20 xs-mB-15', label: 'Seu email', placeholder: 'gabriel@email.com', title: 'Seu email', input_html: { class: 'w-100 bdrs-3 pX-15' }
+          = f.input :email, required: true, class: 'form-control w-100 d-ib bdrs-3 pX-15 mB-20 xs-mB-15', label: 'Seu email', placeholder: 'gabrielcarpenedo@email.com', title: 'Seu email', input_html: { class: 'w-100 bdrs-3 pX-15' }
           .row.mT-20
             .col-sm-6
               = f.input :password, required: true, class: 'form-control w-100 d-ib bdrs-3', title: 'Sua senha', input_html: { class: 'w-100 bdrs-3 pX-15 pX-15 mB-20 xs-mB-15' }
