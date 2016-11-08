@@ -3,6 +3,7 @@
 .c-white { color: white; }
 .c-cyan { color: var(--cyan); }
 .c-blue { color: var(--blue); }
+.c-red { color: var(--red); }
 .c-gray-medium { color: var(--gray-medium); }
 .c-gray-light { color: var(--gray-light); }
 
@@ -22,4 +23,5 @@
   --gray-medium: #8492a6;
   --gray-light: #e0e6ed;
   --gray-lighter: #f4f8fc;
+  --red: #f72d2d;
 }
