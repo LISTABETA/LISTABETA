@@ -3,15 +3,15 @@ class StartupsController < ApplicationController
   autocomplete :startup, :markets,
 
   def index
-    if params[:q].present?
-      @startups = Startup.approved
+    if params[:search].present?
+      @startups = Startup.published
                          .order_by_approvement
-                         .by_title(params[:q])
-                         .page(params[:page]).per(20)
+                         .by_title(params[:search])
+                         .page(params[:page]).per(32)
     else
-      @startups = Startup.approved
+      @startups = Startup.published
                          .order_by_approvement
-                         .page(params[:page]).per(20)
+                         .page(params[:page]).per(32)
     end
   end
 

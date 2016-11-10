@@ -12,7 +12,7 @@ nav.navbar.navbar-default.navbar-fixed-top.mB-0.bg-white
         li = link_to 'Todas Startups', startups_path, title: 'Todas Startups', class: 'c-gray-medium mL-15'
         = form_tag startups_path, class: 'navbar-form navbar-left', method: :get do
           .input-group
-            input[type="text" class="form-control" name="q" placeholder="Nome da startup..." title="Digite o nome da startup que quer encontrar" value="#{params[:q]}"]
+            input[type="text" class="form-control" name="search" placeholder="Nome da startup..." title="Digite o nome da startup que quer encontrar" value="#{params[:search]}"]
             span.input-group-btn
               button[type="submit" title="Pesquisar" class="btn btn-default"]
                 i.fa.fa-search
