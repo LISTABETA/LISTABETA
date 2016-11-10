@@ -10,6 +10,10 @@ class StartupPolicy < ApplicationPolicy
     startup.published?
   end
 
+  def create?
+    @user
+  end
+
   def edit?
     startup.draft? && startup.user == user
   end
