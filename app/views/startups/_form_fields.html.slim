@@ -30,7 +30,13 @@ hr.mT-0.mB-20
 / makets
 = f.label :market_list, '* Mercados de atuação'
 br
-= f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path, required: true, value: @startup.market_list.to_s, 'data-delimiter': ', ', placeholder: 'Exemplo: saúde, educação, sass, iot, mobile', class: 'fz-base w-100 bdrs-3 pX-15 pY-10', title: 'Mercados de Atuação'
+= f.autocomplete_field :market_list, autocomplete_startup_markets_startups_path,
+                       required: true, value: @startup.market_list.to_s, 'data-delimiter': ', ', 
+                       placeholder: 'Exemplo: saúde, educação, sass, iot, mobile', 
+                       class: "fz-base w-100 bdrs-3 pX-15 pY-10", 
+                       title: 'Mercados de Atuação',
+                       style: "#{f.object.errors[:market_list].present? ? 'box-shadow: inset 0 0 0 1px var(--red);' : ''}"
+= f.error :market_list
 
 p.fz-small.c-gray-medium.mB-30.xs-mB-20.mT-5 Caso não encontre um mercado você pode criar o seu apenas digitando o nome do mercado. Separe os mercados com vírgula (exemplo: sass, mobile).
 
