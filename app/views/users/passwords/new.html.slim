@@ -1,22 +1,13 @@
 - set_meta_tags(meta_tags_for('password'))
 
-.container
-  .well.col-md-6.col-md-offset-3
-    h1.text-center Esqueceu sua senha?
-    br
-    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-      .register
-        = f.error_notification
-        .form-group
-          = f.input :email, required: true, autofocus: true, class: 'form-control'
-      .text-center
-        = f.button :submit, "Envie-me instruções de troca de senha", class: "btn default-btn fade"
-    br
-    .text-center    
-      = render "users/shared/links"
-br
-br
-br
-br
-br
-br
+.container.mT-120.mB-70.xs-mT-90.xs-mB-40
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a
+      h1.mT-0.mB-20.xs-mB-10.ta-c.c-blue[title="Esqueceu a sua senha?"] Esqueceu a sua senha?
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        .form-email.mB-15
+          = f.input :email, required: true, placeholder: 'gabrielcarpenedo@gmail.com', label: 'Seu email', title: 'Seu email', autofocus: true, input_html: { class: 'w-100 bdrs-3 pX-15' }
+        = f.button :submit, "Trocar senha", title: 'Trocar senha', class: 'btn btn-cyan w-100 fz-large pY-15 pX-30 mT-10', data: { disable_with: 'Enviando...' }
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a.mT-20.xs-mT-15.xs-ta-c
+        = render "users/shared/links"

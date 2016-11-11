@@ -1,0 +1,27 @@
+// text colors
+.c-black { color: var(--black); }
+.c-white { color: white; }
+.c-cyan { color: var(--cyan); }
+.c-blue { color: var(--blue); }
+.c-red { color: var(--red); }
+.c-gray-medium { color: var(--gray-medium); }
+.c-gray-light { color: var(--gray-light); }
+
+// background colors
+.bg-black { background: var(--black); }
+.bg-white { background: white; }
+.bg-cyan { background: var(--cyan); }
+.bg-blue { background: var(--blue); }
+.bg-gray-light { background: var(--gray-light) }
+.bg-gray-lighter { background: var(--gray-lighter) }
+
+// variables
+:root {
+  --black: #3c4858;
+  --blue: #273444;
+  --cyan: #2dc8f7;
+  --gray-medium: #8492a6;
+  --gray-light: #e0e6ed;
+  --gray-lighter: #f4f8fc;
+  --red: #f72d2d;
+}

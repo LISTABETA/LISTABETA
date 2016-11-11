@@ -1,0 +1,31 @@
+.newsletter-text {
+  width: 60%;
+}
+
+.newsletter-form {
+  width: 40%;
+
+  input,
+  .btn {
+    height: 48px;
+  }
+}
+
+@media(max-width: 991px) {
+  .newsletter-text,
+  .newsletter-form {
+    width: 50%;
+  }
+}
+
+@media(max-width: 768px) {
+  .newsletter-text,
+  .newsletter-form {
+    width: 100%;
+    display: block;
+  }
+
+  .newsletter-form {
+    padding-left: 0;
+  }
+}
