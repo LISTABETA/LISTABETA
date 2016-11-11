@@ -21,7 +21,7 @@ hr.mT-0.mB-20
   .js-description-count-char-value.d-tbc.fz-small.c-cyan.ta-r.fw-b = (f.object.description.length.to_i-500)*-1
 
 / screenshot
-= f.input :screenshot, required: true, label: 'Screenshot da Startup'
+= f.input :screenshot, required: true, label: 'Screenshot da Startup', hint: f.object.screenshot.present? ? image_tag(f.object.screenshot.url, size: '100x100') : ''
 = f.hidden_field :screenshot_cache
 p.fz-small.c-gray-medium.mB-30.xs-mB-20.mT-5 JPEG, JPG ou PNG com 1080px de largura por 816px de altura (ratio 4:3).
 
