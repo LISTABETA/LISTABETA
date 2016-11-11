@@ -6,25 +6,32 @@ Listabeta.Startups.Edit =
     pitchValue = $('.js-pitch-count-char-value')
     description = $(".js-description-count-char")
     descriptionValue = $(".js-description-count-char-value")
+
     # Change color on load
     if (75 - $(pitch).val().length) <= 0
-      $(pitchValue).css('color', 'red')
+      $(pitchValue).removeClass('c-cyan')
+      $(pitchValue).addClass('c-red')
     else
-      $(pitchValue).css('color', 'black')
+      $(pitchValue).removeClass('c-red')
+      $(pitchValue).addClass('c-cyan')
 
     if (500 - $(description).val().length) <= 0
-      $(descriptionValue).css('color', 'red')
+      $(description).removeClass('c-cyan')
+      $(description).addClass('c-red')
     else
-      $(descriptionValue).css('color', 'black')
+      $(description).removeClass('c-red')
+      $(description).addClass('c-cyan')
 
     # Execute when key is pressed
     $(pitch).keyup ->
       current = 75 - $(this).val().length
       # Turn the number red
       if current <= 0
-        $(pitchValue).css('color', 'red')
+        $(pitchValue).removeClass('c-cyan')
+        $(pitchValue).addClass('c-red')
       else
-        $(pitchValue).css('color', 'black')
+        $(pitchValue).removeClass('c-red')
+        $(pitchValue).addClass('c-cyan')
       # calculate and apply value
       $(pitchValue).html(current)
 
@@ -33,9 +40,11 @@ Listabeta.Startups.Edit =
       current = 500 - $(this).val().length
       # Turn the number red
       if current <= 0
-        $(descriptionValue).css('color', 'red')
+        $(description).removeClass('c-cyan')
+        $(description).addClass('c-red')
       else
-        $(descriptionValue).css('color', 'black')
+        $(description).removeClass('c-red')
+        $(description).addClass('c-cyan')
       # calculate and apply value
       $(descriptionValue).html(current)
 
