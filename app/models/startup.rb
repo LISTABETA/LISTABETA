@@ -13,11 +13,13 @@ class Startup < ActiveRecord::Base
   mount_uploader :screenshot, ScreenshotUploader
 
   validates :name, :website, :pitch, :description, :screenshot,
-            :state, :city, :market_list, :slug, presence: true
+            :state, :city, :market_list, :slug, :market_list,
+            :demonstration, presence: true
   validates :slug, uniqueness: true
   validates :website, url: true
   validates :pitch, length: { in: 20..75 }
   validates :description, length: { in: 50..500 }
+  validate :has_at_least_one_market?
 
   # Normal scopes
   scope :draft, -> { where(status: Status::DRAFT) }
@@ -81,5 +83,11 @@ class Startup < ActiveRecord::Base
     if update_attributes(status: Status::UNAPPROVED, approved_at: nil)
       StartupMailer.notify_unapprovation(self).deliver_now
     end
+  end
+
+  private
+
+  def has_at_least_one_market?
+    errors.add(:market_list, "deve possuir ao menos 1 mercadi") unless market_list.count > 0
   end
 end
