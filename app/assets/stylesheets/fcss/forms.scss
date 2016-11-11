@@ -4,6 +4,7 @@ textarea {
   border: none;
   box-shadow: inset 0 0 0 1px var(--gray-light);
   height: 50px;
+  // appearance: none;
 
   &:hover {
     background-color: var(--gray-lighter);
@@ -18,19 +19,25 @@ textarea {
   }
 }
 
+// select
+select {
+  cursor: pointer;
+}
+
+.select .controls::after{
+    content: '\25be';
+    position: absolute;
+    top: 52%;
+    right: 1.5rem;
+    display: inline-block;
+    pointer-events: none;
+    color: var(--gray-medium);
+    z-index: 10000;
+}
+
 // placeholder
-::-webkit-input-placeholder {
-  color: var(--gray-light) !important;
-}
+::-webkit-input-placeholder { color: var(--gray-light) !important; }
+:-moz-placeholder { color: var(--gray-light) !important; } /* Firefox 18- */
+::-moz-placeholder { color: var(--gray-light) !important; } /* Firefox 19+ */
+:-ms-input-placeholder { color: var(--gray-light) !important; }
 
-:-moz-placeholder { /* Firefox 18- */
-  color: var(--gray-light) !important;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  color: var(--gray-light) !important;
-}
-
-:-ms-input-placeholder {  
-  color: var(--gray-light) !important;
-}

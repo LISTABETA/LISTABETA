@@ -37,11 +37,13 @@ hr.mT-0.mB-20
 / city state
 .row.mB-30.xs-mB-20
   .col-sm-4
-    = f.input :state, as: :string, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10' }, error: false, title: 'Estado'
-    = f.error :state
+    .select
+      = f.input :state, as: :string, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10' }, error: false, title: 'Estado'
+      = f.error :state
   .col-sm-8
-    = f.input :city, as: :string, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10' }, error: false, title: 'Cidade'
-    = f.error :city
+    .select
+      = f.input :city, as: :string, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10' }, error: false, title: 'Cidade'
+      = f.error :city
 
 h3.mB-10.mT-15.c-gray-medium[title="Informações para avaliação"] Informações para avaliação:
 hr.mT-0.mB-20
