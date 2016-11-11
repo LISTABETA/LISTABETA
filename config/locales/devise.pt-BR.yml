@@ -1,0 +1,5 @@
+pt-BR:
+  devise:
+    registrations:
+      user:
+        invalid: 'Por favor, confira os erros'
