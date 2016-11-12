@@ -2,6 +2,7 @@ CarrierWave.configure do |config|
   config.storage = (Rails.env.production? || Rails.env.staging?) ? :fog : :file
 
   config.fog_credentials = {
+    region:                'us-west-2',
     provider:              'AWS',
     aws_access_key_id:     Rails.application.secrets.aws_access_key.to_s,
     aws_secret_access_key: Rails.application.secrets.aws_secret_key.to_s
