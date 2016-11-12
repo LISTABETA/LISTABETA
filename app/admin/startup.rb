@@ -127,7 +127,7 @@ ActiveAdmin.register Startup do
         status_tag(Status.t(startup.status))
       end
       row :screenshot do |startup|
-        link_to startup.screenshot, startup.screenshot_url, target: 'blank'
+        link_to startup.screenshot, startup.screenshot_url(:full), target: 'blank'
       end
       row :name do |startup|
         link_to startup.name, startup_path(startup)

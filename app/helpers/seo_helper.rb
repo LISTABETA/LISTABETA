@@ -29,11 +29,11 @@ module SeoHelper
       description: startup.pitch,
       keywords: startup.market_list.join(', '),
       url: startup_url(startup),
-      image: startup.screenshot_url,
+      image: startup.screenshot_url(:full),
       og: { url: startup_url(startup),
             type: 'website',
             title: startup.name,
-            image: startup.screenshot_url,
+            image: startup.screenshot_url(:full),
             site_name: 'listabeta.com.br',
             description: startup.pitch,
             locale: I18n.t('meta_tags.og.locale')
@@ -43,7 +43,7 @@ module SeoHelper
         card: 'summary_large_image',
         site: '@LISTABETAbr',
         title: startup.name,
-        image: startup.screenshot_url,
+        image: startup.screenshot_url(:full),
         description: startup.pitch
       }
     }

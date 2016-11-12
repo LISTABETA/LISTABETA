@@ -1,7 +1,7 @@
 .startup-box.sm-mB-30.xs-mB-20
   .image-wrapper.bdrs-3.pos-r
     .image-area.t-0.l-0.r-0.b-0.pos-a.d-b
-      .image.ov-h.bgr-n.bgsz-cv.w-100.h-100.bdrs-3[style="background-image: url('#{startup.screenshot_url}')" alt="#{startup.name}" title="#{startup.name}"]
+      .image.ov-h.bgr-n.bgsz-cv.w-100.h-100.bdrs-3[style="background-image: url('#{startup.screenshot_url(:thumb)}')" alt="#{startup.name}" title="#{startup.name}"]
         span.label.label-default.pos-a.pX-10.pY-5.m-5 = startup.status_humanize
   .description
     h2.c-black.fz-base.mT-15.mB-5[title="#{startup.name}"] = startup.name

@@ -2,7 +2,7 @@
   = link_to startup_path(startup) do
     .image-wrapper.bdrs-3.pos-r
       .image-area.t-0.l-0.r-0.b-0.pos-a.d-b
-        .image.ov-h.bgr-n.bgsz-cv.w-100.h-100.bdrs-3[style="background-image: url('#{startup.screenshot_url}')" alt="#{startup.name}" title="#{startup.name}"]
+        .image.ov-h.bgr-n.bgsz-cv.w-100.h-100.bdrs-3[style="background-image: url('#{startup.screenshot_url(:thumb)}')" alt="#{startup.name}" title="#{startup.name}"]
     .description
       h2.c-black.fz-base.mT-15.mB-5[title="#{startup.name}"] = startup.name
       p.c-gray-medium.mB-0[title="#{truncate(startup.pitch, length: 75)}"] = truncate(startup.pitch, length: 75)
