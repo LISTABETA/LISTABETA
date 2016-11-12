@@ -5,12 +5,12 @@ class StartupsController < ApplicationController
   def index
     if params[:search].present?
       @startups = Startup.published
-                         .order_by_approvement
+                         .order_by_publication
                          .by_title(params[:search])
                          .page(params[:page]).per(32)
     else
       @startups = Startup.published
-                         .order_by_approvement
+                         .order_by_publication
                          .page(params[:page]).per(32)
     end
   end
