@@ -6,7 +6,7 @@ section.new-startups.mT-120
       .col-sm-12.col-md-11.fl-n.mX-a
         h3.fz-large.c-gray-medium.fw-n.mT-0.mB-20 Startups recentes
         .row
-          - @unhighlighteds.each do |startup|
+          - @recently.each do |startup|
             .col-sm-4.col-md-3
               = render partial: 'startups/startup_box', locals: {startup: startup}
 
@@ -23,6 +23,6 @@ section.startups-list.mT-40
       .col-sm-12.col-md-11.fl-n.mX-a
         h3.fz-large.c-gray-medium.fw-n.mT-0.mB-20 Startups passadas
         .row
-          - @highlighteds.each do |startup|
+          - @past.each do |startup|
             .col-sm-4.col-md-3
               = render partial: 'startups/startup_box', locals: {startup: startup}
