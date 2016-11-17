@@ -6,7 +6,7 @@ pt-BR:
         email: Email
         password: Senha
         password_confirmation: Confirme sua senha
-        remember_me: Lembre-se de mim
+        remember_me: Lembrar-me
         reset_password_token: Resetar token de senha
         unlock_token: Desbloquear token
     models:
@@ -16,8 +16,8 @@ pt-BR:
       confirmed: A sua conta foi confirmada com sucesso.
       new:
         resend_confirmation_instructions: Reenviar instruções de confirmação
-      send_instructions: Dentro de minutos, você receberá um email com as instruções de confirmação da sua conta.
-      send_paranoid_instructions: Se o seu email existir em nosso banco de dados, você receberá um email com instruções sobre como confirmar sua conta em alguns minutos.
+      send_instructions: Em breve você receberá um email com as instruções de confirmação da sua conta.
+      send_paranoid_instructions: Se o seu email estiver cadastrado, você em breve receberá um email com instruções para confirmar sua conta.
     failure:
       already_authenticated: Você já está autenticado.
       inactive: A sua conta ainda não foi ativada.
@@ -25,8 +25,8 @@ pt-BR:
       last_attempt: Você tem mais uma única tentativa antes de sua conta ser bloqueada.
       locked: A sua conta está bloqueada.
       not_found_in_database: Email ou senha inválidos.
-      timeout: A sua sessão expirou, por favor, faça login novamente para continuar.
-      unauthenticated: Para continuar, faça login ou registre-se.
+      timeout: A sua sessão expirou, por favor, entre novamente para continuar.
+      unauthenticated: Para continuar, entre ou cadastre-se.
       unconfirmed: Antes de continuar, confirme a sua conta.
     mailer:
       confirmation_instructions:
@@ -41,7 +41,7 @@ pt-BR:
       reset_password_instructions:
         action: Redefinir minha senha
         greeting: Olá %{recipient}!
-        instruction: Alguém fez o pedido para redefinir sua senha, e você pode fazer isso clicando no link abaixo.
+        instruction: Foi solicitado redefinir a sua senha, clique no link abaixo e confirme.
         instruction_2: Se você não fez este pedido, por favor ignore este e-mail.
         instruction_3: Sua senha não será alterada até que você acesse o link abaixo e crie uma nova.
         subject: Instruções de reinicialização de senha
@@ -71,10 +71,10 @@ pt-BR:
     registrations:
       user:
         invalid: 'Por favor, confira os erros'
-      destroyed: Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      destroyed: 'Adeus! A sua conta foi excluida com sucesso. :/'
       edit:
         are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
+        cancel_my_account: Excluir minha conta
         currently_waiting_confirmation_for_email: 'No momento esperando por: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: deixe em branco caso não queira alterá-la
         title: Editar %{resource}
@@ -82,28 +82,28 @@ pt-BR:
         update: Atualizar
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
       new:
-        sign_up: Inscrever-se
-      signed_up: Bem vindo! Você realizou seu registro com sucesso.
-      signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
-      signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
+        sign_up: Cadastre-se
+      signed_up: Bem vindo! Você realizou seu cadastro com sucesso.
+      signed_up_but_inactive: Você se cadatrou com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
+      signed_up_but_locked: Você se cadatrou com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
       signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu e-mail. Por favor, acesse o link para ativar sua conta.
       update_needs_confirmation: Sua conta foi atualizada com sucesso, mas nós precisamos verificar o novo endereço de email. Por favor, verifique seu email e clique no link de confirmação para finalizar confirmando o seu novo email.
       updated: A sua conta foi atualizada com sucesso.
     sessions:
-      already_signed_out: Logout efetuado com sucesso.
+      already_signed_out: Saiu com sucesso.
       new:
-        sign_in: Login
-      signed_in: Login efetuado com sucesso.
-      signed_out: Logout efetuado com sucesso.
+        sign_in: Entrar
+      signed_in: Entrou com sucesso.
+      signed_out: Entrou com sucesso.
     shared:
       links:
         back: Voltar
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
-        sign_in: Login
+        sign_in: Entrar
         sign_in_with_provider: Entrar com %{provider}
-        sign_up: Inscrever-se
+        sign_up: Cadastre-se
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instruções de desbloqueio
