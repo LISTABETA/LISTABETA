@@ -21,7 +21,9 @@ ActiveAdmin.register Startup do
     def permitted_params
       params.permit(startup: [:email, :name, :website, :pitch, :description,
                               :screenshot, :status, :state, :city, :market_list,
-                              :approved_at, :highlighted_at, :slug, :published_at])
+                              :approved_at, :highlighted_at, :slug, :published_at,
+                              :demonstration, :user_id, :highlighted, :twitter,
+                              market_ids:[]])
     end
 
     def resource
