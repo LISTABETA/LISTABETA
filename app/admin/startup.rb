@@ -100,13 +100,6 @@ ActiveAdmin.register Startup do
   action_item only: :show do
     startup = Startup.friendly.find(params[:id])
     unless startup.highlighted.nil?
-      link_to "Destacar", highlight_admin_startup_path if !startup.highlighted?
-    end
-  end
-
-  action_item only: :show do
-    startup = Startup.friendly.find(params[:id])
-    unless startup.highlighted.nil?
       link_to "Tirar do destaque", unhighlight_admin_startup_path if startup.highlighted?
     end
   end
