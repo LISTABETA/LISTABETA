@@ -64,7 +64,7 @@ ActiveAdmin.register Startup do
 
   member_action :unapprove do
     startup = Startup.friendly.find(params[:id])
-    if startup.unapprove!
+    if startup.disapprove!
       flash[:notice] = "Startup desaprovada com sucesso."
     else
       flash[:alert] = startup.errors.full_messages.first
@@ -109,6 +109,27 @@ ActiveAdmin.register Startup do
     unless startup.highlighted.nil?
       link_to "Tirar do destaque", unhighlight_admin_startup_path if startup.highlighted?
     end
+  end
+
+  batch_action 'Aprovar', only: :index do |ids|
+    Startup.find(ids).each do |post|
+      post.approve!
+    end
+    redirect_to collection_path, notice: "As Startups foram aprovadas!"
+  end
+
+  batch_action 'Desaprovar', only: :index do |ids|
+    Startup.find(ids).each do |post|
+      post.disapprove!
+    end
+    redirect_to collection_path, alert: "As Startups foram desaprovadas!"
+  end
+
+  batch_action 'Publicar', only: :index do |ids|
+    Startup.find(ids).each do |post|
+      post.publish!
+    end
+    redirect_to collection_path, notice: "As Startups foram publicadas!"
   end
 
   index do

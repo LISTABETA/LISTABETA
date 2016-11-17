@@ -213,14 +213,14 @@ describe Startup do
       end
     end
 
-    context "#unapprove!" do
+    context "#disapprove!" do
       before do
         @startup_unapproved ||= Startup.make!(status: Status::UNAPPROVED)
         @startup_approved   ||= Startup.make!(status: Status::APPROVED, approved_at: DateTime.now)
       end
 
       context "unnaproved startup" do
-        before { @startup_unapproved.unapprove! }
+        before { @startup_unapproved.disapprove! }
 
         it "set when is approved" do
           expect(@startup_unapproved.reload.status).to eql(Status::UNAPPROVED)
@@ -232,7 +232,7 @@ describe Startup do
       end
 
       context "approved startup" do
-        before { @startup_approved.unapprove! }
+        before { @startup_approved.disapprove! }
 
         it "do nothing when already unapproved" do
           expect(@startup_approved.reload.status).to eql(Status::UNAPPROVED)

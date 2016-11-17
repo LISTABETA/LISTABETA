@@ -70,7 +70,7 @@ class Startup < ActiveRecord::Base
     end
   end
 
-  def unapprove!
+  def disapprove!
     return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::UNAPPROVED, approved_at: nil)
