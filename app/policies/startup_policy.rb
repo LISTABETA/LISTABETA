@@ -7,7 +7,7 @@ class StartupPolicy < ApplicationPolicy
   end
 
   def show?
-    startup.published?
+    startup.published? || startup.user == @user
   end
 
   def create?
