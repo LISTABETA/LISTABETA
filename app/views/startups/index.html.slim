@@ -6,7 +6,7 @@ section.new-startups.mT-120
       .col-sm-12.col-md-11.fl-n.mX-a
         .row
           - @startups.each do |startup|
-            .col-sm-4.col-md-3
+            .col-sm-3
               = render partial: 'startups/startup_box', locals: {startup: startup}
         .row
           .col-sm-12.ta-c
