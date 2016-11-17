@@ -4,13 +4,18 @@ section.new-startups.mT-120.sm-mT-100
   .container
     .row
       .col-sm-12.col-md-11.fl-n.mX-a
-        .row
-          - @startups.each do |startup|
-            .col-sm-3
-              = render partial: 'startups/startup_box', locals: {startup: startup}
-        .row.mB-40.mT-15
-          .col-sm-12.ta-c
-            = paginate @startups
+        - if @startups.any?
+          .row
+            - @startups.each do |startup|
+              .col-sm-3
+                = render partial: 'startups/startup_box', locals: {startup: startup}
+          .row.mB-40.mT-15
+            .col-sm-12.ta-c
+              = paginate @startups
+        - else
+          .row
+            .col-sm-12.ta-c.h-90vh
+              h1.lh-1 Nenhuma startup encontrada ;(
 
 section.newsletter.bg-black
   .container
