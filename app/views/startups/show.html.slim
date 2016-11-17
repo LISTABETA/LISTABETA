@@ -1,16 +1,15 @@
 - set_meta_tags(meta_tags_for_startup(@startup))
 
-section.show-page.mT-120
+section.show-page.mT-120.sm-mT-100
   .container
     .row
-      .alert.alert-warning.text-center
-        | SUA STARTUP AINDA NÃO FOI PUBLICADA!
-        br
-        | Este é apenas um Preview de como a sua Startup será apresentada após a publicação!
-    
-    .row
       .col-sm-12.col-md-10.fl-n.mX-a
-        .startup-header.mB-40.ta-c
+        - unless @startup.published? 
+          .alert.alert-warning.text-center
+            | SUA STARTUP AINDA NÃO FOI PUBLICADA!
+            br
+            | Este é apenas um preview de como a sua startup será apresentada caso seja aprovada.
+        .startup-header.mB-40.sm-mB-20.ta-c
           h1.c-black.mT-0.mB-5[title="#{@startup.name}"] = @startup.name
           h2.c-black.fw-n.fz-larger.mT-0[title="#{@startup.pitch}"] = @startup.pitch
         .startup-image-wrapper.fl-n.mX-a.bdrs-3.pos-r
@@ -20,7 +19,7 @@ section.show-page.mT-120
           .col-sm-10.col-md-8.fl-n.mX-a
             .startup-description.mT-30
               p.c-blue.fz-large = @startup.description
-            .startup-actions.ta-c.mB-60.mT-30
+            .startup-actions.ta-c.mB-60.sm-mB-40.mT-30.sm-mT-20
               = link_to "Visitar o site", @startup.website, title: 'Visitar o site', target: "_blank", class: 'btn btn-cyan fz-large pY-20 pX-30 mR-10 mL-10 mB-10'
               = link_to "https://www.facebook.com/sharer/sharer.php?u=#{Rack::Utils.escape(request.url)}", target: "_blank", title: "Compartilhe no Facebook", class: 'btn btn-cyan fz-large pY-20 pX-30 mR-10 mL-10 mB-10' do
                 i.fa.fa-facebook

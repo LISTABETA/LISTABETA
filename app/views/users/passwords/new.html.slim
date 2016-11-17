@@ -1,9 +1,9 @@
 - set_meta_tags(meta_tags_for('password'))
 
-.container.mT-120.mB-70.xs-mT-90.xs-mB-40
+.container.mT-120.mB-70.sm-mT-100.sm-mB-40
   .row
     .col-sm-8.col-md-6.fl-n.mX-a
-      h1.mT-0.mB-20.xs-mB-10.ta-c.c-blue[title="Esqueceu a sua senha?"] Esqueceu a sua senha?
+      h1.mT-0.mB-20.xs-mB-10.ta-c.c-blue.lh-1[title="Esqueceu a sua senha?"] Esqueceu a sua senha?
       = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
         .form-email.mB-15
           = f.input :email, required: true, placeholder: 'gabrielcarpenedo@gmail.com', label: 'Seu email', title: 'Seu email', autofocus: true, input_html: { class: 'w-100 bdrs-3 pX-15' }

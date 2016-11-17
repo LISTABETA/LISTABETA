@@ -1,6 +1,6 @@
 - set_meta_tags(meta_tags_for('startups'))
 
-section.new-startups.mT-120
+section.new-startups.mT-120.sm-mT-100
   .container
     .row
       .col-sm-12.col-md-11.fl-n.mX-a
@@ -8,7 +8,7 @@ section.new-startups.mT-120
           - @startups.each do |startup|
             .col-sm-3
               = render partial: 'startups/startup_box', locals: {startup: startup}
-        .row
+        .row.mB-40.mT-15
           .col-sm-12.ta-c
             = paginate @startups
 

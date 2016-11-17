@@ -40,6 +40,15 @@ select {
 ::-moz-placeholder { color: var(--gray-light) !important; } /* Firefox 19+ */
 :-ms-input-placeholder { color: var(--gray-light) !important; }
 
+// checkbox and radio
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: relative !important;
+  margin-left: 0 !important;
+}
+
 // error
 .error {
   input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]),

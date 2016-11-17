@@ -23,9 +23,16 @@ footer {
   }
 }
 
+@media (max-width: 991px) {
+  footer {
+    bottom: -178px;
+    height: 178px;
+  }
+}
+
 @media (max-width: 420px) {
   footer {
-    bottom: -260px;
-    height: 260px;
+    bottom: -208px;
+    height: 208px;
   }
 }
