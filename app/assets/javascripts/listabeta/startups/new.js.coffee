@@ -16,11 +16,11 @@ Listabeta.Startups.New =
       $(pitchValue).addClass('c-cyan')
 
     if (500 - $(description).val().length) <= 0
-      $(description).removeClass('c-cyan')
-      $(description).addClass('c-red')
+      $(descriptionValue).removeClass('c-cyan')
+      $(descriptionValue).addClass('c-red')
     else
-      $(description).removeClass('c-red')
-      $(description).addClass('c-cyan')
+      $(descriptionValue).removeClass('c-red')
+      $(descriptionValue).addClass('c-cyan')
 
     # Execute when key is pressed
     $(pitch).keyup ->
@@ -40,11 +40,11 @@ Listabeta.Startups.New =
       current = 500 - $(this).val().length
       # Turn the number red
       if current <= 0
-        $(description).removeClass('c-cyan')
-        $(description).addClass('c-red')
+        $(descriptionValue).removeClass('c-cyan')
+        $(descriptionValue).addClass('c-red')
       else
-        $(description).removeClass('c-red')
-        $(description).addClass('c-cyan')
+        $(descriptionValue).removeClass('c-red')
+        $(descriptionValue).addClass('c-cyan')
       # calculate and apply value
       $(descriptionValue).html(current)
 
