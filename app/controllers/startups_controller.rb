@@ -36,34 +36,6 @@ class StartupsController < ApplicationController
     end
   end
 
-  def edit
-    authorize @startup = current_user.startups.friendly.find(params[:id])
-  end
-
-  def update
-    authorize @startup = current_user.startups.friendly.find(params[:id])
-
-    if @startup.update(permitted_params)
-      flash[:notice] = 'As informações da sua Startup foram atualizadas!'
-      redirect_to dashboard_path
-    else
-      flash[:alert] = 'Por favor, confira os erros'
-      render :edit
-    end
-  end
-
-  def submit
-    authorize @startup = current_user.startups.friendly.find(params[:startup_id])
-
-    if @startup.submit!
-      flash[:notice] = 'Sua Startup foi submetida a aprovação!'
-    else
-      flash[:alert] = 'Houve um erro ao submeter sua Startup'
-    end
-
-    redirect_to dashboard_path
-  end
-
   def destroy
     authorize @startup = current_user.startups.friendly.find(params[:id])
 

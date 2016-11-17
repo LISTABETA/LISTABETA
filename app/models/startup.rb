@@ -22,7 +22,6 @@ class Startup < ActiveRecord::Base
   validate :has_at_least_one_market?
 
   # Normal scopes
-  scope :draft, -> { where(status: Status::DRAFT) }
   scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
   scope :published, -> { where(status: Status::PUBLISHED) }
@@ -53,12 +52,6 @@ class Startup < ActiveRecord::Base
   def unhighlight!
     update_attributes(highlighted: false,
                       highlighted_at: nil)
-  end
-
-  def submit!
-    return if !status.eql?(Status::DRAFT)
-
-    update_attributes(status: Status::PENDING)
   end
 
   def approve!

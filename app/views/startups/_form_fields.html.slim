@@ -1,5 +1,6 @@
 h3.mB-10.mT-0.c-gray-medium[title="Dados básicos"] Dados básicos:
 hr.mT-0.mB-20
+
 / name
 .form-name.mB-25.xs-mB-15
   = f.input :name, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15', title: 'Nome da Startup' }, placeholder: 'LISTABETA'
@@ -27,6 +28,7 @@ p.fz-small.c-gray-medium.mB-30.xs-mB-20.mT-5 JPEG, JPG ou PNG com 1080px de larg
 
 h3.mB-10.mT-15.c-gray-medium[title="Mercado de Atuação"] Mercado de atuação:
 hr.mT-0.mB-20
+
 / makets
 = f.label :market_list, '* Mercados de atuação'
 br
@@ -42,6 +44,7 @@ p.fz-small.c-gray-medium.mB-30.xs-mB-20.mT-5 Caso não encontre um mercado você
 
 h3.mB-10.mT-15.c-gray-medium[title="Localidade"] Localidade:
 hr.mT-0.mB-20
+
 / city state
 .row
   .col-sm-4
@@ -59,6 +62,7 @@ hr.mT-0.mB-20
 
 h3.mB-10.mT-15.c-gray-medium[title="Informações para avaliação"] Informações para avaliação:
 hr.mT-0.mB-20
+
 / access
 = f.input :demonstration, as: :text, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10 h-120' }, label: 'Acesso de teste ao sistema (usuário de teste e URL, caso tenha)', required: true, placeholder: 'Nos informe um usuário de testes e a URL de login para que possamos avaliar o sistema. Usamos somente para avaliar a startup.'
 p.fz-small.c-gray-medium.mB-25.xs-mB-15.mT-5 Usuário deve ser de TESTES. Uso somente para nossa avaliação interna.

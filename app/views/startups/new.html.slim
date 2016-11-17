@@ -24,6 +24,7 @@
           li.p-0.mB-0
             i.d-i.fa.fa-times.fz-large.c-red.mR-10
             span.fz-large.d-i.fw-n.m-0.p-0 Não pode ter sido publicada anteriormente na LISTABETA.
+      
       = simple_form_for(@startup, url: startups_path, html: { class: 'form' }) do |f|
         .register
           = render partial: 'form_fields', locals: { f: f }

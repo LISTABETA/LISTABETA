@@ -14,18 +14,6 @@ class StartupPolicy < ApplicationPolicy
     @user
   end
 
-  def edit?
-    startup.draft? && startup.user == user
-  end
-
-  def update?
-    edit?
-  end
-
-  def submit?
-    edit?
-  end
-
   def destroy?
     edit?
   end
