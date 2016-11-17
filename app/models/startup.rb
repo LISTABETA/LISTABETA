@@ -88,6 +88,6 @@ class Startup < ActiveRecord::Base
   private
 
   def has_at_least_one_market?
-    errors.add(:market_list, "deve possuir ao menos 1 mercadi") unless market_list.count > 0
+    errors.add(:market_list, "deve possuir ao menos 1 mercado") unless market_list.count > 0
   end
 end
