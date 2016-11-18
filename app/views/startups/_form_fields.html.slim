@@ -2,8 +2,9 @@ h3.mB-10.mT-0.c-gray-medium[title="Dados básicos"] Dados básicos:
 hr.mT-0.mB-20
 
 / name
-.form-name.mB-25.xs-mB-15
-  = f.input :name, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15', title: 'Nome da Startup' }, placeholder: 'LISTABETA'
+= f.input :name, required: true, input_html: { class: 'fz-base js-name-count-char w-100 bdrs-3 pX-15', title: 'Nome da Startup', maxlength: 20 }, placeholder: 'LISTABETA'
+.input-bottom.d-tb.w-100.mB-10
+  .js-name-count-char-value.d-tbc.fz-small.c-cyan.ta-r.fw-b = (f.object.name.length.to_i-20)*-1
 
 / pitch
 = f.input :pitch, required: true, input_html: { class: 'fz-base js-pitch-count-char w-100 bdrs-3 pX-15', title: 'Descreva sua startup em uma frase', placeholder: 'Exemplo: A lista mensal de startups brasileiras', maxlength: 75 }, label: 'Descreva sua startup em uma frase'
