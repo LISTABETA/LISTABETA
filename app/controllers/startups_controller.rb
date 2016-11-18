@@ -28,7 +28,7 @@ class StartupsController < ApplicationController
 
     if @startup.valid?
       @startup.save
-      flash[:notice] = 'Sua Startup foi registrada. Confira as informações antes de submete-la!'
+      flash[:notice] = 'Sua Startup enviada e em breve será avaliada!'
       redirect_to dashboard_path
     else
       flash[:alert] = 'Por favor, confira os erros'
