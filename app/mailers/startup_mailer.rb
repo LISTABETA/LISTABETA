@@ -1,9 +1,10 @@
 class StartupMailer < ActionMailer::Base
   default from: "noreply@listabeta.com.br"
+  layout 'mailer'
 
   def notify_approvation(startup)
     @startup = startup
-    mail to: @startup.user.email, subject: 'Aprovação no LISTABETA'
+    mail to: @startup.user.email, subject: 'Aprovação na LISTABETA'
   end
 
   def notify_unapprovation(startup)

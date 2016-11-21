@@ -45,5 +45,7 @@ module Listabeta
 
     # Autoload paths for enumerations
     config.autoload_paths << "#{Rails.root}/app/enumerations"
+
+    config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
   end
 end
