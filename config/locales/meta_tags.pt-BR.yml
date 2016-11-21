@@ -6,89 +6,76 @@ pt-BR:
     pages:
       startups:
         title: 'LISTABETA | Startups'
-        description: 'Uma coleção das melhores ideias, histórias e experiências do nosso time'
-        keywords: 'Todas as Startups, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups'
+        description: 'Confira as últimas startups brasileiras'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA | Startups'
-          description: 'Fique por dentro dos últimos lançamentos de Startups'
+          description: 'Confira as últimas startups brasileiras'
         twitter:
-          card: 'Centro de Controle'
-          description: 'Fique por dentro dos últimos lançamentos de Startups'
+          card: 'LISTABETA'
+          description: 'Confira as últimas startups brasileiras'
 
       homepage:
         title: 'LISTABETA'
-        description: 'Confira os últimos lançamentos sobre Startups do Brasil.'
-        keywords: 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups, LISTABETA'
+        description: 'Confira as últimas startups brasileiras'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA'
-          site_name: 'listabeta.com.br'
-          description: 'Confira os últimos lançamentos sobre Startups do Brasil.'
+          site_name: 'www.listabeta.com.br'
+          description: 'Confira as últimas startups brasileiras'
         twitter:
-          card: 'Conheça nossos Cases!'
+          card: 'LISTABETA'
           site: '@LISTABETAbr'
-          description: 'Confira os últimos lançamentos sobre Startups do Brasil.'
-
-      markets:
-        title: 'LISTABETA | Mercados'
-        description: 'Todas as Startups classificadas pelos principais tipos de mercados.'
-        keywords: 'Startups, Lista, Beta, Lista Beta, LISTABETA, Mercados, Lista de Startups, Lançamentos de Startups'
-        og:
-          title: 'LISTABETA'
-          site_name: 'listabeta.com.br'
-          description: 'Todas as Startups classificadas pelos principais tipos de mercados.'
-        twitter:
-          card: 'Conheça nossos Cases!'
-          site: '@LISTABETAbr'
-          description: 'Todas as Startups classificadas pelos principais tipos de mercados.'
+          description: 'Confira as últimas startups brasileiras'
 
       confirmation:
         title: 'LISTABETA | Confirmação de Conta'
         description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
-        keywords: 'Startups, Lista, Beta, Lista Beta, LISTABETA, Mercados, Lista de Startups, Lançamentos de Startups'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA | Confirmação de Conta'
-          site_name: 'listabeta.com.br'
+          site_name: 'www.listabeta.com.br'
           description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
         twitter:
-          card: 'Conheça nossos Cases!'
+          card: 'LISTABETA | Confirmação de Conta'
           site: '@LISTABETAbr'
           description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
 
       password:
         title: 'LISTABETA | Recuperar minha senha'
-        description: 'Está com dificuldades de logar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
-        keywords: 'Startups, Lista, Beta, Lista Beta, LISTABETA, Mercados, Lista de Startups, Lançamentos de Startups'
+        description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups, senha, password'
         og:
           title: 'LISTABETA | Recuperar minha senha'
-          site_name: 'listabeta.com.br'
-          description: 'Está com dificuldades de logar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+          site_name: 'www.listabeta.com.br'
+          description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
         twitter:
           card: 'Conheça nossos Cases!'
           site: '@LISTABETAbr'
-          description: 'Está com dificuldades de logar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+          description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
 
       registration:
-        title: 'LISTABETA | Crie sua conta!'
-        description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece criando sua conta!'
-        keywords: 'Startups, Lista, Beta, Lista Beta, LISTABETA, Mercados, Lista de Startups, Lançamentos de Startups'
+        title: 'LISTABETA | Cadastre-se'
+        description: 'Cadastre-se e envie sua startup para maior lista brasileira'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups, cadastre-se, cadastro, conta'
         og:
-          title: 'LISTABETA | Crie sua conta!'
-          site_name: 'listabeta.com.br'
-          description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece criando sua conta!'
+          title: 'LISTABETA | Cadastre-se'
+          site_name: 'www.listabeta.com.br'
+          description: 'Cadastre-se e envie sua startup para maior lista brasileira'
         twitter:
           card: 'Conheça nossos Cases!'
           site: '@LISTABETAbr'
-          description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece criando sua conta!'
+          description: 'Cadastre-se e envie sua startup para maior lista brasileira'
 
       session:
-        title: 'LISTABETA | Acesse sua conta!'
-        description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece acessando sua conta!'
-        keywords: 'Startups, Lista, Beta, Lista Beta, LISTABETA, Mercados, Lista de Startups, Lançamentos de Startups'
+        title: 'LISTABETA | Entrar'
+        description: 'Confira as últimas startups brasileiras!'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA | Acesse sua conta!'
-          site_name: 'listabeta.com.br'
-          description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece acessando sua conta!'
+          site_name: 'www.listabeta.com.br'
+          description: 'Confira as últimas startups brasileiras'
         twitter:
-          card: 'Conheça nossos Cases!'
+          card: 'LISTABETA | Entrar'
           site: '@LISTABETAbr'
-          description: 'Quer exibir sua Startup para pessoas importantes e ser conhecido? Ótimo, comece acessando sua conta!'
+          description: 'Confira as últimas startups brasileiras'
