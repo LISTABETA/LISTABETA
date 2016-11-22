@@ -9,9 +9,9 @@ class PagesController < ApplicationController
 
   def markets
     if params[:tag]
-      @startups = Startup.approved.tagged_with(params[:tag].gsub('-',' '), on: :markets)
+      @startups = Startup.published.tagged_with(params[:tag].gsub('-',' '), on: :markets)
     else
-      @markets = Startup.approved.tag_counts_on(:markets).order(:name)
+      @markets = Startup.published.tag_counts_on(:markets).order(:name)
     end
   end
 
