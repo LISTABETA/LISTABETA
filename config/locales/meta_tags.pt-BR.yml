@@ -28,6 +28,19 @@ pt-BR:
           site: '@LISTABETAbr'
           description: 'Confira as últimas startups brasileiras'
 
+      about:
+        title: 'LISTABETA | Sobre nós'
+        description: 'Saiba mais sobre a LISTABETA'
+        keywords: "cosmit, gabriel carpenedo, patrick müller, Roberto Ronzella, Andre de Souza Pinho,"
+        og:
+          title: 'LISTABETA | Sobre nós'
+          site_name: 'www.listabeta.com.br'
+          description: 'Saiba mais sobre a LISTABETA'
+        twitter:
+          card: 'LISTABETA | Sobre nós'
+          site: '@LISTABETAbr'
+          description: 'Saiba mais sobre a LISTABETA'
+
       confirmation:
         title: 'LISTABETA | Confirmação de Conta'
         description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
