@@ -9,15 +9,16 @@ class PagesController < ApplicationController
 
   def markets
     if params[:tag]
-      @startups = Startup.approved.tagged_with(params[:tag].gsub('-',' '), on: :markets)
+      @startups = Startup.published.tagged_with(params[:tag].gsub('-',' '), on: :markets)
     else
-      @markets = Startup.approved.tag_counts_on(:markets).order(:name)
+      @markets = Startup.published.tag_counts_on(:markets).order(:name)
     end
   end
 
   def dashboard
     @startups = current_user.startups.pending +
-                current_user.startups.approved
+                current_user.startups.approved +
+                current_user.startups.published
 
     set_meta_tags noindex: true, nofollow: true
   end

@@ -31,7 +31,7 @@ select {
     display: inline-block;
     pointer-events: none;
     color: var(--gray-medium);
-    z-index: 10000;
+    z-index: 100;
 }
 
 // placeholder
@@ -39,6 +39,15 @@ select {
 :-moz-placeholder { color: var(--gray-light) !important; } /* Firefox 18- */
 ::-moz-placeholder { color: var(--gray-light) !important; } /* Firefox 19+ */
 :-ms-input-placeholder { color: var(--gray-light) !important; }
+
+// checkbox and radio
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: relative !important;
+  margin-left: 0 !important;
+}
 
 // error
 .error {

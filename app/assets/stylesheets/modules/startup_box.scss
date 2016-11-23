@@ -1,5 +1,5 @@
 .startup-box {
-  min-height: 342px;
+  min-height: 332px;
 
   a:hover,
   a:focus {
@@ -20,6 +20,12 @@
 .image {
   background-position: center top;
   background-color: var(--gray-lighter)
+}
+
+@media (max-width: 991px) {
+  .startup-box {
+    min-height: 312px;
+  }
 }
 
 @media (max-width: 48em) {

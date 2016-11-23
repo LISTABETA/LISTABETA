@@ -72,7 +72,7 @@
   background-position: center center;
   background-size: cover;
   margin-top: 22px;
-  margin-left: 0 !important;
+  margin-left: 15px !important;
 }
 
 .navbar-right {
@@ -198,6 +198,12 @@
 
   .collapsing {
     overflow: hidden!important;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    margin-left: 0 !important;
   }
 }
 

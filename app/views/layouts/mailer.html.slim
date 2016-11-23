@@ -1,0 +1,81 @@
+doctype 5
+html
+  head
+    meta[charset="utf-8"]
+    /[if lt IE 9]
+      meta[content="text/html; charset=utf-8" http-equiv="Content-Type"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"]
+    css:
+      body{width:100% !important; font-family: 'Lato', Open Sans, Arial, sans-serif;}
+      body{-webkit-text-size-adjust:none; margin:0; padding:0;}
+      body a{text-decoration: none;color:#2dc8f7;}
+      body a:hover, body a:focus{text-decoration: underline;}
+      img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+      table td{border-collapse:collapse;}
+      #backgroundTable{height:100% !important; margin:0; padding:0; width:100% !important;}
+      body, #backgroundTable{background-color:#FAFAFA; color:#3c4858;}
+      h1, .h1{color:#273444;display:block;font-size:36px;font-weight:700;line-height:100%;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-align:left;}
+      h2, .h2{color:#273444;display:block;font-size:31px;font-weight:700;line-height:100%;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-align:left;}
+      h3, .h3{color:#273444;display:block;font-size:21px;font-weight:700;line-height:100%;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-align:left;}
+      h4, .h4{color:#273444;display:block;font-size:18px;font-weight:700;line-height:100%;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-align:left;}
+      #templateHeader{background-color:#FFFFFF;border-bottom:0;}
+      .headerContent{widht:600px;height:150px;text-align:center;vertical-align:middle;border-bottom:1px solid #e0e6ed;}
+      .headerContent a:link, .headerContent a:visited, .headerContent a .yshortcuts{color:#336699;font-weight:normal;text-decoration:underline;}
+      #headerImage{height:auto;max-width:600px;}
+      .bodyContent{background-color:#FFFFFF;padding:30px;}
+      .bodyContent div{padding:20px 35px;color:#333;font-family:Arial;font-size:13px;line-height:150%;text-align:left;}
+      .bodyContent div a:link, .bodyContent div a:visited, .bodyContent div a .yshortcuts{color:#336699;font-weight:normal;text-decoration:underline;}
+      .bodyContent img{display:inline;height:auto;}
+      .footerContent div{color:#707070;font-size:12px;line-height:125%;}
+      .footerContent div a:link, .footerContent div a:visited, .footerContent div a .yshortcuts {color:#4aa3df;font-weight:normal;text-decoration:none;}
+      .footerContent {background-color:#273444;height:130px;widht:600px;text-align:center;font-size:14px; color:#8492a6;}
+      .footerContent a{color:#8492a6;}
+      .footerContent a:hover,
+      .footerContent a:focus{color:#2dc8f7;}
+      .footer-promo {font-size:11px;margin-bottom:0;}
+      .social-link {margin: 0 5px;}
+
+  body leftmargin="0" marginheight="0" marginwidth="0" offset="0" topmargin="0"
+    table#backgroundTable border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"
+      tbody
+        tr
+          td align="center" valign="top"
+            table#templateContainer border="0" cellpadding="0" cellspacing="0" width="600"
+              tbody
+                tr
+                  td align="center" valign="top"
+                    table#templateHeader border="0" cellpadding="0" cellspacing="0" width="600"
+                      tbody
+                        tr
+                          td.headerContent
+                            img src="http://listabeta.com.br/images/listabeta-logo.svg" alt="LISTABETA"
+        tr
+          td align="center" valign="top"
+            table#templateBody border="0" cellpadding="0" cellspacing="0" width="600"
+              tbody
+                tr
+                  td.bodyContent colspan="3" valign="top"
+                    table border="0" cellpadding="20" cellspacing="0" width="100%"
+                      tbody
+                        tr
+                          td valign="top"
+                            = yield
+                            br
+                            p style="line-height: 1.4em;"
+                              | Até breve,
+                              br
+                              strong Equipe LISTABETA
+
+        tr
+          td align="center" valign="top"
+            table#templateHeader border="0" cellpadding="0" cellspacing="0" width="600"
+              tbody
+                tr
+                  td.footerContent
+                    = link_to "Facebook", "https://www.facebook.com/LISTABETA/", title: "Curta-nos no Facebook", target: '_blank', class: 'social-link'
+                    = link_to "Twitter", "https://twitter.com/listabetabr", title: "Siga-nos no Twitter", target: '_blank', class: 'social-link'
+                    = link_to "Github", "https://github.com/LISTABETA/listabeta", title: "Github", target: '_blank', class: 'social-link'
+                    br
+                    p.footer-promo
+                      | Mantido por 
+                      = link_to "COSMIT", "http://cosmit.me", target: '_blank', title: "COSMIT"

@@ -2,11 +2,12 @@ h3.mB-10.mT-0.c-gray-medium[title="Dados básicos"] Dados básicos:
 hr.mT-0.mB-20
 
 / name
-.form-name.mB-25.xs-mB-15
-  = f.input :name, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15', title: 'Nome da Startup' }, placeholder: 'LISTABETA'
+= f.input :name, required: true, input_html: { class: 'fz-base js-name-count-char w-100 bdrs-3 pX-15', title: 'Nome da Startup', maxlength: 20 }, placeholder: 'LISTABETA'
+.input-bottom.d-tb.w-100.mB-10
+  .js-name-count-char-value.d-tbc.fz-small.c-cyan.ta-r.fw-b = (f.object.name.length.to_i-20)*-1
 
 / pitch
-= f.input :pitch, required: true, input_html: { class: 'fz-base js-pitch-count-char w-100 bdrs-3 pX-15', title: 'Descreva sua startup em uma frase', placeholder: 'Exemplo: A lista mensal de startups brasileiras' }, label: 'Descreva sua startup em uma frase'
+= f.input :pitch, required: true, input_html: { class: 'fz-base js-pitch-count-char w-100 bdrs-3 pX-15', title: 'Descreva sua startup em uma frase', placeholder: 'Exemplo: A lista mensal de startups brasileiras', maxlength: 75 }, label: 'Descreva sua startup em uma frase'
 .input-bottom.d-tb.w-100.mB-25.xs-mB-15
   p.d-tbc.fz-small.c-gray-medium Não coloque o nome da sua startup no começo!
   .js-pitch-count-char-value.d-tbc.fz-small.c-cyan.ta-r.fw-b = (f.object.pitch.length.to_i-75)*-1
@@ -16,7 +17,7 @@ hr.mT-0.mB-20
   = f.input :website, required: true, input_html: { class: 'fz-base w-100 bdrs-3 pX-15', title: 'Website' }, placeholder: 'Exemplo: http://listabeta.com.br', label: 'Website'
 
 / description
-= f.input :description, required: true, input_html: { class: 'fz-base js-description-count-char w-100 bdrs-3 pX-15 pY-10 h-120', title: 'Descreva a sua startup em um parágrafo começando com o seu nome' }, label: 'Descreva a sua startup em um parágrafo começando com o seu nome', placeholder: 'Exemplo: A LISTABETA é um serviço online que permite a empreendedores inscreverem suas startups para serem divulgadas em uma newsletter periódica e em um mural no site. Com esta divulgação as startups conseguem atrair clientes e usuários para o seu MVP.'
+= f.input :description, required: true, input_html: { class: 'fz-base js-description-count-char w-100 bdrs-3 pX-15 pY-10 h-120', title: 'Descreva a sua startup em um parágrafo começando com o seu nome', maxlength: 500 }, label: 'Descreva a sua startup em um parágrafo começando com o seu nome', placeholder: 'Exemplo: A LISTABETA é um serviço online que permite a empreendedores inscreverem suas startups para serem divulgadas em uma newsletter periódica e em um mural no site. Com esta divulgação as startups conseguem atrair clientes e usuários para o seu MVP.'
 .input-bottom.d-tb.w-100.mB-25.xs-mB-15
   p.d-tbc.fz-small.c-gray-medium Não use jargões. Fale como uma pessoa comum. Foque nas funcionalidades e na proposta de valor.
   .js-description-count-char-value.d-tbc.fz-small.c-cyan.ta-r.fw-b = (f.object.description.length.to_i-500)*-1
@@ -64,8 +65,8 @@ h3.mB-10.mT-15.c-gray-medium[title="Informações para avaliação"] Informaçõ
 hr.mT-0.mB-20
 
 / access
-= f.input :demonstration, as: :text, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10 h-120' }, label: 'Acesso de teste ao sistema (usuário de teste e URL, caso tenha)', required: true, placeholder: 'Nos informe um usuário de testes e a URL de login para que possamos avaliar o sistema. Usamos somente para avaliar a startup.'
-p.fz-small.c-gray-medium.mB-25.xs-mB-15.mT-5 Usuário deve ser de TESTES. Uso somente para nossa avaliação interna.
+= f.input :demonstration, as: :text, input_html: { class: 'fz-base w-100 bdrs-3 pX-15 pY-10 h-120' }, label: 'Acesso de teste ao sistema (usuário de teste e URL, caso tenha)', required: true, placeholder: 'Nos informe um usuário de testes e a URL de login para que possamos avaliar o sistema ou as instruções para testar o sistema. Usamos somente para avaliar a startup.'
+p.fz-small.c-gray-medium.mB-25.xs-mB-15.mT-5 Uso somente para nossa avaliação interna.
 
 javascript:
   $(function() {

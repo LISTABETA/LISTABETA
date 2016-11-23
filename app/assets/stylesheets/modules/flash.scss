@@ -11,12 +11,13 @@
     padding: 20px;
   }
   .success.wrapper,.notice.wrapper{
-    background-color: #59af6d;
+    background-color: #13ce66;
   }
   .failure.wrapper,.alerts-error.wrapper, .alerts-error.wrapper{
     background-color: var(--red);
   }
   .locale.wrapper{
-    background-color: #4383d1;
+    background-color: #e5e214;
+    color: var(--black);
   }
 }

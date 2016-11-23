@@ -1,14 +1,19 @@
 - set_meta_tags title: 'LISTABETA | Dashboard'
 
-.dashboard.mT-120.xs-mT-90
+.dashboard.mT-120.mB-70.sm-mT-100.sm-mB-40
   .container
     .row
       .col-sm-12.col-md-11.fl-n.mX-a.ta-c
-        h1.c-black.mT-0.mB-10.xs-mB-5[title="Minhas Startups"] Minhas Startups
-        p.alert.alert-warning.fw-b A funcionalidade de Feedbacks foi removida.
+        h1.c-black.mT-0.mB-10.xs-mB-5.lh-1[title="Minhas Startups"] Minhas Startups
     .row.mT-20
       .col-sm-12.col-md-11.fl-n.mX-a
         .row
-          - @startups.each do |startup|
-            .col-sm-4.col-md-3
-              = render partial: 'startups/dashboard_startup_box', locals: {startup: startup}
+          - if @startups.any?
+            - @startups.each do |startup|
+              .col-sm-4.col-md-3
+                = render partial: 'startups/dashboard_startup_box', locals: {startup: startup}
+          - else
+            .col-sm-6.fl-n.mX-a.ta-c
+              h3.c-gray-medium.mT-20.mB-15 Nenhuma Startup encontrada!
+              = link_to 'Enviar Startup', new_startup_path, title: 'Enviar Startup', class: 'btn btn-cyan fz-larger pY-15 pX-30'
+

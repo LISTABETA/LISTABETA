@@ -4,11 +4,11 @@ module SeoHelper
       description: I18n.t('meta_tags.pages.'+page+'.description'),
       keywords: I18n.t('meta_tags.pages.'+page+'.keywords'),
       url: startups_url,
-      image: image_url('logo-azul.png'),
+      image: image_url('listabeta-og.jpg'),
       og: { url: startups_url,
             type: 'blog',
             title: I18n.t('meta_tags.pages.'+page+'.og.title'),
-            image: image_url('logo-azul.png'),
+            image: image_url('listabeta-og.jpg'),
             locale: I18n.t('meta_tags.og.locale'),
             site_name: 'cosmit.me',
             description: I18n.t('meta_tags.pages.'+page+'.og.description')
