@@ -1,17 +1,14 @@
-.container
-  .well.col-md-6.col-md-offset-3
-    h1.text-center Alterar sua senha
-    br
-    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-      .register
+.container.mT-120.mB-70.xs-mT-90.xs-mB-40
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a
+      h1.mT-0.mB-20.xs-mB-10.ta-c.c-blue[title="Alterar sua senha"] Alterar sua senha
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
         = f.error_notification
-        .form-group
-          = f.input :reset_password_token, as: :hidden
-          = f.full_error :reset_password_token
-          = f.input :password, label: "Nova senha", required: true, autofocus: true
-          = f.input :password_confirmation, label: "Confirmar nova senha", required: true
-      .text-center
-        = f.button :submit, "Alterar minha senha", class: "btn default-btn fade"
-    br
-    .text-center
+        = f.input :reset_password_token, as: :hidden
+        = f.full_error :reset_password_token
+        = f.input :password, label: "Nova senha", required: true, autofocus: true, title: 'Nova senha', input_html: { class: 'w-100 bdrs-3 pX-15 mB-20' }
+        = f.input :password_confirmation, label: "Repetir nova senha", required: true, title: 'Repetir nova senha', input_html: { class: 'w-100 bdrs-3 pX-15 mB-15' }
+        = f.button :submit, "Trocar minha senha", title: 'Trocar minha senha', class: 'btn btn-cyan w-100 fz-large pY-15 pX-30 mT-10', data: { disable_with: 'Trocando...' }
+  .row
+    .col-sm-8.col-md-6.fl-n.mX-a.mT-20.xs-mT-15.xs-ta-c
       = render "users/shared/links"

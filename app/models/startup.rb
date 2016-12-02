@@ -13,20 +13,23 @@ class Startup < ActiveRecord::Base
   mount_uploader :screenshot, ScreenshotUploader
 
   validates :name, :website, :pitch, :description, :screenshot,
-            :state, :city, :market_list, presence: true
+            :state, :city, :market_list, :slug, :market_list,
+            :demonstration, presence: true
+  validates :slug, uniqueness: true
   validates :website, url: true
   validates :pitch, length: { in: 20..75 }
   validates :description, length: { in: 50..500 }
+  validate :has_at_least_one_market?
 
   # Normal scopes
-  scope :draft, -> { where(status: Status::DRAFT) }
   scope :pending, -> { where(status: Status::PENDING) }
   scope :approved, -> { where(status: Status::APPROVED) }
+  scope :published, -> { where(status: Status::PUBLISHED) }
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
-  scope :highlighteds, -> { where(highlighted: true, status: Status::APPROVED) }
-  scope :unhighlighteds, -> { where(highlighted: false, status: Status::APPROVED) }
-  scope :order_by_approvement, -> { order("approved_at DESC") }
-  scope :order_by_highlighted_at, -> { order ("highlighted_at DESC")}
+  scope :highlighteds, -> { published.where(highlighted: true) }
+  scope :unhighlighteds, -> { published.where(highlighted: false) }
+  scope :order_by_publication, -> { published.order("published_at ASC") }
+  scope :order_by_highlighted, -> { published.order("highlighted_at DESC") }
 
   # PgSearch scopes (:tsearch = builtin Full-text Search)
   pg_search_scope :by_title, against: :name,
@@ -51,25 +54,33 @@ class Startup < ActiveRecord::Base
                       highlighted_at: nil)
   end
 
-  def submit!
-    return if !status.eql?(Status::DRAFT)
-
-    update_attributes(status: Status::PENDING)
-  end
-
   def approve!
     return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::APPROVED, approved_at: DateTime.now)
-      StartupMailer.notify_approvation(self).deliver
+      StartupMailer.notify_approvation(self).deliver_now
     end
   end
 
-  def unapprove!
+  def publish!
+    return if !status.eql?(Status::APPROVED)
+
+    if update_attributes(status: Status::PUBLISHED, published_at: DateTime.now)
+      StartupMailer.notify_publication(self).deliver_now
+    end
+  end
+
+  def disapprove!
     return if !status.eql?(Status::PENDING)
 
     if update_attributes(status: Status::UNAPPROVED, approved_at: nil)
-      StartupMailer.notify_unapprovation(self).deliver
+      StartupMailer.notify_unapprovation(self).deliver_now
     end
+  end
+
+  private
+
+  def has_at_least_one_market?
+    errors.add(:market_list, "deve possuir ao menos 1 mercado") unless market_list.count > 0
   end
 end

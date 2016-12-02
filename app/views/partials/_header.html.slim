@@ -1,0 +1,27 @@
+nav.navbar.navbar-default.navbar-fixed-top.mB-0.bg-white
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"]
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to '', root_path, class: 'navbar-brand u-imageReplace', title: 'LISTABETA'
+    .collapse.navbar-collapse#navbar-collapse
+      ul.nav.navbar-nav
+        li = link_to 'Todas Startups', startups_path, title: 'Todas Startups', class: 'c-gray-medium mL-15'
+        = form_tag startups_path, class: 'navbar-form navbar-left', method: :get do
+          .input-group
+            input[type="text" class="form-control" name="search" placeholder="Nome da startup..." title="Digite o nome da startup que quer encontrar" value="#{params[:search]}"]
+            span.input-group-btn
+              button[type="submit" title="Pesquisar" class="btn btn-default"]
+                i.fa.fa-search
+
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li = link_to 'Sair', destroy_user_session_path, title:'Sair', method: :delete  , class: 'c-gray-medium'
+          li = link_to 'Dashboard', dashboard_path, title: 'Dashboard', class: 'c-gray-medium'
+        - else
+          li = link_to 'Cadastre-se', new_user_registration_path, title: 'Cadastre-se', class: 'c-gray-medium'
+          li = link_to 'Entrar', new_user_session_path, title: 'Entrar', class: 'c-gray-medium'
+        li  = link_to 'Enviar Startup', new_startup_path, title: 'Enviar Startup', class: 'btn btn-cyan mT-15 mL-15'

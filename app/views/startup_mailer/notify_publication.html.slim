@@ -1,0 +1,9 @@
+h2 style="line-height: 1.1em; margin-top: 0;"
+  | A sua startup #{@startup.name} foi publicada!
+
+p style="line-height: 1.4em;"
+  | A sua startup 
+  strong = @startup.name
+  |  foi publicada na LISTABETA e em nossa newsletter! 
+  = link_to 'Confira aqui', startup_url(@startup)
+  |  a sua startup e compartilhe com seus amigos.

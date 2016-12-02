@@ -3,15 +3,13 @@ class StartupsController < ApplicationController
   autocomplete :startup, :markets,
 
   def index
-    if params[:q].present?
-      @startups = Startup.approved
-                         .order_by_approvement
-                         .by_title(params[:q])
-                         .page(params[:page]).per(20)
+    if params[:search].present?
+      @startups = Startup.order_by_publication
+                         .by_title(params[:search])
+                         .page(params[:page]).per(32)
     else
-      @startups = Startup.approved
-                         .order_by_approvement
-                         .page(params[:page]).per(20)
+      @startups = Startup.order_by_publication
+                         .page(params[:page]).per(32)
     end
   end
 
@@ -28,40 +26,12 @@ class StartupsController < ApplicationController
 
     if @startup.valid?
       @startup.save
-      flash[:notice] = 'Sua Startup foi registrada. Confira as informações antes de submete-la!'
+      flash[:notice] = 'Sua Startup enviada e em breve será avaliada!'
       redirect_to dashboard_path
     else
       flash[:alert] = 'Por favor, confira os erros'
       render :new
     end
-  end
-
-  def edit
-    authorize @startup = current_user.startups.friendly.find(params[:id])
-  end
-
-  def update
-    authorize @startup = current_user.startups.friendly.find(params[:id])
-
-    if @startup.update(permitted_params)
-      flash[:notice] = 'As informações da sua Startup foram atualizadas!'
-      redirect_to dashboard_path
-    else
-      flash[:alert] = 'Por favor, confira os erros'
-      render :edit
-    end
-  end
-
-  def submit
-    authorize @startup = current_user.startups.friendly.find(params[:startup_id])
-
-    if @startup.submit!
-      flash[:notice] = 'Sua Startup foi submetida a aprovação!'
-    else
-      flash[:alert] = 'Houve um erro ao submeter sua Startup'
-    end
-
-    redirect_to dashboard_path
   end
 
   def destroy
@@ -85,6 +55,7 @@ class StartupsController < ApplicationController
 
   def permitted_params
     params.require(:startup).permit([:email, :name, :website, :screenshot, :screenshot_cache,
-                                     :pitch, :description, :phase, :state, :city, :market_list])
+                                     :pitch, :description, :phase, :state, :city, :market_list,
+                                     :slug, :demonstration])
   end
 end

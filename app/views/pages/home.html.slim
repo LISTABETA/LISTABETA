@@ -1,53 +1,28 @@
-- set_meta_tags :site => "LISTABETA", :keywords => 'Startups, Lista, Beta, Lista Beta, Lista de Startups, Lançamentos de Startups, LISTABETA', :og => { :description => 'Confira os últimos lançamentos sobre Startups do Brasil.', :title => "LISTABETA", :image => "#{image_url('logo-azul.png')}", :url => "#{request.url}" }
+- set_meta_tags(meta_tags_for('homepage'))
 
-.banner
-  .container.text-center
-    h1 Se você não pode ser encontrado, você não existe
-    h3 Tenha acesso exclusivo as mais novas startups brasileiras
-    .col-md-8.col-sm-12.col-md-offset-3
-      .col-md-3.col-sm-4.icon-header
-        = image_tag 'icon-envie.png', title: 'Envie sua Startup'
-        br/
-        | ENVIE SUA STARTUP
-      .col-md-3.col-sm-4.icon-header
-        = image_tag 'icon-email.png', title: 'Early adopters recebem por email'
-        br/
-        | EARLY ADOPTERS RECEBEM POR EMAIL
-      .col-md-3.col-sm-4.icon-header
-        icon-header
-        = image_tag 'icon-feedback.png', title: 'Ganhe usuários e feedback'
-        br/
-        | GANHE USUÁRIOS E FEEDBACK
+section.new-startups.mT-120.sm-mT-100.sm-mB-15
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        h3.fz-large.c-gray-medium.fw-n.mT-0.mB-20 Startups recentes
+        .row
+          - @recently.each do |startup|
+            .col-sm-3
+              = render partial: 'startups/startup_box', locals: {startup: startup}
 
-= render partial: 'layouts/newsletter'
+section.newsletter
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        .newsletter-wrapper.bg-black.pY-30.pX-30.bdrs-3
+          = render partial: 'partials/newsletter'
 
-.container
-  .row-fluid
-    .text-center
-      p.subtitle Novas Startups
-    .col-md-10.col-sm-12.col-md-offset-1
-      - @unhighlighteds.each do |startup|
-        .col-md-4.col-sm-6
-          = render partial: 'startups/startup_box', locals: {startup: startup}
-      .text-center
-        .clearfix
-        = link_to "MAIS STARTUPS", startups_path, class: 'btn default-btn fade'
-
-      .text-center
-        p.subtitle Mercados em Destaque
-        .tag-cloud.text-center
-          - @all_markets.each do |f|
-            span.label.label-default.market-tag
-              = link_to "#{f.name} (#{f.count})", markets_path(f.name.downcase.gsub(' ', '-'))
-
-        = link_to "TODOS MERCADOS", markets_path, class: 'btn default-btn fade'
-      br
-      br
-      br
-    .text-center
-      p.subtitle Startups em Destaque
-    .col-md-8.col-sm-12.col-md-offset-2
-      - @highlighteds.each do |startup|
-        = render partial: 'startups/startup_box_big', locals: {startup: startup}
-
-= render partial: 'layouts/press'
+section.startups-list.mT-40.sm-mT-30.pB-30
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        h3.fz-large.c-gray-medium.fw-n.mT-0.mB-20 Startups passadas
+        .row
+          - @past.each do |startup|
+            .col-sm-3
+              = render partial: 'startups/startup_box', locals: {startup: startup}

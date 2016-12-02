@@ -1,27 +1,25 @@
-- set_meta_tags site: "LISTABETA | Startups", keywords: 'Todas as Startups, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups', og: { description: 'Fique por dentro dos últimos lançamentos de Startups', title: "LISTABETA | Startups", image: "#{image_url('logo-azul.png')}", :url =>request.url }
+- set_meta_tags(meta_tags_for('startups'))
 
-.container
-  .row-fluid
-    .text-center
-      p.show-title Startups
-      p.show-pitch Confira as últimas startups lançadas
-    
-    .col-md-6.text-center.col-sm-6.col-md-offset-3.col-sm-offset-3
-      = form_tag startups_path, class: 'form-inline', method: :get do
-        .form-group
-          input type="text" class="form-control" name="q" placeholder="COSMIT" value="#{params[:q]}"
-        button type="submit" class="form-control btn btn-default" Buscar
+section.new-startups.mT-120.sm-mT-100
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        - if @startups.any?
+          .row
+            - @startups.each do |startup|
+              .col-sm-3
+                = render partial: 'startups/startup_box', locals: {startup: startup}
+          .row.mB-40.mT-15
+            .col-sm-12.ta-c
+              = paginate @startups
+        - else
+          .row
+            .col-sm-12.ta-c.h-90vh
+              h1.lh-1 Nenhuma startup encontrada ;(
 
-    br
-  	br
-		br
-
-    .col-md-10.col-sm-12.col-md-offset-1
-      - @startups.each do |startup|
-        .col-md-4.col-sm-6
-          = render partial: 'startups/startup_box', locals: {startup: startup}
-
-.text-center
-  = paginate @startups
-
-= render partial: 'layouts/newsletter'
+section.newsletter.bg-black
+  .container
+    .row
+      .col-sm-12.col-md-11.fl-n.mX-a
+        .newsletter-wrapper.pY-30
+          = render partial: 'partials/newsletter'

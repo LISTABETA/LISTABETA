@@ -1,28 +1,32 @@
-- set_meta_tags site: "LISTABETA | Cadastre sua Startup", 
-                keywords: 'Cadastre sua Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups',
-                og: { description: 'Confira os últimos lançamentos sobre Startups do Brasil.',
-                      title: "LISTABETA | Cadastre sua Startup", 
-                      image: "#{image_url('logo-azul.png')}", 
+- set_meta_tags site: "LISTABETA | Enviar Startup", 
+                keywords: 'Enviar Startup, Startups, Lista, Beta, Lista Beta, LISTABETA, Lista de Startups, Lançamentos de Startups',
+                og: { description: 'A lista de startups brasileiras',
+                      title: "LISTABETA | Enviar Startup", 
+                      image: "#{image_url('listabeta-og.jpg')}", 
                       url: "#{request.url}" }
 
-.container
-  .well.col-md-8.col-md-offset-2
-    h1.text-center Cadastre sua Startup
-    br
-    .bullets
-      icon.glyphicon.glyphicon-ok
-      h4 A startup deve ter site próprio
-    .bullets
-      icon.glyphicon.glyphicon-ok
-      h4 A startup não pode ter sido publicada anteriormente na LISTABETA
-    .bullets
-      icon.glyphicon.glyphicon-ok
-      h4 Os visitantes devem ser capazes de se cadastrar na lista de email para serem notificados sobre o lançamento ou novidades
-    br
-    br
-
-    = simple_form_for(@startup, url: startups_path, html: { class: 'form' }) do |f|
-      .register
-        = render partial: 'form_fields', locals: { f: f }
-      .text-center
-        = f.button :submit, "Cadastrar minha Startup", class: 'btn default-btn fade'
+.container.mT-120.mB-70.sm-mT-100.sm-mB-40
+  .row
+    .col-sm-9.col-md-7.fl-n.mX-a
+      h1.mT-0.mB-30.sm-mB-10.ta-c.c-blue[title="Enviar Startuo"] Enviar Startup
+      .requisits.p-30.bg-gray-lighter.bdrs-3.mB-40.xs-mB-30
+        h3.mT-0[title="Pré-requisitos:"] Pré-requisitos:
+        ul.lis-n.m-0
+          li.p-0.mB-5
+            i.d-i.fa.fa-check.fz-large.c-cyan.mR-10
+            span.fz-large.d-i.fw-n.m-0.p-0 A startup deve estar em fase de validação e ter um MVP (Mínimo Produto Viável) disponível online ou por download.
+          li.p-0.mB-15
+            i.d-i.fa.fa-check.fz-large.c-cyan.mR-10
+            span.fz-large.d-i.fw-n.m-0.p-0 O MVP deve ser um sistema, software, web app, mobile app que entregue ao usuário o valor promotido.
+          li.p-0.mB-5
+            i.d-i.fa.fa-times.fz-large.c-red.mR-10
+            span.fz-large.d-i.fw-n.m-0.p-0 Landingpages, MVP concierges, protótipos funcionais e plataforma de terceiros (Wordpress, Unbounce, etc) não são permitidos.
+          li.p-0.mB-0
+            i.d-i.fa.fa-times.fz-large.c-red.mR-10
+            span.fz-large.d-i.fw-n.m-0.p-0 Não pode ter sido publicada anteriormente na LISTABETA.
+      
+      = simple_form_for(@startup, url: startups_path, html: { class: 'form' }) do |f|
+        .register
+          = render partial: 'form_fields', locals: { f: f }
+        .text-center
+          = f.button :submit, "Enviar Startup", class: 'btn btn-cyan fz-large pX-20 pY-20 w-100', title: 'Enviar Startup'

@@ -7,19 +7,11 @@ class StartupPolicy < ApplicationPolicy
   end
 
   def show?
-    startup.approved?
+    startup.published? || startup.user == @user
   end
 
-  def edit?
-    startup.draft? && startup.user == user
-  end
-
-  def update?
-    edit?
-  end
-
-  def submit?
-    edit?
+  def create?
+    @user
   end
 
   def destroy?

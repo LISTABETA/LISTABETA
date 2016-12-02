@@ -24,20 +24,20 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [910, 500]
+  # process resize_to_fill: [910, 500]
   #
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
-  # version :big_thumb do
-  #   process resize_to_fill: [290, 199]
-  # end
+  version :full do
+    process resize_to_fill: [1088, 816]
+  end
 
-  # version :thumb, from_version: :big_thumb do
-  #   process :resize_to_fill => [120, 120]
-  # end
+  version :thumb do
+    process resize_to_fill: [323, 242]
+  end
 
 
   # Add a white list of extensions which are allowed to be uploaded.

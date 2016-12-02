@@ -1,0 +1,23 @@
+.flash{
+  font-size: 26px;
+  color: white;
+
+  z-index: 500;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  .wrapper{
+    padding: 20px;
+  }
+  .success.wrapper,.notice.wrapper{
+    background-color: #13ce66;
+  }
+  .failure.wrapper,.alerts-error.wrapper, .alerts-error.wrapper{
+    background-color: var(--red);
+  }
+  .locale.wrapper{
+    background-color: #e5e214;
+    color: var(--black);
+  }
+}

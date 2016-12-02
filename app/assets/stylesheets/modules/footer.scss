@@ -1,0 +1,38 @@
+footer {
+  bottom: -218px;
+  height: 218px;
+  left: 0;
+  position: absolute;
+  right: 0;
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+
+  a.link-love {
+    &:hover,
+    &:focus {
+      color: var(--gray-medium);
+
+      span {
+        color: #e53d7b;
+        transition: all .3s;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  footer {
+    bottom: -178px;
+    height: 178px;
+  }
+}
+
+@media (max-width: 420px) {
+  footer {
+    bottom: -208px;
+    height: 208px;
+  }
+}

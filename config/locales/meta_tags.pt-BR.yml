@@ -1,0 +1,94 @@
+pt-BR:
+  meta_tags:
+    og:
+      locale: 'pt_BR'
+
+    pages:
+      startups:
+        title: 'LISTABETA | Startups'
+        description: 'Confira as últimas startups brasileiras'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
+        og:
+          title: 'LISTABETA | Startups'
+          description: 'Confira as últimas startups brasileiras'
+        twitter:
+          card: 'LISTABETA'
+          description: 'Confira as últimas startups brasileiras'
+
+      homepage:
+        title: 'LISTABETA'
+        description: 'Confira as últimas startups brasileiras'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
+        og:
+          title: 'LISTABETA'
+          site_name: 'www.listabeta.com.br'
+          description: 'Confira as últimas startups brasileiras'
+        twitter:
+          card: 'LISTABETA'
+          site: '@LISTABETAbr'
+          description: 'Confira as últimas startups brasileiras'
+
+      about:
+        title: 'LISTABETA | Sobre nós'
+        description: 'Saiba mais sobre a LISTABETA'
+        keywords: "cosmit, gabriel carpenedo, patrick müller, Roberto Ronzella, Andre de Souza Pinho,"
+        og:
+          title: 'LISTABETA | Sobre nós'
+          site_name: 'www.listabeta.com.br'
+          description: 'Saiba mais sobre a LISTABETA'
+        twitter:
+          card: 'LISTABETA | Sobre nós'
+          site: '@LISTABETAbr'
+          description: 'Saiba mais sobre a LISTABETA'
+
+      confirmation:
+        title: 'LISTABETA | Confirmação de Conta'
+        description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
+        og:
+          title: 'LISTABETA | Confirmação de Conta'
+          site_name: 'www.listabeta.com.br'
+          description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
+        twitter:
+          card: 'LISTABETA | Confirmação de Conta'
+          site: '@LISTABETAbr'
+          description: 'Não recebeu o email de confirmação? Não se preocupe, reenviamos ele para você!'
+
+      password:
+        title: 'LISTABETA | Recuperar minha senha'
+        description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups, senha, password'
+        og:
+          title: 'LISTABETA | Recuperar minha senha'
+          site_name: 'www.listabeta.com.br'
+          description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+        twitter:
+          card: 'Conheça nossos Cases!'
+          site: '@LISTABETAbr'
+          description: 'Está com dificuldades de entrar e não lembra sua senha? Não se preocupe, nós te enviamos outra!'
+
+      registration:
+        title: 'LISTABETA | Cadastre-se'
+        description: 'Cadastre-se e envie sua startup para maior lista brasileira'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups, cadastre-se, cadastro, conta'
+        og:
+          title: 'LISTABETA | Cadastre-se'
+          site_name: 'www.listabeta.com.br'
+          description: 'Cadastre-se e envie sua startup para maior lista brasileira'
+        twitter:
+          card: 'Conheça nossos Cases!'
+          site: '@LISTABETAbr'
+          description: 'Cadastre-se e envie sua startup para maior lista brasileira'
+
+      session:
+        title: 'LISTABETA | Entrar'
+        description: 'Confira as últimas startups brasileiras!'
+        keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
+        og:
+          title: 'LISTABETA | Acesse sua conta!'
+          site_name: 'www.listabeta.com.br'
+          description: 'Confira as últimas startups brasileiras'
+        twitter:
+          card: 'LISTABETA | Entrar'
+          site: '@LISTABETAbr'
+          description: 'Confira as últimas startups brasileiras'
