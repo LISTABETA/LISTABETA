@@ -19,7 +19,6 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include AuthenticationHelper, type: :controller
-  config.include Devise::TestHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Requests::JsonHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
@@ -54,6 +53,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     ActionMailer::Base.deliveries.clear
+  end
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
   end
 end
 

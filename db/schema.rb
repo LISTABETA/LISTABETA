@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   enable_extension "unaccent"
 
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace",     limit: 255
+    t.string   "namespace"
     t.text     "body"
-    t.string   "resource_id",   limit: 255, null: false
-    t.string   "resource_type", limit: 255, null: false
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
     t.integer  "author_id"
-    t.string   "author_type",   limit: 255
+    t.string   "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,16 +35,16 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",               null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
   end
 
@@ -66,18 +66,18 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "startups", force: :cascade do |t|
-    t.string   "name",           limit: 255, default: "",    null: false
-    t.string   "city",           limit: 255, default: "",    null: false
-    t.string   "pitch",          limit: 255, default: "",    null: false
-    t.string   "state",          limit: 255, default: "",    null: false
-    t.string   "website",        limit: 255, default: "",    null: false
-    t.string   "twitter",        limit: 255, default: "",    null: false
-    t.string   "markets",        limit: 255, default: "",    null: false
-    t.text     "description",                default: "",    null: false
-    t.string   "screenshot",     limit: 255, default: "",    null: false
-    t.boolean  "highlighted",                default: false
-    t.string   "slug",           limit: 255
-    t.integer  "status",                     default: 1,     null: false
+    t.string   "name",           default: "",    null: false
+    t.string   "city",           default: "",    null: false
+    t.string   "pitch",          default: "",    null: false
+    t.string   "state",          default: "",    null: false
+    t.string   "website",        default: "",    null: false
+    t.string   "twitter",        default: "",    null: false
+    t.string   "markets",        default: "",    null: false
+    t.text     "description",    default: "",    null: false
+    t.string   "screenshot",     default: "",    null: false
+    t.boolean  "highlighted",    default: false
+    t.string   "slug"
+    t.integer  "status",         default: 1,     null: false
     t.datetime "approved_at"
     t.datetime "highlighted_at"
     t.integer  "user_id"
@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
-    t.string   "taggable_type", limit: 255
+    t.string   "taggable_type"
     t.integer  "tagger_id"
-    t.string   "tagger_type",   limit: 255
+    t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20161117002329) do
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name",           limit: 255
-    t.integer "taggings_count",             default: 0
+    t.string  "name"
+    t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree

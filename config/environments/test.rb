@@ -13,7 +13,7 @@ Listabeta::Application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
@@ -33,4 +33,10 @@ Listabeta::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Currently, Active Record suppresses errors raised within after_rollback/after_commit
+  # callbacks and only print them to the logs. In the next version, these errors
+  # will no longer be suppressed. Instead, the errors will propagate normally
+  # just like in other Active Record callbacks
+  config.active_record.raise_in_transactional_callbacks = true
 end
