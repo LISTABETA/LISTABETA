@@ -1,19 +1,51 @@
 require 'spec_helper'
 
-describe StartupsController do
-  describe "GET 'index'" do
-    it "returns http success" do
-      get :index
-      response.should be_success
+RSpec.describe StartupsController, type: :controller do
+  let(:user) { create(:user) }
+  let(:startup) { create(:startup, :published) }
+  let!(:startups) { create_list(:startup, 10, :published) }
+
+  describe 'GET #index' do
+    context 'when user logged in' do
+      before do
+        login(user)
+        get :index
+      end
+
+      it { is_expected.to respond_with(:ok) }
+      it { expect(assigns(:startups).count).to eq(10) }
+    end
+
+    context 'when user logged out' do
+      before do
+        login(nil)
+        get :index
+      end
+
+      it { is_expected.to respond_with(:ok) }
+      it { expect(assigns(:startups).count).to eq(10) }
     end
   end
 
-  describe "GET 'show'" do
-    let(:startup) { Startup.make!(status: Status::APPROVED) }
+  describe 'GET #show' do
+    context 'when user logged in' do
+      before do
+        login(user)
+        get :show, id: startup.id
+      end
 
-    it "returns http success" do
-      get :show, id: startup.to_param
-      response.should be_success
+      it { is_expected.to respond_with(:ok) }
+      it { expect(assigns(:startup)).to eq(startup) }
+    end
+
+    context 'when user logged out' do
+      before do
+        login(nil)
+        get :show, id: startup.id
+      end
+
+      it { is_expected.to respond_with(:ok) }
+      it { expect(assigns(:startup)).to eq(startup) }
     end
   end
 end
