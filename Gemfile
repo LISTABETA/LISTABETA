@@ -69,12 +69,12 @@ end
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
-  gem 'letter_opener', '~> 1.4.1'
   gem 'quiet_assets', '~> 1.1.0'
+  gem 'letter_opener', '~> 1.4.1'
+  gem 'factory_girl_rails', '~> 4.7.0'
 end
 
 group :test do
-  gem 'machinist', '~> 2.0'
   gem 'rspec-rails', '~> 3.5.2'
   gem 'database_cleaner', '~> 1.5'
   gem 'shoulda-matchers', '~> 3.1'
