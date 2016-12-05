@@ -10,34 +10,32 @@ describe PagesController do
     end
 
     describe "GET markets" do
-      before do
-        @startup ||= Startup.make!(status: Status::APPROVED)
-      end
+      let(:startup) { create(:startup, :published) }
 
       it "and not assign startup when pass no :tag" do
         get :markets
         expect(response.status).to eql 200
-        expect(assigns(:markets)).not_to include(@startup)
+        expect(assigns(:markets)).not_to include(startup)
         expect(assigns(:markets)).to include(Startup.tag_counts_on(:markets)[1])
       end
 
       it "and assign startup when pass no :tag" do
         get :markets, tag: 'Startups'
         expect(response.status).to eql 200
-        expect(assigns(:startups)).to include(@startup)
+        expect(assigns(:startups)).to include(startup)
         expect(assigns(:startups)).not_to include(Startup.tag_counts_on(:markets)[1])
       end
     end
 
     describe "GET dashboard" do
       before do
-        @startup ||= Startup.make!
-        sign_in @startup
+        startup ||= Startup.make!
+        sign_in startup
       end
 
       it "assign feedbacks_total" do
         get :dashboard
-        expect(assigns(:feedbacks_total)).to eql Questionnaire.where(startup: @startup).count
+        expect(assigns(:feedbacks_total)).to eql Questionnaire.where(startup: startup).count
       end
     end
   end
@@ -52,20 +50,20 @@ describe PagesController do
 
     describe "GET markets" do
       before do
-        @startup ||= Startup.make!(status: Status::APPROVED)
+        startup ||= Startup.make!(status: Status::APPROVED)
       end
 
       it "and not assign startup when pass no :tag" do
         get :markets
         expect(response.status).to eql 200
-        expect(assigns(:markets)).not_to include(@startup)
+        expect(assigns(:markets)).not_to include(startup)
         expect(assigns(:markets)).to include(Startup.tag_counts_on(:markets)[1])
       end
 
       it "and assign startup when pass no :tag" do
         get :markets, tag: 'Startups'
         expect(response.status).to eql 200
-        expect(assigns(:startups)).to include(@startup)
+        expect(assigns(:startups)).to include(startup)
         expect(assigns(:startups)).not_to include(Startup.tag_counts_on(:markets)[1])
       end
     end

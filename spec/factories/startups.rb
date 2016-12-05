@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :startup do
+    association :user
     sequence(:slug) { |n| "startup-#{n}" }
     sequence(:name) { |n| "Startup #{n}" }
     city "Porto Alegre"
@@ -11,16 +12,22 @@ FactoryGirl.define do
     description "Apenas mais uma DESCRIÇÃO da startup"*5
     demonstration "Apenas mais uma DESCRIÇÃO da de como utilizar"*5
 
-    trait :approved do
-      status Status::APPROVED
-    end
-
     trait :pending do
       status Status::PENDING
     end
 
+    trait :unapproved do
+      status Status::UNAPPROVED
+    end
+
+    trait :approved do
+      status Status::APPROVED
+      approved_at DateTime.now
+    end
+
     trait :published do
       status Status::PUBLISHED
+      published_at DateTime.now
     end
 
     trait :highlighted do
