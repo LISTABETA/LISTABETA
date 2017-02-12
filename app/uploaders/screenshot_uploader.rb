@@ -32,7 +32,7 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :full do
-    process resize_to_fill: [1088, 816]
+    process resize_to_fill: [1088, 810]
   end
 
   version :thumb do

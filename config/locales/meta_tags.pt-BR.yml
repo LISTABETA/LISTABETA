@@ -6,27 +6,27 @@ pt-BR:
     pages:
       startups:
         title: 'LISTABETA | Startups'
-        description: 'Confira as últimas startups brasileiras'
+        description: 'A lista brasileira de startups'
         keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA | Startups'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
         twitter:
           card: 'LISTABETA'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
 
       homepage:
         title: 'LISTABETA'
-        description: 'Confira as últimas startups brasileiras'
+        description: 'A lista brasileira de startups'
         keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA'
           site_name: 'www.listabeta.com.br'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
         twitter:
           card: 'LISTABETA'
           site: '@LISTABETAbr'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
 
       about:
         title: 'LISTABETA | Sobre nós'
@@ -82,13 +82,13 @@ pt-BR:
 
       session:
         title: 'LISTABETA | Entrar'
-        description: 'Confira as últimas startups brasileiras!'
+        description: 'A lista brasileira de startups!'
         keywords: 'LISTABETA, lista beta, startups, lista de startups, lista de startups brasileiras, novas startups, lançamento de startups'
         og:
           title: 'LISTABETA | Acesse sua conta!'
           site_name: 'www.listabeta.com.br'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
         twitter:
           card: 'LISTABETA | Entrar'
           site: '@LISTABETAbr'
-          description: 'Confira as últimas startups brasileiras'
+          description: 'A lista brasileira de startups'
