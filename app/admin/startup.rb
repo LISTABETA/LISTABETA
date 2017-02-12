@@ -148,6 +148,7 @@ ActiveAdmin.register Startup do
       row :name do |startup|
         link_to startup.name, startup_path(startup)
       end
+      row :slug
       row :website do |startup|
         link_to startup.website, startup.website, target: 'blank'
       end
