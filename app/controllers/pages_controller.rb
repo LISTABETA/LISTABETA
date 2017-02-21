@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @recently = Startup.order_by_publication.limit(8)
     @past     = Startup.order_by_publication.limit(40) - @recently
-    @all_markets = Startup.approved.tag_counts_on(:markets).order(:name).limit(20)
+    # @all_markets = Startup.approved.tag_counts_on(:markets).order(:name).limit(20)
   end
 
   def markets

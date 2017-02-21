@@ -8,7 +8,7 @@ section.new-startups.mT-120.sm-mT-100.sm-mB-15
         .row
           - @recently.each do |startup|
             .col-sm-3
-              = render partial: 'startups/startup_box', locals: {startup: startup}
+              = render partial: 'startups/startup_box', locals: { startup: startup }
 
 section.newsletter
   .container
@@ -25,4 +25,4 @@ section.startups-list.mT-40.sm-mT-30.pB-30
         .row
           - @past.each do |startup|
             .col-sm-3
-              = render partial: 'startups/startup_box', locals: {startup: startup}
+              = render partial: 'startups/startup_box', locals: { startup: startup }
