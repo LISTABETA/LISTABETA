@@ -20,7 +20,7 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    asset_path("/#{[version_name, "avatar_default.jpg"].compact.join('_')}")
+    asset_path("/#{[version_name, "startup_default.png"].compact.join('_')}")
   end
 
   # Process files as they are uploaded:
