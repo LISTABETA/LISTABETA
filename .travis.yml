@@ -3,7 +3,7 @@ rvm:
 - 2.3.1
 bundler_args: --jobs=2
 script:
-script:
+  - cp config/database.yml.sample config/database.yml
   - bundle exec rake db:setup
   - bundle exec rake spec
 cache: bundler
