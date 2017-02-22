@@ -4,7 +4,7 @@ rvm:
 bundler_args: --jobs=2
 script:
   - cp config/database.yml.sample config/database.yml
-  - bundle exec rake db:setup
+  - bundle exec rake db:create db:migrate
   - bundle exec rake spec
 cache: bundler
 services:
