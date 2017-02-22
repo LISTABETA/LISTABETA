@@ -33,19 +33,17 @@ module Listabeta
     config.i18n.locale = :"pt-BR"
 
     config.generators do |g|
-      g.template_engine :slim
+      g.helper false
       g.javascripts false
       g.stylesheets false
-      g.helper false
+      g.template_engine :slim
       g.test_framework :rspec,
-        :view_specs => false,
-        :helper_specs => false
-      g.fixture_replacement :machinist
+        view_specs: false,
+        helper_specs: false
     end
 
     # Autoload paths for enumerations
     config.autoload_paths << "#{Rails.root}/app/enumerations"
-
     config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
   end
 end

@@ -10,7 +10,7 @@
   User.create!(name: "User #{i}",
                email: "user_#{i}@test.com",
                avatar: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
-               password: "123123123").confirm!
+               password: "123123123")
 end
 
 10.times do |i|

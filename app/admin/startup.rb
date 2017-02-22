@@ -82,22 +82,22 @@ ActiveAdmin.register Startup do
     redirect_to :back
   end
 
-  action_item only: :show do
+  action_item 'Aprovar', only: :show do
     startup = Startup.friendly.find(params[:id])
     link_to "Aprovar", approve_admin_startup_path if startup.unapproved? || startup.pending?
   end
 
-  action_item only: :show do
+  action_item 'Desaprovar', only: :show do
     startup = Startup.friendly.find(params[:id])
     link_to "Desaprovar", unapprove_admin_startup_path if startup.approved? || startup.pending?
   end
 
-  action_item only: :show do
+  action_item 'Publicar', only: :show do
     startup = Startup.friendly.find(params[:id])
     link_to "Publicar", publish_admin_startup_path if startup.approved?
   end
 
-  action_item only: :show do
+  action_item 'Tirar do destaque', only: :show do
     startup = Startup.friendly.find(params[:id])
     unless startup.highlighted.nil?
       link_to "Tirar do destaque", unhighlight_admin_startup_path if startup.highlighted?

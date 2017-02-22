@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Startup do
+RSpec.describe Startup, type: :model do
   describe "Validations" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :website }
@@ -10,7 +10,6 @@ describe Startup do
     it { should validate_presence_of :state }
     it { should validate_presence_of :city }
     it { should validate_presence_of :market_list }
-    it { should validate_presence_of :slug }
     it { should validate_uniqueness_of :slug }
     it { should validate_length_of(:pitch).is_at_least(20).is_at_most(75) }
     it { should validate_length_of(:description).is_at_least(50).is_at_most(500) }
@@ -36,260 +35,155 @@ describe Startup do
 
   describe "Scopes" do
     context "#highlighted" do
-      before do
-        @startup_1 = Startup.make!(highlighted: true, status: Status::APPROVED)
-        @startup_2 = Startup.make!(highlighted: true)
-        @startup_3 = Startup.make!(status: Status::APPROVED)
-      end
+      let(:startup_1) { create(:startup, :published, :highlighted) }
+      let(:startup_2) { create(:startup, :approved, :highlighted) }
+      let(:startup_3) { create(:startup, :pending) }
 
       it "return only the highlighted startups that are approved" do
-        expect(Startup.highlighteds).to include(@startup_1)
-        expect(Startup.highlighteds).to_not include(@startup_2)
-      end
-
-      it "doesn't include startups which are not highlighted" do
-        expect(Startup.highlighteds).to_not include(@startup_3)
+        expect(Startup.highlighteds).to include(startup_1)
+        expect(Startup.highlighteds).to_not include(startup_2)
+        expect(Startup.highlighteds).to_not include(startup_3)
       end
     end
 
     context "#unhighlighted" do
-      before do
-        @startup_1 = Startup.make!(status: Status::APPROVED)
-        @startup_2 = Startup.make!(status: Status::APPROVED)
-        @startup_3 = Startup.make!(highlighted: true, status: Status::APPROVED)
-      end
+      let(:startup_1) { create(:startup, :published) }
+      let(:startup_2) { create(:startup, :published) }
+      let(:startup_3) { create(:startup, :published, :highlighted) }
 
       it "return only the unhighlighted startups" do
-        expect(Startup.unhighlighteds).to include(@startup_1)
-        expect(Startup.unhighlighteds).to include(@startup_2)
-      end
-
-      it "doesn't include startups which are highlighted" do
-        expect(Startup.unhighlighteds).to_not include(@startup_3)
+        expect(Startup.unhighlighteds).to include(startup_1)
+        expect(Startup.unhighlighteds).to include(startup_2)
+        expect(Startup.unhighlighteds).to_not include(startup_3)
       end
     end
 
     context "#approved" do
-      before do
-        @startup_1 = Startup.make!(status: Status::APPROVED)
-        @startup_2 = Startup.make!(status: Status::APPROVED)
-        @startup_3 = Startup.make!(status: Status::UNAPPROVED)
-      end
+      let(:startup_1) { create(:startup, :approved) }
+      let(:startup_2) { create(:startup, :approved) }
+      let(:startup_3) { create(:startup, :unapproved) }
 
       it "return only the approved startups" do
-        expect(Startup.approved).to include(@startup_1)
-        expect(Startup.approved).to include(@startup_2)
-      end
-
-      it "doesn't include startups which are not approved" do
-        expect(Startup.approved).to_not include(@startup_3)
+        expect(Startup.approved).to include(startup_1)
+        expect(Startup.approved).to include(startup_2)
+        expect(Startup.approved).to_not include(startup_3)
       end
     end
 
     context "#unapproved" do
-      before do
-        @startup_1 = Startup.make!(status: Status::UNAPPROVED)
-        @startup_2 = Startup.make!(status: Status::UNAPPROVED)
-        @startup_3 = Startup.make!(status: Status::APPROVED)
-      end
+      let(:startup_1) { create(:startup, :unapproved) }
+      let(:startup_2) { create(:startup, :unapproved) }
+      let(:startup_3) { create(:startup, :approved) }
 
       it "return only the unhighlighted startups" do
-        expect(Startup.unapproved).to include(@startup_1)
-        expect(Startup.unapproved).to include(@startup_2)
-      end
-
-      it "doesn't include startups which are approved" do
-        expect(Startup.unapproved).to_not include(@startup_3)
+        expect(Startup.unapproved).to include(startup_1)
+        expect(Startup.unapproved).to include(startup_2)
+        expect(Startup.unapproved).to_not include(startup_3)
       end
     end
 
     context "#published" do
-      before do
-        @startup_1 = Startup.make!(status: Status::PUBLISHED)
-        @startup_2 = Startup.make!(status: Status::PUBLISHED)
-        @startup_3 = Startup.make!(status: Status::APPROVED)
-      end
+      let(:startup_1) { create(:startup, :published) }
+      let(:startup_2) { create(:startup, :published) }
+      let(:startup_3) { create(:startup, :approved) }
 
       it "return only the published startups" do
-        expect(Startup.published).to include(@startup_1)
-        expect(Startup.published).to include(@startup_2)
-      end
-
-      it "doesn't include startups which are approved" do
-        expect(Startup.published).to_not include(@startup_3)
+        expect(Startup.published).to include(startup_1)
+        expect(Startup.published).to include(startup_2)
+        expect(Startup.published).to_not include(startup_3)
       end
     end
   end
 
   describe "Methods" do
     context "#highlight!" do
-      before do
-        @startup_unhighlight ||= Startup.make!
-        @startup_highlight   ||= Startup.make!(highlighted: true)
-      end
+      let(:startup_unhighlight) { create(:startup, :published) }
+      let(:startup_highlight) { create(:startup, :published, :highlighted) }
 
       it "set when is unhighlighted" do
-        @startup_unhighlight.highlight!
-        expect(@startup_unhighlight.highlighted).to be_true
+        startup_unhighlight.highlight!
+        expect(startup_unhighlight.highlighted).to be_truthy
       end
 
       it "do nothing when already highlighted" do
-        @startup_highlight.highlight!
-        expect(@startup_highlight.highlighted).to be_true
+        startup_highlight.highlight!
+        expect(startup_highlight.highlighted).to be_truthy
       end
 
       it "set highlighted_at to DateTime.now when unhighlighted" do
         expected = DateTime.now
         DateTime.stub(:now).and_return(expected)
         expect {
-          @startup_unhighlight.highlight!
-        }.to change(@startup_unhighlight, :highlighted_at).from(nil).to(expected)
+          startup_unhighlight.highlight!
+        }.to change(startup_unhighlight, :highlighted_at).from(nil).to(expected)
       end
     end
 
     context "#unhighlight!" do
-      before do
-        @startup_unhighlight ||= Startup.make!
-        @startup_highlight   ||= Startup.make!(highlighted: true)
-      end
+      let(:startup_unhighlight) { create(:startup, :published) }
+      let(:startup_highlight) { create(:startup, :published, :highlighted) }
 
       it "set when is highlighted" do
-        @startup_highlight.unhighlight!
-        expect(@startup_highlight.highlighted).to be_false
+        startup_highlight.unhighlight!
+        expect(startup_highlight.highlighted).to be_falsey
       end
 
       it "do nothing when already unhighlighted" do
-        @startup_highlight.unhighlight!
-        expect(@startup_highlight.highlighted).to be_false
+        startup_highlight.unhighlight!
+        expect(startup_highlight.highlighted).to be_falsey
       end
     end
 
     context "#approve!" do
+      let(:startup_pending) { create(:startup, :pending) }
+      let(:approved_datetime) { DateTime.new(2013, 11, 20, 12, 00) }
+      let(:startup_approved) do
+        create(:startup, :published, :highlighted,
+               approved_at: approved_datetime)
+      end
+
       before do
-        @startup_unapproved ||= Startup.make!
-        @approved_datetime ||= DateTime.new(2013, 11, 20, 12, 00)
-        @startup_approved ||= Startup.make!(status: Status::APPROVED, approved_at: @approved_datetime)
+        startup_pending.approve!
+        startup_pending.reload
       end
 
-      context "startup is unapproved" do
-        before { @startup_unapproved.approve! }
-
-        it "change status to approved" do
-          expect(@startup_unapproved.reload.status).to eql(Status::APPROVED)
-        end
-
-        it "approved_at is not nil" do
-          expect(@startup_unapproved.reload.approved_at).to_not be_nil
-        end
-
-        it "approved_at is a Time" do
-          expect(@startup_unapproved.reload.approved_at).to be_a(Time)
-        end
-      end
-
-      context "already approved" do
-        before { @startup_approved.approve! }
-
-        it "continues with approved status" do
-          expect(@startup_approved.reload.status).to eql(Status::APPROVED)
-        end
-
-        it "approved_at is not nil" do
-          expect(@startup_approved.reload.approved_at).to_not be_nil
-        end
-
-        it "approved_at is a Time" do
-          expect(@startup_approved.reload.approved_at).to be_a(Time)
-        end
-
-        it "approved_at is the old time" do
-          expect(@startup_approved.reload.approved_at).to eq(@approved_datetime)
-        end
-      end
+      it { expect(startup_pending.status).to eql(Status::APPROVED) }
+      it { expect(startup_pending.approved_at).to_not be_nil }
 
       it "send mail after approve!" do
-        @startup_unapproved.approve!
-        ActionMailer::Base.deliveries.last.to.should == [@startup_unapproved.email]
+        expect(ActionMailer::Base.deliveries.last.to).to include(
+          startup_pending.user.email
+        )
       end
     end
 
     context "#disapprove!" do
+      let(:startup_pending) { create(:startup, :pending) }
+
       before do
-        @startup_unapproved ||= Startup.make!(status: Status::UNAPPROVED)
-        @startup_approved   ||= Startup.make!(status: Status::APPROVED, approved_at: DateTime.now)
+        startup_pending.disapprove!
+        startup_pending.reload
       end
 
-      context "unnaproved startup" do
-        before { @startup_unapproved.disapprove! }
-
-        it "set when is approved" do
-          expect(@startup_unapproved.reload.status).to eql(Status::UNAPPROVED)
-        end
-
-        it "sets nil on approved_at" do
-          expect(@startup_unapproved.reload.approved_at).to be_nil
-        end
-      end
-
-      context "approved startup" do
-        before { @startup_approved.disapprove! }
-
-        it "do nothing when already unapproved" do
-          expect(@startup_approved.reload.status).to eql(Status::UNAPPROVED)
-        end
-
-        it "sets nil on approved_at" do
-          expect(@startup_approved.reload.approved_at).to be_nil
-        end
-      end
+      it { expect(startup_pending.status).to eql(Status::UNAPPROVED) }
+      it { expect(startup_pending.approved_at).to be_nil }
     end
 
     context "#publish!" do
+      let(:startup_approved) { create(:startup, :approved) }
+
       before do
-        @approved_datetime ||= DateTime.new(2013, 11, 20, 12, 00)
-        @startup_approved ||= Startup.make!(status: Status::APPROVED, approved_at: @approved_datetime)
-        @startup_published ||= Startup.make!(status: Status::PUBLISHED, published_at: @approved_datetime)
+        startup_approved.publish!
+        startup_approved.reload
       end
 
-      context "startup is published" do
-        before { @startup_approved.publish! }
-
-        it "change status to published" do
-          expect(@startup_approved.reload.status).to eql(Status::PUBLISHED)
-        end
-
-        it "published_at is not nil" do
-          expect(@startup_approved.reload.published_at).to_not be_nil
-        end
-
-        it "published_at is a DateTime" do
-          expect(@startup_approved.reload.published_at).to be_a(DateTime)
-        end
-      end
-
-      context "already published" do
-        before { @startup_published.published! }
-
-        it "continues with published status" do
-          expect(@startup_published.reload.status).to eql(Status::PUBLISHED)
-        end
-
-        it "published_at is not nil" do
-          expect(@startup_published.reload.published_at).to_not be_nil
-        end
-
-        it "published_at is a DateTime" do
-          expect(@startup_published.reload.published_at).to be_a(DateTime)
-        end
-
-        it "published_at is the old time" do
-          expect(@startup_published.reload.approved_at).to eq(@approved_datetime)
-        end
-      end
+      it { expect(startup_approved.status).to eql(Status::PUBLISHED) }
+      it { expect(startup_approved.published_at).to_not be_nil }
 
       it "send mail after publish!" do
-        @startup_approved.publish!
-        ActionMailer::Base.deliveries.last.to.should == [@startup_approved.email]
+        expect(ActionMailer::Base.deliveries.last.to).to include(
+          startup_approved.user.email
+        )
       end
     end
   end

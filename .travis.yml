@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.3.1
+bundler_args: --jobs=2
+script:
+  - cp config/database.yml.sample config/database.yml
+  - bundle exec rake db:create db:migrate
+  - bundle exec rake spec
+cache: bundler
+services:
+  - postgresql
+addons:
+  postgresql: "9.4"

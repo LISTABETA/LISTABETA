@@ -1,6 +1,6 @@
 class StartupsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  autocomplete :startup, :markets,
+  autocomplete :startup, :markets
 
   def index
     if params[:search].present?

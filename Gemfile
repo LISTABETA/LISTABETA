@@ -26,49 +26,35 @@ gem 'font-awesome-rails', '~> 4.4.0'
 # Simple form for form wrappers
 gem 'simple_form', '~> 3.3'
 # ActiveAdmin for admin management
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre4'
 # To manage users
 gem 'devise', '~> 4.2'
 gem 'devise-i18n', '~> 1.1'
 # Enumerate_it
 gem 'enumerate_it', '~> 1.3'
 # For avatar uploading
-gem 'carrierwave', '~> 0.11'
 gem 'fog', '~> 1.38'
+gem 'carrierwave', '~> 0.11'
 gem 'mini_magick', '~> 4.4'
 # Google Analytics
 gem 'google-analytics-rails', '~> 1.1'
-# See https://github.com/sstephenson/execjs#readme for more supported runtime
-# gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.2'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilde
-# gem 'jbuilder', '~> 1.2'
+gem 'jquery-ui-rails', '~> 5.0.5'
 # To work with tags, like markets field onside Startup Model
 gem 'acts-as-taggable-on', '~> 3.5.0'
 # To work with friendly-id on Startups show page
 gem 'friendly_id', '~> 5.1.0'
-# For group records by all kind of dates
-gem 'groupdate', '~> 2.4.0'
-# Charts API
-gem 'chartkick', '~> 1.3.2'
 # For elegant meta_tags
 gem 'meta-tags', '~> 2.3', require: 'meta_tags'
 # For pagination
 gem 'kaminari', '~> 0.17'
-# Requests to Getup Cloud
-gem 'httparty', '~> 0.13.0'
 # Use Pundit to manage permissions
 gem 'pundit', '~> 1.1'
 # To organize and modularize JS files
 gem 'initjs'
 # Autocomplete for Market's field
 gem 'rails-jquery-autocomplete', '~> 1.0.3'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 group :development do
   gem 'thin'
@@ -80,15 +66,14 @@ end
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
-  gem 'letter_opener'
-  gem 'quiet_assets'
+  gem 'quiet_assets', '~> 1.1.0'
+  gem 'letter_opener', '~> 1.4.1'
+  gem 'factory_girl_rails', '~> 4.7.0'
 end
 
 group :test do
+  gem 'simplecov', '~> 0.12', require: false
   gem 'rspec-rails', '~> 3.5.2'
-  gem 'machinist', '~> 2.0'
   gem 'database_cleaner', '~> 1.5'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov', '~> 0.12', require: false
-  gem 'webmock', '~> 2.1'
 end
