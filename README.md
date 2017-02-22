@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/LISTABETA/LISTABETA.svg?branch=master)](https://travis-ci.org/LISTABETA/LISTABETA)
+
 # LISTABETA
 
 * Main branch: master
