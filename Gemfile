@@ -33,25 +33,22 @@ gem 'devise-i18n', '~> 1.1'
 # Enumerate_it
 gem 'enumerate_it', '~> 1.3'
 # For avatar uploading
-gem 'carrierwave', '~> 0.11'
 gem 'fog', '~> 1.38'
+gem 'carrierwave', '~> 0.11'
 gem 'mini_magick', '~> 4.4'
 # Google Analytics
 gem 'google-analytics-rails', '~> 1.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.2'
+gem 'jquery-ui-rails', '~> 5.0.5'
 # To work with tags, like markets field onside Startup Model
 gem 'acts-as-taggable-on', '~> 3.5.0'
 # To work with friendly-id on Startups show page
 gem 'friendly_id', '~> 5.1.0'
-# Charts API
-gem 'chartkick', '~> 1.3.2'
 # For elegant meta_tags
 gem 'meta-tags', '~> 2.3', require: 'meta_tags'
 # For pagination
 gem 'kaminari', '~> 0.17'
-# Requests to Getup Cloud
-gem 'httparty', '~> 0.13.0'
 # Use Pundit to manage permissions
 gem 'pundit', '~> 1.1'
 # To organize and modularize JS files
@@ -75,8 +72,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', '~> 0.12', require: false
   gem 'rspec-rails', '~> 3.5.2'
   gem 'database_cleaner', '~> 1.5'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov', '~> 0.12', require: false
 end
