@@ -28,8 +28,8 @@ class Startup < ActiveRecord::Base
   scope :unapproved, -> { where(status: Status::UNAPPROVED) }
   scope :highlighteds, -> { published.where(highlighted: true) }
   scope :unhighlighteds, -> { published.where(highlighted: false) }
-  scope :order_by_publication, -> { published.order("published_at ASC") }
-  scope :order_by_highlighted, -> { published.order("highlighted_at DESC") }
+  scope :order_by_publication, -> { published.order(published_at: :desc) }
+  scope :order_by_highlighted, -> { published.order(highlighted_at: :desc) }
 
   # PgSearch scopes (:tsearch = builtin Full-text Search)
   pg_search_scope :by_title, against: :name,
