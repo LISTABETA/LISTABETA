@@ -16,16 +16,16 @@ end
 10.times do |i|
   user = User.order('RANDOM()').first
   Startup.create!(user: user,
-                  email: "test#{i}@test.com",
                   name: "Startup de teste #{i}",
                   website: "http://www.startup.com.br",
                   pitch: "Apenas mais um PITCH da startup",
-                  description: "Apenas mais uma DESCRIÇÃO da startup",
-                  phase: Phase::IN_DEVELOPMENT,
+                  description: "Apenas mais uma DESCRIÇÃO da startup 3hu21hu321uh32uh1",
                   screenshot: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
                   state: "Rio Grande do Sul",
                   city: "Porto Alegre",
                   market_list: "Fitness#{i}, Food#{i}, Startups#{i}",
                   highlighted: false,
-                  status: Status::APPROVED)
+                  published_at: DateTime.now,
+                  demonstration: "SAU HSUAH USHAUH SUAH UHSAUH SAUH USAHU HSAUA",
+                  status: Status::PUBLISHED)
 end
