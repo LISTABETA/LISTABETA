@@ -25,8 +25,8 @@ describe ScreenshotUploader do
   end
 
   describe 'full version' do
-    it 'should have a size of 1088x810' do
-      expect(uploader.full).to have_dimensions(1088, 810)
+    it 'should have a size of 1080x810' do
+      expect(uploader.full).to have_dimensions(1080, 810)
     end
   end
 

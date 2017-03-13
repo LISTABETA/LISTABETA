@@ -12,6 +12,12 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   # For Rails 4
   include Sprockets::Rails::Helper
 
+  # Used for validation
+  attr_reader :width, :height
+
+  # Dimensions validation
+  before :cache, :capture_size
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -30,15 +36,27 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  # fetching dimensions in uploader, validating it in model
+  def capture_size(file)
+    if version_name.blank? # Only do this once, to the original version
+      if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        @width = img[:width]
+        @height = img[:height]
+      else
+        @width, @height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+      end
+    end
+  end
+
   # Create different versions of your uploaded files:
   version :full do
-    process resize_to_fill: [1088, 810]
+    process resize_to_fill: [1080, 810]
   end
 
   version :thumb do
     process resize_to_fill: [323, 242]
   end
-
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -51,5 +69,4 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
