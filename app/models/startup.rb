@@ -20,6 +20,7 @@ class Startup < ActiveRecord::Base
   validates :pitch, length: { in: 20..75 }
   validates :description, length: { in: 50..500 }
   validate :has_at_least_one_market?
+  validate :screenshot_has_right_dimensions?
 
   # Normal scopes
   scope :pending, -> { where(status: Status::PENDING) }
@@ -82,5 +83,11 @@ class Startup < ActiveRecord::Base
 
   def has_at_least_one_market?
     errors.add(:market_list, "deve possuir ao menos 1 mercado") unless market_list.count > 0
+  end
+
+  def screenshot_has_right_dimensions?
+    if !screenshot_cache.nil? && (screenshot.width < 1080 || screenshot.height < 810)
+      errors.add(:screenshot, :wrong_dimensions)
+    end
   end
 end

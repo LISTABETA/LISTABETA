@@ -7,7 +7,7 @@ FactoryGirl.define do
     pitch "Apenas mais um PITCH da startup"
     state "Rio Grande do Sul"
     website "http://www.google.com.br"
-    screenshot File.open(Rails.root.join('spec', 'fixtures', 'photo.png'))
+    screenshot File.open(Rails.root.join('spec', 'fixtures', 'cover.png'))
     market_list "Fitness, Food, Startups"
     description "Apenas mais uma DESCRIÇÃO da startup"*5
     demonstration "Apenas mais uma DESCRIÇÃO da de como utilizar"*5

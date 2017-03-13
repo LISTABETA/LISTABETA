@@ -24,6 +24,13 @@ pt-BR:
         market_list: Tipos de mercado (separados por vírgula)
         demonstration: Acesso ao sistema (Usuário de testes e URL)
 
+    errors:
+      models:
+        startup:
+          attributes:
+            screenshot:
+              wrong_dimensions: As dimensões da imagem devem ser 1080x810 ou maior (Aspecto 4:3)
+
   enumerations:
     phase:
       in_development: Em desenvolvimento
