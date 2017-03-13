@@ -9,7 +9,7 @@
 10.times do |i|
   User.create!(name: "User #{i}",
                email: "user_#{i}@test.com",
-               avatar: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
+               avatar: File.open(Rails.root.join('spec', 'fixtures', 'avatar.png')),
                password: "123123123")
 end
 
@@ -20,7 +20,7 @@ end
                   website: "http://www.startup.com.br",
                   pitch: "Apenas mais um PITCH da startup",
                   description: "Apenas mais uma DESCRIÇÃO da startup 3hu21hu321uh32uh1",
-                  screenshot: File.open(Rails.root.join('spec', 'fixtures', 'photo.png')),
+                  screenshot: File.open(Rails.root.join('spec', 'fixtures', 'cover.png')),
                   state: "Rio Grande do Sul",
                   city: "Porto Alegre",
                   market_list: "Fitness#{i}, Food#{i}, Startups#{i}",
