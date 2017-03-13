@@ -17,15 +17,17 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in) do |params|
-      params.permit(:email)
+      params.permit(:email, :password)
     end
 
     devise_parameter_sanitizer.permit(:sign_up) do |params|
-      params.permit(:email, :name, :avatar, :avatar_cache)
+      params.permit(:email, :name, :avatar, :avatar_cache, :password,
+        :password_confirmation)
     end
 
     devise_parameter_sanitizer.permit(:account_update) do |params|
-      params.permit(:email, :name, :avatar, :avatar_cache, :password)
+      params.permit(:email, :name, :avatar, :avatar_cache, :password,
+        :password_confirmation, :current_password)
     end
   end
 end
