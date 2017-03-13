@@ -9,7 +9,7 @@ describe ScreenshotUploader do
 
   before do
     ScreenshotUploader.enable_processing = true
-    uploader.store!(File.open(Rails.root.join('spec', 'fixtures', 'photo.png')))
+    uploader.store!(File.open(Rails.root.join('spec', 'fixtures', 'cover.png')))
   end
 
   after do
