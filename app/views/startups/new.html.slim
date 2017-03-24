@@ -14,16 +14,19 @@
         ul.lis-n.m-0
           li.p-0.mB-5
             i.d-i.fa.fa-check.fz-large.c-cyan.mR-10
-            span.fz-large.d-i.fw-n.m-0.p-0 Deve ser uma startup.
+            span.fz-large.d-i.fw-n.m-0.p-0 Deve ser uma startup
+          li.p-0.mB-5
+            i.d-i.fa.fa-check.fz-large.c-cyan.mR-10
+            span.fz-large.d-i.fw-n.m-0.p-0 A startup deve estar em fase de validação do seu modelo de negócios
           li.p-0.mB-15
             i.d-i.fa.fa-check.fz-large.c-cyan.mR-10
-            span.fz-large.d-i.fw-n.m-0.p-0 A startup deve estar em fase de validação e ter um sistema, software, web app, mobile app, protótipo funcional, MVP (Mínimo Produto Viável), que simule ou entregue o valor prometido ao usuário final.
+            span.fz-large.d-i.fw-n.m-0.p-0 A startup deve ter um sistema, software, web app, mobile app, protótipo funcional, MVP (Mínimo Produto Viável), que simule ou entregue o valor prometido ao usuário final
           li.p-0.mB-5
             i.d-i.fa.fa-times.fz-large.c-red.mR-10
-            span.fz-large.d-i.fw-n.m-0.p-0 Não pode ser uma empresa já consolidada no mercado.
+            span.fz-large.d-i.fw-n.m-0.p-0 Não pode ser uma empresa já consolidada no mercado e que tenha passado da fase de validação do modelo de negócios
           li.p-0.mB-0
             i.d-i.fa.fa-times.fz-large.c-red.mR-10
-            span.fz-large.d-i.fw-n.m-0.p-0 Não pode ter sido publicada anteriormente na LISTABETA.
+            span.fz-large.d-i.fw-n.m-0.p-0 Não pode ter sido publicada anteriormente na LISTABETA
       
       = simple_form_for(@startup, url: startups_path, html: { class: 'form' }) do |f|
         .register
