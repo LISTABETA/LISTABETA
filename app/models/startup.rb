@@ -13,8 +13,7 @@ class Startup < ActiveRecord::Base
   mount_uploader :screenshot, ScreenshotUploader
 
   validates :name, :website, :pitch, :description, :screenshot,
-            :state, :city, :market_list, :slug, :market_list,
-            :demonstration, presence: true
+            :state, :city, :market_list, :slug, :market_list, presence: true
   validates :slug, uniqueness: true
   validates :website, url: true
   validates :pitch, length: { in: 20..75 }
